@@ -3,8 +3,8 @@ Contributors: 203creative
 Donate link: http://203creative.se/
 Tags: productivity, sales, affiliate, shopello
 Requires at least: 3.8.0
-Tested up to: 3.9
-Stable tag: 1.0.0
+Tested up to: 4.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,12 @@ Make sure you have entered a correct API-key and API-endpoint. If you have probl
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Bumped supported Wordpress Version.
+
+= 1.0.1 =
+* Minor Code cleanups.
 
 = 1.0.0 =
 * First stable version released.
