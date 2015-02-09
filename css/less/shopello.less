@@ -1,0 +1,210 @@
+@import "shopello_admin.less";
+
+/*
+	Resultatlista
+ */
+.shopello_result {
+	clear: both;
+	float: none;
+	display: inline-block;
+	width: 100%;
+}
+.shopello_result_title {
+    margin: 0 0 10px 0;
+    font-style: italic;
+}
+.clearfix {
+	float: none;
+	clear: both;
+}
+ul.shopello_product_list {
+	max-width: 100%;
+	width: 100%;
+	padding: 0;
+	list-style: none;
+	margin: 0;
+	float: left;
+
+	li {	
+		width: 25%;
+		list-style: none;
+		margin: 0;
+		float: left;
+
+		.product {
+			padding: 10px;
+			border: 1px #f9f9f9 solid;
+			border-radius: 4px;
+			margin: 0 10px 10px 0;
+			background: #fff;
+			cursor: pointer;
+
+
+			.product_image_wrap {
+				padding: 0;
+				height: 130px;
+				text-align: center;
+				vertical-align: middle;
+				margin-bottom: 10px;
+				line-height: 130px;
+
+				img  {
+					height: auto;
+					max-width: 100%;
+					max-height: 100%;
+					vertical-align: middle;
+				}
+			}
+
+			.description {
+				overflow: hidden;
+				height: 40px;
+			}
+
+			.price_wrap {
+				font-size: 14px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				font-size: 18px;
+				text-align: center;
+
+				.price {
+					color: #333;
+					font-size: inherit;
+					
+					&.sales { color: red; }
+					&.old_price {
+						text-decoration: strike-through;
+						color: #999;
+						font-size: 12px; 
+						margin-left: 10px;
+					}
+				}
+			}
+
+			 h3 {
+				font-size: 14px;
+				margin: 10px 0 5px 0;
+				height: 18px;
+				font-weight: bold;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			.text {
+				font-size: 12px;
+			}
+			
+			.checkout_button {
+				padding: 0px;
+
+				a {
+					text-align: center;
+					display: block;
+					background: #ccc; // rgba(65,148,192,1);
+					border-radius: 3px;
+					color: white;
+					font-weight: bold;
+					text-decoration: none;
+					padding: 5px;
+					font-size: 12px;
+					text-transform: uppercase;
+
+				}
+			}
+
+			a {
+				color:#333;
+				text-decoration: none;
+			}
+
+			// Hover state on product badge
+			&:hover { 
+				border-color: #ccc; 
+				
+				a { 
+					color:rgba(65,148,192,1); 
+				}
+				.checkout_button a { 
+					color:#fff;
+					background: rgba(65,148,192,0.8); 
+				}
+			}
+		}
+
+		&:last-child .product { margin-right:0; }
+	}
+}
+
+
+
+
+
+/*
+	Sökfält
+ */
+.shopello_api.shopello_search {
+	width: 100%;
+	margin: 0 0 1em 0;
+	clear: both;
+	float: none;
+	line-height: 1em;
+
+	label {
+		display: inline-block;
+		width: 100%;
+		line-height: 20px;
+		margin-bottom: 0.5em;
+	}
+
+	form {
+		width: 100%;
+		display: block;
+		line-height: inherit;
+		height: 3.2em;
+		position: relative;
+
+
+		input[type="text"] {
+			padding-right: 80px;
+			position: absolute;
+			line-height: inherit;
+			width: 100%;
+			height: inherit;
+		}
+		input[type="submit"] {
+			line-height: inherit;
+			position: absolute;
+			right: 0px;
+			top: 0px;
+			padding: 5px 20px;
+			height: inherit;
+
+			text-align: center;
+			display: block;
+			background: rgba(65,148,192,1);
+			border-radius: 0 3px 3px 0;
+			color: white;
+			font-weight: bold;
+			font-size: 14px;
+			text-transform: uppercase;
+		}
+	}
+}  
+
+.shopello_result_message {
+	padding: 0 0 1em 0;
+	width: 100%;
+	border-bottom: 1px #eee solid;
+	margin-bottom: 1em;
+}
+
+.shopello_paging {
+	width: 100%;
+	text-align:center;
+
+	.pagination {
+		margin: 10px 0;
+	}
+}
