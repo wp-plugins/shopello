@@ -1,0 +1,169 @@
+/*
+	Resultatlista
+ */
+.shopello_result {
+	clear: both;
+	float: none;
+	display: inline-block;
+}
+.shopello_result_title {
+    margin: 0 0 10px 0;
+    font-style: italic;
+}
+ul.shopello_product_list {
+	max-width: 100%;
+	width: 100%;
+	padding: 0;
+	list-style: none;
+	margin: 0;
+	float: left;
+}
+ul.shopello_product_list li {	
+	width: 25%;
+	list-style: none;
+	margin: 0;
+	float: left;
+}
+ul.shopello_product_list li .product {
+	padding: 10px;
+	border: 1px #f9f9f9 solid;
+	border-radius: 4px;
+	margin: 0 10px 10px 0;
+	background: #fff;
+}
+ul.shopello_product_list li .product:hover {
+	border-color: #ccc;
+}
+ul.shopello_product_list li .product a {
+	color:#333;
+	text-decoration: none;
+}
+ul.shopello_product_list li .product a:hover {
+	color:rgba(65,148,192,1);
+}
+
+ul.shopello_product_list li:last-child .product {
+	margin-right:0;
+}
+ul.shopello_product_list li .product .product_image_wrap {
+	padding: 0;
+	height: 130px;
+	text-align: center;
+	vertical-align: middle;
+	margin-bottom: 10px;
+	line-height: 130px;
+}
+ul.shopello_product_list li .product .product_image_wrap img  {
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+ul.shopello_product_list li .product .description {
+	overflow: hidden;
+	height: 40px;
+}
+ul.shopello_product_list li .product .price_wrap {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 18px;
+	text-align: center;
+}
+ul.shopello_product_list li .product .price_wrap .price {
+	color: #333;
+	font-size: inherit;
+}
+ul.shopello_product_list li .product .price_wrap .price.sales {
+	color: red;
+}
+ul.shopello_product_list li .product .price_wrap .price.old_price {
+	text-decoration: strike-through;
+	color: #999;
+	font-size: 12px; 
+	margin-left: 10px;
+}
+ul.shopello_product_list li .product h3 {
+	font-size: 14px;
+	margin: 10px 0 5px 0;
+	height: 18px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+ul.shopello_product_list li .product .text {
+	font-size: 12px;
+}
+ul.shopello_product_list li .product .checkout_button {
+	padding: 0px;
+}
+ul.shopello_product_list li .product .checkout_button a {
+	text-align: center;
+	display: block;
+	background: rgba(65,148,192,1);
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 5px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+ul.shopello_product_list li .product .checkout_button a:hover {
+	background: rgba(65,148,192,0.8);
+}
+
+
+
+
+
+/*
+	Sökfält
+ */
+.shopello_api.shopello_search {
+	width: 100%;
+	margin: 0 0 20px 0;
+	clear: both;
+	float: none;
+	line-height: 30px;
+	height: 50px;
+}
+.shopello_api.shopello_search form {
+    width : 100%;
+    position:relative;
+    display: block;
+    height: inherit;
+    line-height: inherit;
+}
+.shopello_api.shopello_search input[type="text"] {
+    padding-right: 80px;
+    position: absolute;
+    line-height: inherit;
+    width: 100%;
+    height: inherit;
+}
+.shopello_api.shopello_search input[type="submit"] {
+	line-height: inherit;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 5px 20px;
+    height: inherit;
+
+	text-align: center;
+	display: block;
+	background: rgba(65,148,192,1);
+	border-radius: 0 3px 3px 0;
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+
+.shopello_filters {
+	width: 100%;	
+}
+
+.shopello_filters .filters-col{
+	
+}

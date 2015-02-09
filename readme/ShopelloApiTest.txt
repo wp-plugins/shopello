@@ -1,0 +1,17 @@
+API Call 
+
+curl --include --request GET 'https://se.shopelloapi.com/1/categories.json' \
+  --header "X-Mashape-Authorization: v40Hz1HHnayoFGyHNfJSy39zpzP9bjfe" \
+  --header "X-API-KEY: vMYMYai8TiVRvlIGG3bb6zEqj71B15tnIiZxi8v2" \
+
+
+API Homepage
+
+https://www.mashape.com/mikaellind/shopello#!documentation
+
+
+API Keys
+
+X-API-KEY:
+vMYMYai8TiVRvlIGG3bb6zEqj71B15tnIiZxi8v2
+

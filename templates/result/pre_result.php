@@ -1,0 +1,1 @@
+<div class='shopello_api shopello_result shopello_grid' id="shopello_products_wrap" data-post-id="<?= get_the_ID() ? get_the_ID() : post('post_id');?>">
