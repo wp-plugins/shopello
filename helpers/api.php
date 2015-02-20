@@ -7,246 +7,263 @@
  */
 class Shopello
 {
-	/**
-	 * API endpoint
-	 *
-	 * @access private
-	 */
-	private $_api_endpoint;
+    /**
+     * API endpoint
+     *
+     * @access private
+     */
+    private $_api_endpoint;
 
-	/**
-	 * API key
-	 *
-	 * @access private
-	 */
-	private $_api_key;
+    /**
+     * API key
+     *
+     * @access private
+     */
+    private $_api_key;
 
-	/**
-	 * Last URL
-	 */
-	public $last_url;
+    /**
+     * Last URL
+     */
+    public $last_url;
 
-	/**
-	 * Constructor
-	 *
-	 * @param string	Optional.
-	 * @return void
-	 */
-	public function __construct($api_key = null){
-		if($api_key !== null){
-			$this->set_api_key($api_key);
-		}
-	}
+    /**
+     * Constructor
+     *
+     * @param string	Optional.
+     * @return void
+     */
+    public function __construct($api_key = null)
+    {
+        if ($api_key !== null) {
+            $this->set_api_key($api_key);
+        }
+    }
 
-	/**
-	 * Set API endpoint
-	 *
-	 * @param string
-	 * @return void
-	 */
-	public function set_api_endpoint($api_endpoint){
-		$this->_api_endpoint = $api_endpoint;
-	}
+    /**
+     * Set API endpoint
+     *
+     * @param string
+     * @return void
+     */
+    public function set_api_endpoint($api_endpoint)
+    {
+        $this->_api_endpoint = $api_endpoint;
+    }
 
-	/**
-	 * Get API endpoint
-	 *
-	 * @return string
-	 */
-	public function get_api_endpoint(){
-		return $this->_api_endpoint;
-	}
+    /**
+     * Get API endpoint
+     *
+     * @return string
+     */
+    public function get_api_endpoint()
+    {
+        return $this->_api_endpoint;
+    }
 
-	/**
-	 * Set API key
-	 *
-	 * @param string
-	 * @return void
-	 */
-	public function set_api_key($api_key){
-		$this->_api_key = $api_key;
-	}
+    /**
+     * Set API key
+     *
+     * @param string
+     * @return void
+     */
+    public function set_api_key($api_key)
+    {
+        $this->_api_key = $api_key;
+    }
 
-	/**
-	 * Get API key
-	 *
-	 * @return string
-	 */
-	public function get_api_key(){
-		return $this->_api_key;
-	}
+    /**
+     * Get API key
+     *
+     * @return string
+     */
+    public function get_api_key()
+    {
+        return $this->_api_key;
+    }
 
-	/**
-	 * Call
-	 *
-	 * @param string
-	 * @param array		Optional.
-	 * @param bool		Optional.
-	 * @return array
-	 */
-	public function call($method, $params = array(), $post = false){
-		// Assemble the URL
-		// 
-		$url = $this->get_api_endpoint() . $method . '.json';
+    /**
+     * Call
+     *
+     * @param string
+     * @param array		Optional.
+     * @param bool		Optional.
+     * @return array
+     */
+    public function call($method, $params = array(), $post = false)
+    {
+        // Assemble the URL
+        $url = $this->get_api_endpoint() . $method . '.json';
 
-		// Add params
-		if(!$post && count($params) > 0){
-			foreach($params as $key => $val){
-				if(empty($val)){
-					unset($params[$key]);
-				}
-			}
+        // Add params
+        if (!$post && count($params) > 0) {
+            foreach ($params as $key => $val) {
+                if (empty($val)) {
+                    unset($params[$key]);
+                }
+            }
 
-			$url .= '?' . http_build_query($params);
-		}
-		
-		// Log the last URL
-		$this->last_url = $url;
+            $url .= '?' . http_build_query($params);
+        }
 
-		// Initialize cUrl
-		$curl = curl_init();
+        // Log the last URL
+        $this->last_url = $url;
 
-		// Set the cURL parameters
-		curl_setopt($curl, CURLOPT_URL, $url);
-		curl_setopt($curl, CURLOPT_HEADER, false);
-		curl_setopt($curl, CURLOPT_NOBODY, false);
-		curl_setopt($curl, CURLOPT_ENCODING , 'gzip');
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Initialize cUrl
+        $curl = curl_init();
 
-		curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-			'X-API-KEY: ' . $this->get_api_key()
-		));
+        // Set the cURL parameters
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        curl_setopt($curl, CURLOPT_NOBODY, false);
+        curl_setopt($curl, CURLOPT_ENCODING , 'gzip');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-		// Post
-		if($post){
-			curl_setopt($curl, CURLOPT_POST, true);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
-		}
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'X-API-KEY: ' . $this->get_api_key()
+        ));
 
-		// Execute
+        // Post
+        if($post){
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
+        }
+
+        // Execute
         $result = curl_exec($curl);
 
      	$error = curl_error($curl);
 
-		// Return error
-		if(!empty($error)){
-    		return $error . ' (HTTP CODE ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) . ')';
-		}
+        // Return error
+        if (!empty($error)) {
+            return $error . ' (HTTP CODE ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) . ')';
+        }
 
-		// Decode
-		$data = json_decode($result);
+        // Decode
+        $data = json_decode($result);
 
-        if(isset($_GET['debug_api'])) {
+        if (isset($_GET['debug_api'])) {
             print_r($data);
             die();
         }
-		// Error? Exception!
-		if(isset($data->error)){	
-			throw new Exception($data->error);
-			die();
-		}
 
-		// Return data
-		return $data;
-	}
+        // Error? Exception!
+        if (isset($data->error)) {
+            throw new Exception($data->error);
+            die();
+        }
 
-	/**
-	 * Products
-	 *
-	 * @param array|integer	Optional.
-	 * @param array			Optional.
-	 * @return array
-	 */
-	public function products($product_id = null, $params = array()){
-		$method = 'products';
+        // Return data
+        return $data;
+    }
 
-		if(is_array($product_id)){
-			$params = $product_id;
-		}
-		else{
-			$method .= '/' . $product_id;
-		}
+    /**
+     * Products
+     *
+     * @param array|integer	Optional.
+     * @param array			Optional.
+     * @return array
+     */
+    public function products($product_id = null, $params = array())
+    {
+        $method = 'products';
 
-		return $this->call($method, $params);
-	}
+        if(is_array($product_id)) {
+            $params = $product_id;
+        } else {
+            $method .= '/' . $product_id;
+        }
 
-	/**
-	 * Related products
-	 *
-	 * @param integer
-	 * @param array $params Optional.
-	 * @return array
-	 */
-	public function related_products($product_id, $params = array()){
-		$method = 'related_products/' . $product_id;
+        return $this->call($method, $params);
+    }
 
-		return $this->call($method, $params);
-	}
+    /**
+     * Related products
+     *
+     * @param integer
+     * @param array $params Optional.
+     * @return array
+     */
+    public function related_products($product_id, $params = array())
+    {
+        $method = 'related_products/' . $product_id;
 
-	/**
-	 * Attributes
-	 *
-	 * @param array|integer	Optional.
-	 * @param array			Optional.
-	 * @return array
-	 */
-	public function attributes($attribute = null, $params = array()){
-		$method = 'attributes';
+        return $this->call($method, $params);
+    }
 
-		if(is_array($attribute)){
-			$params = $attribute;
-		}
-		else{
-			$method .= '/' . $attribute;
-		}
+    /**
+     * Attributes
+     *
+     * @param array|integer	Optional.
+     * @param array			Optional.
+     * @return array
+     */
+    public function attributes($attribute = null, $params = array())
+    {
+        $method = 'attributes';
 
-		return $this->call($method, $params);
-	}
+        if(is_array($attribute))
+        {
+            $params = $attribute;
+        } else {
+            $method .= '/' . $attribute;
+        }
 
-    public function brands($params = array()){
+        return $this->call($method, $params);
+    }
+
+    public function brands($params = array())
+    {
         $method = 'attributes/brands';
         return $this->call($method, $params);
     }
 
-	/**
-	 * Stores
-	 *
-	 * @param array
-	 * @return array
-	 */
-	public function stores($params = array()){
-		return $this->call('stores', $params);
-	}
+    /**
+     * Stores
+     *
+     * @param array
+     * @return array
+     */
+    public function stores($params = array())
+    {
+        return $this->call('stores', $params);
+    }
 
-	/**
-	 * Categories
-	 *
-	 * @param array		Optional.
-	 * @return array
-	 */
-	public function categories($params = array()){
-		return $this->call('categories', $params);
-	}
+    /**
+     * Categories
+     *
+     * @param array		Optional.
+     * @return array
+     */
+    public function categories($params = array())
+    {
+        return $this->call('categories', $params);
+    }
 
-	/**
-	 * Categories
-	 *
-	 * @param array		Optional.
-	 * @return array
-	 */
-	public function category_parents($params = array()){
-		return $this->call('category_parents', $params);
-	}
+    /**
+     * Categories
+     *
+     * @param array		Optional.
+     * @return array
+     */
+    public function category_parents($params = array())
+    {
+        return $this->call('category_parents', $params);
+    }
 
-	/**
-	 * Batch
-	 *
-	 * @param array
-	 * @return array
-	 */
-	public function batch($batch = array()){
-		return $this->call('batch', array(
-			'batch' => $batch
-		), true);
-	}
+    /**
+     * Batch
+     *
+     * @param array
+     * @return array
+     */
+    public function batch($batch = array())
+    {
+        return $this->call(
+            'batch',
+            array(
+                'batch' => $batch
+            ),
+            true
+        );
+    }
 }

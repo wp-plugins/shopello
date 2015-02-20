@@ -1,6 +1,6 @@
 /*
   Shopello ADMIN css
-*/
+  */
 form * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -28,12 +28,41 @@ h4 em {
   max-width: 400px;
   width: 100%;
 }
+.form-table.compact tr td .sync_status em.valid {
+  color: green;
+}
+.form-table.compact tr td .sync_status em.invalid {
+  color: #cc0000;
+}
 .form-table.lists td input[type="text"] {
   width: 300px;
   max-width: 100%;
 }
 #preview_box {
   margin: 10px 0;
+}
+#preview_box .shopello_paging ul li a {
+  padding: 2px 6px;
+  border-right: 1px #ccc dotted;
+  text-decoration: none;
+}
+#preview_box .shopello_paging ul li a:hover {
+  background: #fefefe;
+}
+#preview_box .shopello_paging ul li.active a {
+  font-weight: bold;
+  cursor: default;
+}
+#preview_box .shopello_paging ul li.active a:hover {
+  background: none;
+}
+#preview_box .shopello_paging ul li.disabled a {
+  opacity: 0.7;
+  background: none;
+  cursor: default;
+}
+#preview_box .shopello_paging ul li:last-child a {
+  border: none;
 }
 .leftcol {
   max-width: 30%;
@@ -46,6 +75,17 @@ h4 em {
   margin: 0.5em 0;
   padding: 0.6em 0;
   border-bottom: 1px #ccc solid;
+  /*
+	&.filter-categories {
+	  ul ul {
+		margin-left:20px;
+		display:none;
+	  }
+	  & > ul {
+	  display:block;
+	  }
+	}
+	*/
 }
 .filters .item > * {
   max-width: 100%;
@@ -77,33 +117,6 @@ h4 em {
 }
 .filters .item #save_button {
   margin-top: 10px;
-}
-.filters .item .categories {
-  max-height: 200px;
-  overflow: auto;
-  border: 1px #ccc solid;
-  background: #f1f1f1;
-  padding: 0.6em;
-  border-radius: 3px;
-}
-.filters .item .categories a {
-  color: #111111;
-  cursor: pointer;
-}
-.filters .item .categories .line {
-  vertical-align: middle;
-  line-height: 1.6em;
-  white-space: nowrap;
-}
-.filters .item .categories .line input[type="checkbox"],
-.filters .item .categories .line label {
-  vertical-align: middle;
-  margin: 0 0 0.5em 0;
-  color: #111111;
-}
-.filters .item .categories .line label {
-  margin-left: 0.5em;
-  display: inline-block;
 }
 .filters .item input,
 .filters .item select,
@@ -185,6 +198,38 @@ h4 em {
 }
 .filters .item.filter-sort select {
   width: 49%;
+}
+.filters .item.filter-categories .scrollable {
+  max-height: 200px;
+  overflow: auto;
+  border: 1px #ccc solid;
+  background: #f1f1f1;
+  padding: 0.6em;
+  border-radius: 3px;
+}
+.filters .item.filter-categories .scrollable a {
+  color: #111111;
+  cursor: pointer;
+}
+.filters .item.filter-categories .scrollable .row {
+  width: 100%;
+  text-indent: 0px;
+  position: relative;
+  margin: 0;
+}
+.filters .item.filter-categories .scrollable .row input[type="checkbox"] {
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+.filters .item.filter-categories .scrollable .row label {
+  margin: 0;
+  text-indent: 0px;
+  vertical-align: middle;
+  color: #111111;
+  padding-left: 1em;
+  line-height: 18px;
+  white-space: nowrap;
 }
 .filters .item .cb_list input {
   float: left;
@@ -495,4 +540,7 @@ ul.shopello_product_list li:last-child .product {
 }
 .shopello_paging .pagination {
   margin: 10px 0;
+}
+.shopello_paging .pagination li {
+  display: inline-block;
 }

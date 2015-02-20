@@ -1,0 +1,46 @@
+
+
+/*=====================================================
+=          Shopello Wordpress Plugin Readme           =
+=====================================================*/
+                Enklare instruktioner
+-------------------------------------------------------
+
+
+Installation
+
+1. Placera plugin-mappen under din hemsida -> wp-content/plugins/
+2. Logga in i webbplatsens WP Admin. Gå till "Tillägg" och aktivera Shopello WP Plugin
+3. I menyn till vänster, gå till Shopello - Inställningar
+4. Fyll i dina API-uppgifter som du erhållit ifrån Shopello.
+5. Klicka på "Testa inställningar"
+6. När de är godkända, tryck på "Spara"-knappen
+7. Du har nu fått tillgång till "Generella Inställningar". Längst ned finns knappen "Synkronisera kategorier", tryck på knappen för att synkronisera 
+   Shopellos kategorier (nödvändigt). Detta kan ta ett par minuter så ha tålamod.
+
+Du är nu redo att börja använda pluginet!
+
+
+
+// Visa produktlistningar:
+
+Konceptet Listor går ut på att du skapar produktlistor i Shopello-delen av WP Admin. Du kan sedan applicera 
+en utav dessa listor per sida eller post. Om du sedan - i PHP eller i WP Editor fältet - använder 
+shortcoden [shopello_products] så kommer listningen att dyka upp där. 
+
+
+// Visa sökfält:
+
+För att använda sökfältet måste du först skapa en listning - se instruktion ovan. Det är sedan denna listning som blir
+sökbar m.h.a. sökfältet. Sökfältet kan peka på en listning på en annan sida än den du är på, då anges target.
+[shopello_search target="/skor"] leder till sidan www.minsajt.se/skor och söker sedan i den listningen.
+
+
+// Visa filter:
+
+För att visa filter för en sökning så måste du i första hand ha valt några filter (kryssrutor) när du skapade 
+listningen. För att visa filtren så använder du shortcoden [shopello_filters]
+Filtren renderas i kolumn-format (uppifrån och nedåt) och lämpar sig bäst i en sidebar eller egen kolumn. 
+Det finns en Widget inkluderad i pluginet som förenklar detta och automatiskt 
+visar filtren när det finns en listning på sidan / posten.
+
