@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: 203creative
-Donate link: http://203creative.se/
+Contributors: Shopello AB
+Donate link: http://shopello.se/
 Tags: productivity, sales, affiliate, shopello
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
