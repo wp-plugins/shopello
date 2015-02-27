@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.9.4
+Stable tag: 1.9.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,23 +37,29 @@ Make sure you have entered a correct API-key and API-endpoint. If you have probl
 
 == Changelog ==
 
+= 1.9.5 =
+* Minor changes to readme, just layouting of text.
+
+= 1.9.4 =
+* Added Screenshots to readme
+
 = 1.9.3 =
-Readme and cosmetic fixes, no code or feature changes.
+* Readme and cosmetic fixes, no code or feature changes.
 
 = 1.9.2 =
-More small fixes. We're progressing to get to version 2.0.0 which will be the first public stable version.
+* More small fixes. We're progressing to get to version 2.0.0 which will be the first public stable version.
 
 = 1.9.1 =
-Small fixes.
+* Small fixes.
 
 = 1.9.0 =
-Major cleanup.
+* Major cleanup.
 
 = 1.0.0 =
-First stable version released.
+* First stable version released.
 
 = 0.9 =
-First version released for Beta testing
+* First version released for Beta testing
 
 
 == Upgrade Notice ==
@@ -75,18 +81,18 @@ Shopello API Plugin Dokumentation
 
 
 = 1. Sökfält =
-*1.1. Beskrivning*
+**1.1. Beskrivning**
 
 Sökfältet består av en omslutande div med html attribut för att särskilja elementet. Innehållet är en form-tagg med en label, ett text-input och en submit-knapp - alla med variabla texter.
 
 
-*1.2 Shortcode*
+**1.2 Shortcode**
 
 [shopello_sok]
 [shopello_sok target="/sok" placeholder="Vad letar du efter?" class="min_sok_ruta" label="Sök på min sajt!" search_label="Hitta nu!"]
 
 
-*1.3. Shortcode-parametrar*
+**1.3. Shortcode-parametrar**
 
 target [string: ex: /sok målsida där shopello_result shortcode används för att visa sökträffar. Uteslutet = postar till samma sida.]
 placeholder [string: frivillig: text som syns inuti fältet innan man börjar skriva]
@@ -96,7 +102,8 @@ search_label [string: frivillig (default "Sök"): Ersätter text på sökknapp)
 
 
 = 2. Resultatlistning =
-*2.1 Beskrivning*
+
+**2.1 Beskrivning**
 
 Placerar ut en sökresultatlistning baserat på något utav följande:
 Fördefinierad lista ifrån admin
@@ -106,13 +113,13 @@ Använder fluid layout med klasser för att utöka och kunna justera layout.
 Listningen ska kunna pagineras om träfflistans längd överträffar sidstorleken, detta sker med GET-parametrar.
 
 
-*2.2 Shortcode*
+**2.2 Shortcode**
 
 [shopello_resultat]
 [shopello_resultat title="Hittade %antal träffar för ordet %ord" pagesize=12 categories="1,2,42,44" keyword="nike" class="my-css-class" sort="DESC" sortby="relevance" filters="false"]
 
 
-*2.3 Shortcode-parametrar*
+**2.3 Shortcode-parametrar**
 
 categories - Komma-separerad lista med kategori-ID'n. Genereras enklast i wp-admin under Inställningar/Shopello API. Ex: 244,1324,15132,623
 keyword - Ett bas-sökord som resultaten i listan alltid utgår ifrån. T.ex. "Nike" kommer alltid att välja produkter som matchar sökkriteriet "Nike"
