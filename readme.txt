@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.9.3
+Stable tag: 1.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -122,3 +122,8 @@ title - Skriv en text för att presentera antalet resultat. Standard är: Hittad
 sort - För stigande ordning, skriv ASC. För fallande ordning, skriv DESC
 sortby - Sortera på något utav följande: relevance, price
 filters - Slår på eller av Filters / Kategori-sektionen. filters="off" stänger av, men som standard är filtren påslagna.
+
+== Screenshots ==
+1. Example Frontend
+2. Creating Searches
+3. API Connection Settings
