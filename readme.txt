@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: Shopello AB
 Donate link: http://shopello.se/
-Tags: productivity, sales, affiliate, shopello
+Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,20 +12,21 @@ A neat plugin that gives you two shortcodes and enables you to make money throug
 
 
 == Description ==
-This plugin enables your wordpress website to make use of two main shortcodes - one search form and one product listing. Mainly focused on enabling You to display one or more selections of products from the products available at Shopello.se. Using you API key you get access to a simplified admin interface to compose lists of products which are fetched directly from Shopello.se's JSON API.
+This plugin enables your wordpress website to make use of two main shortcodes - one search form and one product listing. Mainly focused on enabling You to display one or more selections of products from the products available at Shopello.se, Shopello.no and Shopello.dk. Using you API key you get access to a simplified admin interface to compose lists of products which are fetched directly from Shopello's JSON API.
 
-If you'd like to extend or suggest functionality - please notify us at info@shopello.se!
+If you'd like to extend or suggest functionality - please notify us at info@shopello.se! To get your unique API-key start earn money contact same email adress.
 
 
 == Installation ==
-This section describes how to install the plugin and get it working.
+How to install and configure the plugin:
 
-1 - Extract the folder "shopello_wp_plugin" in your wordpress installations plugin folder
-2 - Login to your site and go to the Plugins section
-3 - Enable the plugin "Shopello WP Plugin"
-4 - Go to Settings -> Shopello API and fill in the API-key and API-endpoint
+1. Extract the folder "shopello" in your wordpress installations plugin folder.
+2. Login to your site and go to the Plugins section.
+3. Enable the plugin "Shopello API".
+4. Go to "Shopello" and fill in the API-key and API-endpoint.
+5. Synchronize the categories before you start using the plugin.
 
-PS: You can contact info@shopello.se to get your set of API keys, which identifies your site and ultimately your profits.
+PS: You can contact info@shopello.se to request an API key to use with this pulgin.
 
 
 == Frequently Asked Questions ==
@@ -35,6 +36,9 @@ Make sure you have entered a correct API-key and API-endpoint. If you have probl
 
 
 == Changelog ==
+
+= 1.9.3 =
+Readme and cosmetic fixes, no code or feature changes.
 
 = 1.9.2 =
 More small fixes. We're progressing to get to version 2.0.0 which will be the first public stable version.
@@ -53,56 +57,46 @@ First version released for Beta testing
 
 
 == Upgrade Notice ==
-When (if) you update your plugin, please test your listings to make sure everything is still alright
+When you update your plugin, please test your listings to make sure everything still works.
 
 
 == Usage Documentation ==
 Shopello API Plugin Dokumentation
 
-******************
-Index
-******************
+= Index =
 1. Sökfält
-1.1 Beskrivning
-1.2 Shortcode-syntax
-1.3 Shortcode-parametrar
+  1. Beskrivning
+  2. Shortcode-syntax
+  3. Shortcode-parametrar
 2. Listning
-2.1 Beskrivning
-2.2 Shortcode-syntax
-2.3 Shortcode-parametrar
+  1. Beskrivning
+  2. Shortcode-syntax
+  3. Shortcode-parametrar
 
 
-******************
-0. Sökfält
-******************
-
-1.1. Beskrivning
+= 1. Sökfält =
+*1.1. Beskrivning*
 
 Sökfältet består av en omslutande div med html attribut för att särskilja elementet. Innehållet är en form-tagg med en label, ett text-input och en submit-knapp - alla med variabla texter.
---------------------------------------------------------------------------
 
 
-1.2. Shortcode
+*1.2 Shortcode*
 
 [shopello_sok]
 [shopello_sok target="/sok" placeholder="Vad letar du efter?" class="min_sok_ruta" label="Sök på min sajt!" search_label="Hitta nu!"]
---------------------------------------------------------------------------
 
-1.3. Shortcode-parametrar
+
+*1.3. Shortcode-parametrar*
 
 target [string: ex: /sok målsida där shopello_result shortcode används för att visa sökträffar. Uteslutet = postar till samma sida.]
 placeholder [string: frivillig: text som syns inuti fältet innan man börjar skriva]
 class [string: frivillig: ytterligare css-klasser som läggs på wrappern, för att styla]
 label [string: frivillig: textlabel som syns ovanför text-sökfältet]
 search_label [string: frivillig (default "Sök"): Ersätter text på sökknapp)
---------------------------------------------------------------------------
 
 
-******************
-2. Resultatlistning
-******************
-
-2.1 Beskrivning
+= 2. Resultatlistning =
+*2.1 Beskrivning*
 
 Placerar ut en sökresultatlistning baserat på något utav följande:
 Fördefinierad lista ifrån admin
@@ -110,17 +104,15 @@ Parameterlista och postdata ifrån shopello_sok formulär
 Parameterlista i shortcode (med eller utan definierat sökord)
 Använder fluid layout med klasser för att utöka och kunna justera layout.
 Listningen ska kunna pagineras om träfflistans längd överträffar sidstorleken, detta sker med GET-parametrar.
---------------------------------------------------------------------------
 
 
-2.2 Shortcode
+*2.2 Shortcode*
 
 [shopello_resultat]
 [shopello_resultat title="Hittade %antal träffar för ordet %ord" pagesize=12 categories="1,2,42,44" keyword="nike" class="my-css-class" sort="DESC" sortby="relevance" filters="false"]
---------------------------------------------------------------------------
 
 
-2.3 Shortcode-parametrar
+*2.3 Shortcode-parametrar*
 
 categories - Komma-separerad lista med kategori-ID'n. Genereras enklast i wp-admin under Inställningar/Shopello API. Ex: 244,1324,15132,623
 keyword - Ett bas-sökord som resultaten i listan alltid utgår ifrån. T.ex. "Nike" kommer alltid att välja produkter som matchar sökkriteriet "Nike"
