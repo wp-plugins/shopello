@@ -1,7 +1,5 @@
 <?php
 
-require_once( SHOPELLO_PLUGIN_DIR . "helpers/api.php");
-
 class category_lib
 {
     private $t_categories;

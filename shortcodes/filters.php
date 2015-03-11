@@ -13,7 +13,7 @@ function shortcode_shopello_filters($atts)
     }
 
     // include apis and helpers
-    require_once(SHOPELLO_PLUGIN_DIR.'helpers/methods.php');
+    require_once(SHOPELLO_PLUGIN_DIR.'src/helpers.php');
 
     SWP::Instance()->set_active_item($item);
     $params = SWP::Instance()->get_active_params();

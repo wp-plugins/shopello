@@ -1,0 +1,117 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "2f425375f3548246dbcaee053f3869cc",
+    "packages": [
+        {
+            "name": "curl/curl",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-mod/curl.git",
+                "reference": "abf20039c84291b5399502c9ecff77a1cda3848e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-mod/curl/zipball/abf20039c84291b5399502c9ecff77a1cda3848e",
+                "reference": "abf20039c84291b5399502c9ecff77a1cda3848e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Curl": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hassan Amouhzi",
+                    "email": "hassan@anezi.net",
+                    "homepage": "http://hassan.amouhzi.com"
+                },
+                {
+                    "name": "php-curl-class",
+                    "homepage": "https://github.com/php-curl-class"
+                },
+                {
+                    "name": "user52",
+                    "homepage": "https://github.com/user52"
+                }
+            ],
+            "description": "cURL class for PHP",
+            "homepage": "https://github.com/php-mod/curl",
+            "keywords": [
+                "curl",
+                "dot"
+            ],
+            "time": "2014-12-11 16:11:01"
+        },
+        {
+            "name": "shopello/api",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Shopello/Shopello-PHP.git",
+                "reference": "2712c807294f81a17baebd10d05b07d1f0174f60"
+            },
+            "require": {
+                "curl/curl": "@stable"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "@stable",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "@stable",
+                "squizlabs/php_codesniffer": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Shopello\\API\\": "src/ShopelloAPI"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\Shopello\\API\\": "unit/src/ShopelloAPI"
+                }
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Mahir Misto",
+                    "email": "mahir@shopello.se"
+                },
+                {
+                    "name": "Elis Axelsson"
+                }
+            ],
+            "description": "PHP Client for Shopello API",
+            "time": "2015-03-05 15:25:29"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "shopello/api": 0
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

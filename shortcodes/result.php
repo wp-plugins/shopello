@@ -22,8 +22,7 @@ function shortcode_shopello_result($atts)
 
 
     // include apis and helpers
-    require_once( SHOPELLO_PLUGIN_DIR.'helpers/methods.php');
-    require_once( SHOPELLO_PLUGIN_DIR.'helpers/pagination.class.php');
+    require_once(SHOPELLO_PLUGIN_DIR.'src/helpers.php');
 
     // Get the SWP Item to run product query
     $query_item = get_post_swp_item(get_the_ID());

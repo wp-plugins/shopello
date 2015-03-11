@@ -1,6 +1,5 @@
 <?php
 
-require_once( SHOPELLO_PLUGIN_DIR . "helpers/category_lib.php" );
 $is_admin_ajax = false;
 
 /**
@@ -48,11 +47,6 @@ function get_post_swp_item( $post_id = false ) {
         if(!$post_id) {
             return false;
         }
-    }
-
-    // Make sure SWP class is available
-    if(!class_exists('SWP')) {
-        require_once(SHOPELLO_PLUGIN_DIR.'classes/SWP.php');
     }
 
     // Get SWP_Item ID from post meta
@@ -165,7 +159,7 @@ function shopello_render_products($api_result, $params = false)
     // Get markup for product lists ( or empty result )
     if ($api_result->status == 1) {
         // defined som reusable variables
-        $tmpl_path = SHOPELLO_PLUGIN_DIR.'templates/result/product_grid.php'; // item file to load
+        $tmpl_path = SHOPELLO_PLUGIN_TEMPLATE_DIR.'result/product_grid.php'; // item file to load
         $ul_start = "<ul class='shopello_product_list'>"; // start-part of a row / list
         $ul_end   = "</ul>";
         $product_html = $ul_start; // html-variable to return later
@@ -193,7 +187,7 @@ function shopello_render_products($api_result, $params = false)
 
         $product_html.= '</ul>';
     } else {
-        $product_html = load_template_part(__DIR__.'/templates/result/no_hits');
+        $product_html = load_template_part(SHOPELLO_PLUGIN_TEMPLATE_DIR.'result/no_hits');
     }
 
     // Setup and generate paging markup
@@ -265,7 +259,7 @@ function shopello_render_filters($params)
     $api_brands = $api_response->extra->brands;
 
     // Load template into $html string
-    $tmpl_path = SHOPELLO_PLUGIN_DIR.'templates/result/filters.php'; // item file to load
+    $tmpl_path = SHOPELLO_PLUGIN_TEMPLATE_DIR.'result/filters.php'; // item file to load
 
     // Read in everything
     ob_start();
@@ -305,9 +299,9 @@ function truncate($text, $length, $hard = false)
 /**
  * Load a template from this plugin
  */
-function load_swp_template( $template_path )
+function load_swp_template($template_path)
 {
-    $full_path = SHOPELLO_PLUGIN_DIR.'templates/'.$template_path;
+    $full_path = SHOPELLO_PLUGIN_TEMPLATE_DIR.$template_path;
     if (!file_exists($full_path)) {
         $full_path .= '.php';
 

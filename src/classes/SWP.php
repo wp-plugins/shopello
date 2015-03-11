@@ -1,10 +1,7 @@
 <?php
 
-require_once(SHOPELLO_PLUGIN_DIR.'classes/SWP_Item.php');
-require_once(SHOPELLO_PLUGIN_DIR.'helpers/api.php');
-
 /**
- * SQP is a class that contains listing of these SWP_Items
+ * SWP is a class that contains listing of these SWP_Items
  * Accessible as:
  * - SWP::get_items( x ) for single item
  * - SWP::get_items()  for all items
@@ -133,7 +130,6 @@ class SWP
 
     public function load()
     {
-
         // load from options
         $opt = get_option($this->option_list_key);
 
@@ -146,7 +142,6 @@ class SWP
 
     public function edit($id, $props)
     {
-
     	$id = intval($id);
     	$arr = $this->items;
     	$done = false;
@@ -185,7 +180,6 @@ class SWP
 
     public function run_query($params = false)
     {
-
     	// Set passed item as active
     	if ($params == false || empty($params)) {
             $params = $this->get_active_params();
@@ -222,7 +216,6 @@ class SWP
 
     public function get_active_params($item = false)
     {
-
         // Set passed item as active
         if ($item !== false && $item instanceof SWP_Item) {
             $this->set_active_item($item);
@@ -239,8 +232,6 @@ class SWP
         $pagesize = $item->pagesize;
         $filters  = $item->filters;
         $categories = is_array($item->categories) ? implode(',', $item->categories) : '';
-
-
 
         // Query parameters for shopello API
         $params = array(
@@ -260,20 +251,21 @@ class SWP
         return $params;
     }
 
-    private function find( $id )
+    private function find($id)
     {
     	$arr = $this->items;
 
     	for ($i=0;$i<count($arr);$i++) {
-            if ($arr[$i]->get_id() === $id)
+            if ($arr[$i]->get_id() === $id) {
                 return $arr[$i];
+            }
     	}
+
     	return false;
     }
 
     private function generate_id()
     {
-
         // Fetch all ID's to compare new ID with
         $ids = array();
         foreach ($this->items as $i) {
@@ -289,8 +281,7 @@ class SWP
         return $id;
     }
 
-
-    public function get_active_item_categories( )
+    public function get_active_item_categories()
     {
         $response = $this->run_query($this->get_active_params());
         return $response->extra->categories;
@@ -316,7 +307,7 @@ class SWP
         $categories = $shopelloResponse->extra->categories;
 
         // Load template into $html string
-        $tmpl = SHOPELLO_PLUGIN_DIR.'templates/result/categories_list.php'; // item file to load
+        $tmpl = SHOPELLO_PLUGIN_TEMPLATE_DIR.'result/categories_list.php'; // item file to load
 
         // Read in everything
         ob_start();
@@ -329,7 +320,6 @@ class SWP
     //*/
     public function frontend_dependencies()
     {
-
         // Shopello css
         wp_enqueue_style( 'shopello_css', SHOPELLO_PLUGIN_URL.'css/shopello_all.css');
 

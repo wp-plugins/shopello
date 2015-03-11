@@ -22,7 +22,7 @@ function shortcode_shopello_search($atts)
 
     // Load template into $html string
     ob_start();
-    include(SHOPELLO_PLUGIN_DIR.'templates/search/form.php');
+    include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'search/form.php');
     $html = ob_get_contents();
     ob_end_clean();
 

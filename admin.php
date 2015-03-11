@@ -3,9 +3,6 @@
 session_start();
 $is_admin_ajax = true;
 
-// Include Shopello class
-require_once(SHOPELLO_PLUGIN_DIR .'classes/SWP.php');
-
 define('DESC_DELIMITER','&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
 
 // Message-variables
@@ -192,7 +189,6 @@ add_action('admin_init', (function () {
 
 add_action('swpsynccategories', (function () {
     if(get_option('swp_settings_status') == true) {
-        require_once(SHOPELLO_PLUGIN_DIR .'helpers/category_lib.php');
         $lib = new category_lib();
         $lib->synchronize_categories_from_server();
     }
@@ -209,7 +205,7 @@ function shopello_api_adminpage_account()
         wp_die(__('You do not have sufficient permissions to access this page.'));
     }
 
-    include(SHOPELLO_PLUGIN_DIR.'templates/admin/account.php');
+    include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'admin/account.php');
 }
 
 
@@ -228,7 +224,7 @@ function shopello_api_adminpage()
     $is_admin_ajax = true;
     $api_categories = swp_get_category_list();
 
-    include(SHOPELLO_PLUGIN_DIR.'templates/admin/product-lists.php');
+    include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'admin/product-lists.php');
 }
 
 
@@ -242,5 +238,5 @@ function shopello_api_adminpage_system_test()
         wp_die(__('You do not have sufficient permissions to access this page.'));
     }
 
-    include(SHOPELLO_PLUGIN_DIR.'templates/admin/system-test.php');
+    include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'admin/system-test.php');
 }

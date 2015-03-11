@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Shopello\\API\\' => array($vendorDir . '/shopello/api/src/ShopelloAPI'),
     '' => array($baseDir . '/src/classes'),
 );
