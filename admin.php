@@ -19,21 +19,6 @@ define('swp_SC_MAX', 6);
 
 
 
-class SWPAjaxResponse
-{
-    public $serialized = '';
-    public $message = '';
-    public $success = false;
-    public $data = false;
-
-    function json()
-    {
-        return json_encode($this);
-    }
-}
-
-
-
 /**
  * Hook admin menu loading
  */
@@ -147,13 +132,14 @@ add_action('wp_ajax_edit_item', (function () {
     $id = isset($_POST['id']) ? intval($_POST['id']) : false;
     $done = false;
 
-    if($id) {
+    if ($id) {
         $changes = array();
         $possible = array('name', 'pagesize', 'categories', 'keyword');
 
         foreach($possible as $key) {
-            if(isset($_POST[$key]))
+            if (isset($_POST[$key])) {
                 $changes[$key] = $_POST[$key];
+            }
         }
         $done = SWP::Instance()->edit($id, $changes);
     }
