@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.9.5
+Stable tag: 1.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ Make sure you have entered a correct API-key and API-endpoint. If you have probl
 
 
 == Changelog ==
+
+= 1.9.6 =
+* Added adminpage to check for CURL as dependency and to Ping the API.
 
 = 1.9.5 =
 * Minor changes to readme, just layouting of text.
