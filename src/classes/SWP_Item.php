@@ -47,22 +47,23 @@ class SWP_Item
         $this->id = $i;
     }
 
-    public function get_description($del = ', ') {
+    public function get_description($del = ', ')
+    {
         $d = array();
 
-        if(strlen($this->keyword != "") > 0) {
+        if (strlen($this->keyword != "") > 0) {
             $d[] = 'Query: '.$this->keyword;
         } else {
             $d[] = 'No querystring';
         }
 
-        if(count($this->categories) > 0) {
+        if (count($this->categories) > 0) {
             $d[] = 'Categories: ['. implode(',', $this->categories).']';
         } else {
             $d[] = 'No categories selected';
         }
 
-        if($this->pagesize) {
+        if ($this->pagesize) {
             $d[] = 'Page size: '.$this->pagesize;
         }
 

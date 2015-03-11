@@ -1,8 +1,5 @@
 <?php
 
-require_once(SHOPELLO_PLUGIN_DIR . 'classes/SWP.php');
-require_once(SHOPELLO_PLUGIN_DIR . 'helpers/pagination.class.php');
-
 global $is_admin_ajax;
 $is_admin_ajax = false;
 
@@ -11,7 +8,6 @@ add_action('wp_ajax_sync_categories','sync_categories');
 function sync_categories()
 {
     if (get_option('swp_settings_status') == true) {
-        require_once(SHOPELLO_PLUGIN_DIR . 'helpers/category_lib.php');
         $lib = new category_lib();
         if ($lib->synchronize_categories_from_server()) {
             echo '<em class="valid">Kategorierna har uppdaterats!</em>';

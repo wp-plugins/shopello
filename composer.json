@@ -1,4 +1,13 @@
 {
+    "require": {
+        "shopello/api": "@stable"
+    },
+    "repositories": [
+        {
+            "url": "https://github.com/Shopello/Shopello-PHP.git",
+            "type": "git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/classes"

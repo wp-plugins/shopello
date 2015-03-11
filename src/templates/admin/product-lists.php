@@ -66,7 +66,7 @@ $items = $list->get_items();
             <div class="leftcol">
 		<?php
 		$is_admin_ajax = is_admin();
-		include(SHOPELLO_PLUGIN_DIR."templates/result/filters.php");
+		include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'result/filters.php');
 		?>
             </div>
             <div class="maincol">
