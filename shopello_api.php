@@ -9,7 +9,7 @@ session_start();
 Plugin Name: Shopello API
 Plugin URI: http://shopello.se/api/wordpress
 Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
-Version: 1.9.5
+Version: 1.9.6
 Author: Shopello AB
 */
 
