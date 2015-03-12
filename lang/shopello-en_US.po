@@ -1,0 +1,469 @@
+# Copyright (C) 2015 Shopello API
+# This file is distributed under the same license as the Shopello API package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Shopello API 1.9.8\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
+"POT-Creation-Date: 2015-03-12 13:53:01+00:00\n"
+"PO-Revision-Date: 2015-03-12 14:55+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.php:24 admin.php:27
+msgid "Shopello"
+msgstr "Shopello"
+
+#: admin.php:27 src/templates/admin/product-lists.php:16
+msgid "Product Listings"
+msgstr "Product Listings"
+
+#: admin.php:28 src/templates/admin/account.php:2
+msgid "API-Settings"
+msgstr "API-Settings"
+
+#: admin.php:29 src/templates/admin/system-test.php:39
+msgid "System Test"
+msgstr "System Test"
+
+#: admin.php:44
+msgid "Working... This can take several minutes..."
+msgstr "Working... This can take several minutes..."
+
+#: admin.php:45
+msgid ""
+"You have reached max number of listings (%d st). Remove one to be able to "
+"save this new one."
+msgstr ""
+"You have reached max number of listings (%d st). Remove one to be able to "
+"save this new one."
+
+#: admin.php:46
+msgid "Error while saving. Reload the page and try again."
+msgstr "Error while saving. Reload the page and try again."
+
+#: admin.php:47
+msgid "Choose a name for your listing:"
+msgstr "Choose a name for your listing:"
+
+#: admin.php:172
+msgid "Item %d removed"
+msgstr "Item %d removed"
+
+#: admin.php:212 admin.php:228 admin.php:245
+msgid "You do not have sufficient permissions to access this page."
+msgstr "You do not have sufficient permissions to access this page."
+
+#: ajax.php:13
+msgid "The categories has been updated!"
+msgstr "The categories has been updated!"
+
+#: ajax.php:15
+msgid "Could not update, try again later or contact the support."
+msgstr "Could not update, try again later or contact the support."
+
+#: ajax.php:18
+msgid "You have to configure the API-Settings first."
+msgstr "You have to configure the API-Settings first."
+
+#: ajax.php:135
+msgid "Api Key or Api Endpoint are missing."
+msgstr "Api Key or Api Endpoint are missing."
+
+#: shortcodes/result.php:31
+msgid ""
+"The product listing you are trying to use does not exist. Please check your "
+"API-Settings."
+msgstr ""
+"The product listing you are trying to use does not exist. Please check your "
+"API-Settings."
+
+#: src/classes/SWP.php:189
+msgid "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
+msgstr "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
+
+#: src/classes/SWP_Item.php:55
+msgid "Query: %s"
+msgstr "Query: %s"
+
+#: src/classes/SWP_Item.php:57
+msgid "No querystring"
+msgstr "No querystring"
+
+#: src/classes/SWP_Item.php:61
+msgid "Categories: [%s]"
+msgstr "Categories: [%s]"
+
+#: src/classes/SWP_Item.php:63
+msgid "No categories selected"
+msgstr "No categories selected"
+
+#: src/classes/SWP_Item.php:67
+msgid "Page size: %s"
+msgstr "Page size: %s"
+
+#: src/classes/SWP_MetaBox.php:24
+msgid "Shopello listning"
+msgstr "Shopello listning"
+
+#: src/classes/SWP_MetaBox.php:96 src/classes/SWP_MetaBox.php:98
+msgid "Choose Productlist"
+msgstr "Choose Productlist"
+
+#: src/classes/SWP_MetaBox.php:110
+msgid "No Listing"
+msgstr "No Listing"
+
+#: src/classes/shopello_search_widget.php:13
+msgid "Simplest way to start working from any page"
+msgstr "Simplest way to start working from any page"
+
+#: src/classes/shopello_search_widget.php:14
+msgid "Shopello Productfilter"
+msgstr "Shopello Productfilter"
+
+#: src/classes/shopello_search_widget.php:15
+#: src/classes/shopello_search_widget.php:26
+msgid "Label"
+msgstr "Label"
+
+#: src/classes/shopello_search_widget.php:18
+msgid "Shopello Search"
+msgstr "Shopello Search"
+
+#: src/classes/shopello_search_widget.php:27
+msgid "Text"
+msgstr "Text"
+
+#: src/classes/shopello_search_widget.php:28
+msgid "CSS klass"
+msgstr "CSS klass"
+
+#: src/helpers.php:26
+msgid ""
+"No API-Key has been entered, please enter your API-Key and save the "
+"settings. If you do not have an API-Key so please visit https://www."
+"shopelloapi.com/ to get one."
+msgstr ""
+"No API-Key has been entered, please enter your API-Key and save the "
+"settings. If you do not have an API-Key so please visit https://www."
+"shopelloapi.com/ to get one."
+
+#: src/helpers.php:29
+msgid ""
+"No API-Endpoint has been entered, please enter your API-Endpoint and save "
+"the settings. If you do not have an API-Endpoint so please visit https://www."
+"shopelloapi.com/ to get one."
+msgstr ""
+"No API-Endpoint has been entered, please enter your API-Endpoint and save "
+"the settings. If you do not have an API-Endpoint so please visit https://www."
+"shopelloapi.com/ to get one."
+
+#: src/helpers.php:150
+msgid "product"
+msgstr "product"
+
+#: src/helpers.php:150 src/helpers.php:151
+msgid "products"
+msgstr "products"
+
+#: src/templates/admin/account.php:17
+msgid "API-Key"
+msgstr "API-Key"
+
+#: src/templates/admin/account.php:25
+msgid "API-Endpoint"
+msgstr "API-Endpoint"
+
+#: src/templates/admin/account.php:33
+msgid "Test API-Settings"
+msgstr "Test API-Settings"
+
+#: src/templates/admin/account.php:36
+msgid "Test now"
+msgstr "Test now"
+
+#: src/templates/admin/account.php:42
+msgid "Settings are correct."
+msgstr "Settings are correct."
+
+#: src/templates/admin/account.php:43
+msgid ""
+"Please check your settings and check if ping works on the System Test page."
+msgstr ""
+"Please check your settings and check if ping works on the System Test page."
+
+#: src/templates/admin/account.php:49
+msgid "General Settings"
+msgstr "General Settings"
+
+#: src/templates/admin/account.php:54
+msgid "Total amount of hits-text"
+msgstr "Total amount of hits-text"
+
+#: src/templates/admin/account.php:57
+msgid "Found %amount% products"
+msgstr "Found %amount% products"
+
+#: src/templates/admin/account.php:58
+msgid "Found 247 products"
+msgstr "Found 247 products"
+
+#: src/templates/admin/account.php:59
+msgid "Written: \"Found %amount% of products for phrase %phrase%\"."
+msgstr "Written: \"Found %amount% of products for phrase %phrase%\"."
+
+#: src/templates/admin/account.php:64
+msgid "Keyword-text"
+msgstr "Keyword-text"
+
+#: src/templates/admin/account.php:67
+msgid "for phrase %phrase%."
+msgstr "for phrase %phrase%."
+
+#: src/templates/admin/account.php:68
+msgid "Completes previous \"Found 247 products\" with a keyword"
+msgstr "Completes previous \"Found 247 products\" with a keyword"
+
+#: src/templates/admin/account.php:69
+msgid "For example: \"for phrase %phrase%\"."
+msgstr "For example: \"for phrase %phrase%\"."
+
+#: src/templates/admin/account.php:70
+msgid "Result: \"Found 247 products for phrase Shoes\""
+msgstr "Result: \"Found 247 products for phrase Shoes\""
+
+#: src/templates/admin/account.php:75 src/templates/result/filters.php:58
+#: src/templates/result/filters.php:169
+msgid "Categories"
+msgstr "Categories"
+
+#: src/templates/admin/account.php:78
+msgid "Synchronize categories"
+msgstr "Synchronize categories"
+
+#: src/templates/admin/account.php:80
+msgid ""
+"Categories is automaticly updated daily. Use this button to manually update "
+"everything now."
+msgstr ""
+"Categories is automaticly updated daily. Use this button to manually update "
+"everything now."
+
+#: src/templates/admin/account.php:81
+msgid ""
+"If it is the first time you are using the plugin, you probably need to click "
+"this."
+msgstr ""
+"If it is the first time you are using the plugin, you probably need to click "
+"this."
+
+#: src/templates/admin/product-lists.php:6
+msgid "Settings is incorrect"
+msgstr "Settings is incorrect"
+
+#: src/templates/admin/product-lists.php:7
+msgid ""
+"One or more required settings is missing or incorrect to be able to use the "
+"API."
+msgstr ""
+"One or more required settings is missing or incorrect to be able to use the "
+"API."
+
+#: src/templates/admin/product-lists.php:8
+msgid "Please visit <a href=\"%s\">API-Settings</a> and check your settings."
+msgstr "Please visit <a href=\"%s\">API-Settings</a> and check your settings."
+
+#: src/templates/admin/product-lists.php:43
+msgid ""
+"Saved Listings <em> - To Add / Save a listing you have to use the tool <a "
+"href=\"#new\">New Listing</a> a bit further down on this page. When done, "
+"press the button <strong>Save Listing</strong> to save to this list.</em>"
+msgstr ""
+"Saved Listings <em> - To Add / Save a listing you have to use the tool <a "
+"href=\"#new\">New Listing</a> a bit further down on this page. When done, "
+"press the button <strong>Save Listing</strong> to save to this list.</em>"
+
+#: src/templates/admin/product-lists.php:65
+msgid "New Listing"
+msgstr "New Listing"
+
+#: src/templates/admin/product-lists.php:75
+msgid "Preview of your listing"
+msgstr "Preview of your listing"
+
+#: src/templates/admin/system-test.php:42
+msgid ""
+"This page will perform some system-tests to detect problems in your "
+"Wordpress setup while using the Shopello API.\n"
+"        More tests will be added over time when we come up with things to "
+"test for, so please report issues to\n"
+"        partner@shopello.se."
+msgstr ""
+"This page will perform some system-tests to detect problems in your "
+"Wordpress setup while using the Shopello API.\n"
+"        More tests will be added over time when we come up with things to "
+"test for, so please report issues to\n"
+"        partner@shopello.se."
+
+#: src/templates/admin/system-test.php:47
+msgid "Performing checks"
+msgstr "Performing checks"
+
+#: src/templates/admin/system-test.php:49
+msgid "CURL Extension installed"
+msgstr "CURL Extension installed"
+
+#: src/templates/admin/system-test.php:50
+msgid "Able to connect to Shopello with CURL"
+msgstr "Able to connect to Shopello with CURL"
+
+#: src/templates/result/filters.php:50 src/templates/result/filters.php:51
+#: src/templates/result/filters.php:166
+msgid "Keyword"
+msgstr "Keyword"
+
+#: src/templates/result/filters.php:52
+msgid "Use your own keywords to limit the results."
+msgstr "Use your own keywords to limit the results."
+
+#: src/templates/result/filters.php:60
+msgid ""
+"If a selected category has sub-categories, the subcategories will be "
+"included even when not selected."
+msgstr ""
+"If a selected category has sub-categories, the subcategories will be "
+"included even when not selected."
+
+#: src/templates/result/filters.php:77 src/templates/result/filters.php:175
+msgid "Products per page"
+msgstr "Products per page"
+
+#: src/templates/result/filters.php:88 src/templates/result/filters.php:178
+msgid "Max Price"
+msgstr "Max Price"
+
+#: src/templates/result/filters.php:88
+msgid " kr"
+msgstr " kr"
+
+#: src/templates/result/filters.php:90
+msgid "Remove max price"
+msgstr "Remove max price"
+
+#: src/templates/result/filters.php:96 src/templates/result/filters.php:181
+msgid "Sorting"
+msgstr "Sorting"
+
+#: src/templates/result/filters.php:100
+msgid "Price"
+msgstr "Price"
+
+#: src/templates/result/filters.php:101
+msgid "Name"
+msgstr "Name"
+
+#: src/templates/result/filters.php:102
+msgid "Clicks"
+msgstr "Clicks"
+
+#: src/templates/result/filters.php:103
+msgid "Popularity"
+msgstr "Popularity"
+
+#: src/templates/result/filters.php:117
+msgid "Rising"
+msgstr "Rising"
+
+#: src/templates/result/filters.php:118
+msgid "Falling"
+msgstr "Falling"
+
+#: src/templates/result/filters.php:125 src/templates/result/filters.php:184
+msgid "Color Filter"
+msgstr "Color Filter"
+
+#: src/templates/result/filters.php:129
+msgid "white"
+msgstr "vit"
+
+#: src/templates/result/filters.php:130
+msgid "gray"
+msgstr "grågra"
+
+#: src/templates/result/filters.php:131
+msgid "black"
+msgstr "svart"
+
+#: src/templates/result/filters.php:132
+msgid "blue"
+msgstr "blå"
+
+#: src/templates/result/filters.php:133
+msgid "green"
+msgstr "grön"
+
+#: src/templates/result/filters.php:134
+msgid "yellow"
+msgstr "gul"
+
+#: src/templates/result/filters.php:135
+msgid "orange"
+msgstr "orange"
+
+#: src/templates/result/filters.php:136
+msgid "red"
+msgstr "röd"
+
+#: src/templates/result/filters.php:137
+msgid "pink"
+msgstr "rosa"
+
+#: src/templates/result/filters.php:138
+msgid "purple"
+msgstr "lila"
+
+#: src/templates/result/filters.php:154
+msgid ""
+"You can only choose one color. Click on the chosen color to remove the "
+"colorfilter."
+msgstr ""
+"You can only choose one color. Click on the chosen color to remove the "
+"colorfilter."
+
+#: src/templates/result/filters.php:162
+msgid "Available filters for listing"
+msgstr "Available filters for listing"
+
+#: src/templates/result/filters.php:190
+msgid "Save Listing"
+msgstr "Save Listing"
+
+#: src/templates/result/no_hits.php:1
+msgid "We did not find any results for this search."
+msgstr "We did not find any results for this search."
+
+#. Plugin Name of the plugin/theme
+msgid "Shopello API"
+msgstr "Shopello API"
+
+#. Plugin URI of the plugin/theme
+msgid "http://shopello.se/api/wordpress"
+msgstr "http://shopello.se/api/wordpress"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin was created to allow wordpress blogs and websites to in a simple "
+"manner include listings of products from Shopello.se."
+msgstr ""
+"This plugin was created to allow wordpress blogs and websites to in a simple "
+"manner include listings of products from Shopello.se."
+
+#. Author of the plugin/theme
+msgid "Shopello AB"
+msgstr "Shopello AB"

@@ -1,1 +1,1 @@
-<h3><em>Vi hittade inga resultat för din sökning</em></h3>
+<h3><em><?php _e('We did not find any results for this search.', 'shopello'); ?></em></h3>

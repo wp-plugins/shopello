@@ -44,7 +44,7 @@
 	    var btn_label = btn.val();
 	    var label = $("#swp_cat_sync_status");
 
-	    btn.val('Arbetar... Detta kan ta flera minuter...');
+	    btn.val(adminL10n.working_button);
 	    btn.attr('disabled', true);
 
 	    $.ajax({
@@ -138,13 +138,13 @@
 	    $(save_button).off('click.swp').on('click.swp', function() {
 
 		if( max_shortcodes_exceeded() ) {
-		    alert('Du har uppnått max antal listningar ('+ total_shortcodes_max +' st). Ta bort en för att kunna spara den nya.');
+                    alert(adminL10n.max_listings.replace('%d', total_shortcodes_max));
 		    return;
 		}
 
 		// Save page!
 		var args = generator.get_server_args('save_item');
-		args.name = prompt('Vilket namn vill du spara din listning med?');
+		args.name = prompt(adminL10n.save_prompt);
 
 		$.post(ajaxurl, args, function(response) {
 		    response = $.parseJSON( response );
@@ -280,7 +280,7 @@
 			    ajax_store_options_silent();
 			}
 			else
-			    alert("Något gick fel vid sparandet. Ladda om sidan och försök igen.");
+			    alert(adminL10n.save_error);
 		    });
 		});
 	    });

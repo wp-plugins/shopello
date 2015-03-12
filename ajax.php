@@ -10,12 +10,12 @@ function sync_categories()
     if (get_option('swp_settings_status') == true) {
         $lib = new category_lib();
         if ($lib->synchronize_categories_from_server()) {
-            echo '<em class="valid">Kategorierna har uppdaterats!</em>';
+            echo '<em class="valid">'.__('The categories has been updated!', 'shopello').'</em>';
         } else {
-            echo '<em class="invalid">Kunde inte uppdatera. Försök igen senare eller kontakta supporten.</em>';
+            echo '<em class="invalid">'.__('Could not update, try again later or contact the support.', 'shopello').'</em>';
         }
     } else {
-        echo '<em class="invalid">Du måste ställa in API-inställningarna först.</em>';
+        echo '<em class="invalid">'.__('You have to configure the API-Settings first.', 'shopello').'</em>';
     }
     die();
 }
@@ -132,7 +132,7 @@ function swp_test_api_settings()
 
     // Break and fail if key or endpoint not specified.
     if($api_key === false && $api_endpoint === false) {
-        die("Api Key or Api Endpoint are missing.");
+        die(__('Api Key or Api Endpoint are missing.', 'shopello'));
     }
 
     // Do a test request

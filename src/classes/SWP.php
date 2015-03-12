@@ -186,7 +186,7 @@ class SWP
 
             // Check that active item is valid
             if ($params == false || empty($params)) {
-                throw new Exception("You cannot run_query $active_item is set or you pass some $params! . // Love, SWP.");
+                throw new Exception(sprintf(__('You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP', 'shopello'), $active_item, $params));
                 return false;
             }
 

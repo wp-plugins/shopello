@@ -20,13 +20,13 @@ define('swp_SC_MAX', 6);
  * Hook admin menu loading
  */
 add_action('admin_menu', (function () {
-    //            Page Title, Menu Title, Permissions,      Menu SLUG,          Callback Function,        Icon, Sort
-    add_menu_page('Shopello', 'Shopello', 'manage_options', 'shopello_options', 'shopello_api_adminpage', '',   76);
+    //            Page Title,                 Menu Title,                 Permissions,      Menu SLUG,          Callback Function,        Icon, Sort
+    add_menu_page(__('Shopello', 'shopello'), __('Shopello', 'shopello'), 'manage_options', 'shopello_options', 'shopello_api_adminpage', '',   76);
 
-    //               Parent SLUG,        Page Title,           Menu Title,      Permissions,      Menu SLUG,                  Callback Function
-    add_submenu_page('shopello_options', 'Shopello',           'Produkter',     'manage_options', 'shopello_options',         'shopello_api_adminpage');
-    add_submenu_page('shopello_options', 'Kontoinställningar', 'Inställningar', 'manage_options', 'shopello_options_account', 'shopello_api_adminpage_account');
-    add_submenu_page('shopello_options', 'System Test',        'System Test',   'manage_options', 'shopello_system_test',     'shopello_api_adminpage_system_test');
+    //               Parent SLUG,        Page Title,                     Menu Title,                         Permissions,      Menu SLUG,                  Callback Function
+    add_submenu_page('shopello_options', __('Shopello', 'shopello'),     __('Product Listings', 'shopello'), 'manage_options', 'shopello_options',         'shopello_api_adminpage');
+    add_submenu_page('shopello_options', __('API-Settings', 'shopello'), __('API-Settings', 'shopello'),     'manage_options', 'shopello_options_account', 'shopello_api_adminpage_account');
+    add_submenu_page('shopello_options', __('System Test', 'shopello'),  __('System Test', 'shopello'),      'manage_options', 'shopello_system_test',     'shopello_api_adminpage_system_test');
 }));
 
 
@@ -39,6 +39,13 @@ add_action('admin_enqueue_scripts', (function () {
     wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'js/jquery.form.min.js', false, '1.0', true);
     wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL.'js/swp_api_generator.js', false, '1.0.0', true);
     wp_enqueue_script('admin_js', SHOPELLO_PLUGIN_URL.'js/admin.js', false, '1.0.0', true);
+
+    wp_localize_script('admin_js', 'adminL10n', array(
+        'working_button' => __('Working... This can take several minutes...', 'shopello'),
+        'max_listings' => __('You have reached max number of listings (%d st). Remove one to be able to save this new one.', 'shopello'),
+        'save_error' => __('Error while saving. Reload the page and try again.', 'shopello'),
+        'save_prompt' => __('Choose a name for your listing:', 'shopello')
+    ));
 }));
 
 
@@ -162,7 +169,7 @@ add_action('wp_ajax_remove_item', (function () {
     // JSON Response
     $resp = new SWPAjaxResponse();
     $resp->success = $removed;
-    $resp->message = 'Item '.$id.' removed.';
+    $resp->message = sprintf(__('Item %d removed', 'shopello'), $id);
     $resp->serialized = SWP::Instance()->get_serialized_items();
 
     echo $resp->json();
@@ -202,7 +209,7 @@ add_action('swpsynccategories', (function () {
 function shopello_api_adminpage_account()
 {
     if (!current_user_can('manage_options'))  {
-        wp_die(__('You do not have sufficient permissions to access this page.'));
+        wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
     }
 
     include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'admin/account.php');
@@ -218,7 +225,7 @@ function shopello_api_adminpage()
     global $is_admin_ajax;
 
     if (!current_user_can('manage_options'))  {
-        wp_die(__('You do not have sufficient permissions to access this page.'));
+        wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
     }
 
     $is_admin_ajax = true;
@@ -235,7 +242,7 @@ function shopello_api_adminpage()
 function shopello_api_adminpage_system_test()
 {
     if (!current_user_can('manage_options'))  {
-        wp_die(__('You do not have sufficient permissions to access this page.'));
+        wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
     }
 
     include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'admin/system-test.php');
