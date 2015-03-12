@@ -28,7 +28,7 @@ function shortcode_shopello_result($atts)
     $query_item = get_post_swp_item(get_the_ID());
 
     if (!is_a($query_item, SWP_Item)) {
-        die('Listningen du försöker använda finns inte.<br/>Var god se över dina inställningar.');
+        die(__('The product listing you are trying to use does not exist. Please check your API-Settings.', 'shopello'));
     }
 
     // Get query result

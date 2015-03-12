@@ -52,19 +52,19 @@ class SWP_Item
         $d = array();
 
         if (strlen($this->keyword != "") > 0) {
-            $d[] = 'Query: '.$this->keyword;
+            $d[] = sprintf(__('Query: %s', 'shopello'), $this->keyword);
         } else {
-            $d[] = 'No querystring';
+            $d[] = __('No querystring', 'shopello');
         }
 
         if (count($this->categories) > 0) {
-            $d[] = 'Categories: ['. implode(',', $this->categories).']';
+            $d[] = sprintf(__('Categories: [%s]', 'shopello'), implode(',', $this->categories));
         } else {
-            $d[] = 'No categories selected';
+            $d[] = __('No categories selected', 'shopello');
         }
 
         if ($this->pagesize) {
-            $d[] = 'Page size: '.$this->pagesize;
+            $d[] = sprintf(__('Page size: %s', 'shopello'), $this->pagesize);
         }
 
         return count($d) > 0 ? implode($del , $d) : '';

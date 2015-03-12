@@ -10,12 +10,12 @@ class shopello_search_widget extends WP_Widget
     public function __construct()
     {
         $options = array(
-            'description' => 'Simplest way to start working from any page',
-            'name'        => 'Shopello Produktfilter',
-            'label'  	  => 'Hej Label'
+            'description' => __('Simplest way to start working from any page', 'shopello'),
+            'name'        => __('Shopello Productfilter', 'shopello'),
+            'label'  	  => __('Label', 'shopello')
         );
 
-        parent::WP_Widget(false, $name = __('Shopello Sök', 'shopello_search_widget'), $options);
+        parent::WP_Widget(false, $name = __('Shopello Search', 'shopello'), $options);
     }
 
     // Admin widget form
@@ -23,14 +23,14 @@ class shopello_search_widget extends WP_Widget
     {
         // Definition of fields and their labels in the admin
         $fields = array(
-            'label' => 'Rubrik',
-            'text'  => 'Beskrivning',
-            'class' => 'CSS klass'
+            'label' => __('Label', 'shopello'),
+            'text'  => __('Text', 'shopello'),
+            'class' => __('CSS klass', 'shopello')
         );
 
         // Loop out each of them so the user can edit
         foreach ($fields as $field=>$label) {
-            $val = $instance ? esc_attr($instance[ $field ]) : '';
+            $val = $instance ? esc_attr($instance[$field]) : '';
 
             echo '<p>';
             echo '<label for="'.$this->get_field_id($field).'">'._e($label, 'shopello_search_widget').'</label>';

@@ -3,8 +3,9 @@ $settings_ok = filter_var(get_option('swp_settings_status'), FILTER_VALIDATE_BOO
 if (!$settings_ok):
 ?>
     <div class="wrap">
-        <h2>Inställningarna verkar vara felaktiga!</h2>
-	<p>En del obligatoriska uppgifter saknas eller är felaktiga för att kunna använda API:et. <br/>Vänligen gå till <a href="<?php echo admin_url('admin.php?page=shopello_options_account');?>">Inställningar</a> och kontrollera uppgifterna där.</p>
+        <h2><?php _e('Settings is incorrect', 'shopello'); ?></h2>
+        <p><?php _e('One or more required settings is missing or incorrect to be able to use the API.', 'shopello'); ?></p>
+        <p><?php echo printf(__('Please visit <a href="%s">API-Settings</a> and check your settings.', 'shopello'), admin_url('admin.php?page=shopello_options_account')); ?></p>
 <?php
 else:
 // Get stored SWP Item list (or init new one)
@@ -12,7 +13,7 @@ $list = SWP::Instance();
 $items = $list->get_items();
 ?>
         <div class="wrap">
-            <h2>Produktlistor</h2>
+            <h2><?php _e('Product Listings', 'shopello'); ?></h2>
 
             <?php swp_print_success(); ?>
             <?php swp_print_notices(); ?>
@@ -24,8 +25,8 @@ $items = $list->get_items();
 		<input type="hidden" id="swp_api_key" name="swp_api_key" value="<?php echo get_option('swp_api_key'); ?>" />
 		<input type="hidden" id="swp_api_endpoint" name="swp_api_endpoint" value="<?php echo get_option('swp_api_endpoint'); ?>" />
 		<input type="hidden" id="swp_settings_status" name="swp_settings_status" value="<?php echo get_option('swp_settings_status');?>" />
-                <input type="hidden" id="swp_result_title" name="swp_result_title" value="<?php echo get_option('swp_result_title'); ?>" placeholder="Hittade %antal produkter"/>
-                <input type="hidden" id="swp_keyword_title" name="swp_keyword_title" value="<?php echo get_option('swp_keyword_title'); ?>" placeholder="för sökordet %ord." />
+                <input type="hidden" id="swp_result_title" name="swp_result_title" value="<?php echo get_option('swp_result_title'); ?>" />
+                <input type="hidden" id="swp_keyword_title" name="swp_keyword_title" value="<?php echo get_option('swp_keyword_title'); ?>" />
 
         	<div id="modal_wrap"></div>
     		<div class="swp_modal loader hidden">
@@ -39,7 +40,7 @@ $items = $list->get_items();
                 <input type="hidden" id="swp_SC_MAX" name="swp_SC_MAX" value="<?php echo swp_SC_MAX;?>" />
            	<input type="hidden" id="swp_list" name="swp_list" value="<?php echo get_option('swp_list'); ?>" />
 
-                <h4>Sparade urval <em> - För att lägga till / spara ett urval så använder du verktyget <a href="#new">* Nytt urval</a> längre ned på sidan. När du är klar, tryck på <strong>Spara urval</strong> så sparas den i denna lista.</em></h4>
+                <h4><?php _e('Saved Listings <em> - To Add / Save a listing you have to use the tool <a href="#new">New Listing</a> a bit further down on this page. When done, press the button <strong>Save Listing</strong> to save to this list.</em>', 'shopello'); ?></h4>
 
        		<table class="form-table lists" id="shortcode_table">
 	       	    <?php
@@ -51,7 +52,8 @@ $items = $list->get_items();
                             <td width="40%"><span class="swp_item_desc"><?php echo $item->get_description(DESC_DELIMITER);?></span></td>
                             <td width="10%">
                         	<input type="hidden" name="swp_item_id" class="swp_item_id" value="<?php echo $item->get_id(); ?>"/>
-                        	<input type="button" class="button remove" value="Ta bort" /></td>
+                        	<input type="button" class="button remove" value="Ta bort" />
+                            </td>
                         </tr>
 	            <?php
 	            endforeach;
@@ -60,7 +62,7 @@ $items = $list->get_items();
 
 	    </form>
             <div id="new"></div>
-            <h2>* Nytt urval</h2>
+            <h2><?php _e('New Listing', 'shopello'); ?></h2>
             <hr/>
 
             <div class="leftcol">
@@ -70,7 +72,7 @@ $items = $list->get_items();
 		?>
             </div>
             <div class="maincol">
-                <h4>Förhandsgranskning av ditt urval</h4>
+                <h4><?php _e('Preview of your listing', 'shopello'); ?></h4>
                 <div id="preview_box"></div>
             </div>
         </div>

@@ -23,10 +23,10 @@ function required_options_check()
     $error = '';
 
     if(!$api_key) {
-        $error .= 'Ingen API-nyckel har angivits. Var god ange din API-nyckel och spara inställningarna. Har du ingen API-nyckel så kan du kontakta Shopello AB för att erhålla en.';
+        $error .= __('No API-Key has been entered, please enter your API-Key and save the settings. If you do not have an API-Key so please visit https://www.shopelloapi.com/ to get one.', 'shopello');
     }
     if(!$api_endpoint) {
-        $error .= 'Ingen API-endpoint har angivits. Var god ange din API-endpoint och spara inställningarna. Har du ingen API-endpoint så kan du kontakta Shopello AB för att erhålla en.';
+        $error .= __('No API-Endpoint has been entered, please enter your API-Endpoint and save the settings. If you do not have an API-Endpoint so please visit https://www.shopelloapi.com/ to get one.', 'shopello');
     }
 
     if(strlen($error) > 0) {
@@ -147,10 +147,10 @@ function shopello_render_products($api_result, $params = false)
 
     if( strlen($querystring) > 0 && strlen(get_option('swp_keyword_title')) > 0 ) $title .= ' '. get_option('swp_keyword_title');
 
-    $prod_count_suffix_label = ($productcount == 1) ? 'produkt' : 'produkter';
-    $title = preg_replace("#produkter#", $prod_count_suffix_label, $title);
-    $title = preg_replace("#\%antal#", $productcount, $title);
-    $title = preg_replace("#\%ord#", $querystring, $title);
+    $prod_count_suffix_label = ($productcount == 1) ? __('product', 'shopello') : __('products', 'shopello');
+    $title = preg_replace("#".__('products', 'shopello')."#", $prod_count_suffix_label, $title);
+    $title = preg_replace("#\%amount\%#", $productcount, $title);
+    $title = preg_replace("#\%phrase\%#", $querystring, $title);
 
     // Get predefined markup parts
     $html_start_tag = load_swp_template('result/pre_result');

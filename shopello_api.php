@@ -9,7 +9,7 @@ session_start();
 Plugin Name: Shopello API
 Plugin URI: http://shopello.se/api/wordpress
 Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
-Version: 1.9.8
+Version: 1.10.0
 Author: Shopello AB
 */
 
@@ -25,6 +25,11 @@ define('SHOPELLO_PLUGIN_TABLE_CATEGORIES', 'swp_categories');
 define('SHOPELLO_PLUGIN_TABLE_RELATIONS', 'swp_category_parents');
 
 require_once(SHOPELLO_PLUGIN_DIR.'vendor/autoload.php');
+
+// Add hook to init language support
+add_action('plugins_loaded', (function () {
+    load_plugin_textdomain('shopello', false, dirname(plugin_basename(__FILE__)).'/lang/');
+}));
 
 // Include the install script for database tables
 require_once(SHOPELLO_PLUGIN_DIR.'dbinstall.php');

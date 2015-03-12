@@ -36,17 +36,17 @@ function getCheckOrCross($condition)
 $ping = pingShopello();
 ?>
 <div class="wrap">
-    <h1>System Test</h1>
+    <h1><?php _e('System Test', 'shopello'); ?></h1>
     <hr />
     <p>
-        This page will perform some system-tests to detect problems in your Wordpress setup while using the Shopello API.
+        <?php _e('This page will perform some system-tests to detect problems in your Wordpress setup while using the Shopello API.
         More tests will be added over time when we come up with things to test for, so please report issues to
-        partner@shopello.se.
+        partner@shopello.se.', 'shopello'); ?>
     </p>
 
-    <h2>Performing checks</h2>
+    <h2><?php _e('Performing checks', 'shopello'); ?></h2>
     <ul>
-        <li>CURL Extension installed <?php echo getCheckOrCross(isCurlInstalled()) ?></li>
-        <li>Able to connect to Shopello with CURL <?php echo getCheckOrCross($ping).(($ping === true) ? '' : $ping) ?></li>
+        <li><?php _e('CURL Extension installed', 'shopello'); echo getCheckOrCross(isCurlInstalled()) ?></li>
+        <li><?php _e('Able to connect to Shopello with CURL', 'shopello'); echo getCheckOrCross($ping).(($ping === true) ? '' : $ping) ?></li>
     </ul>
 </div>

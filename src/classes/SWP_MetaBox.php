@@ -21,7 +21,7 @@ class SWP_MetaBox
         if (in_array($post_type, $post_types)) {
             add_meta_box(
                 'swp_page_metabox',
-                __( 'Shopello listning', 'swp' ),
+                __('Shopello listning', 'shopello'),
                 array( $this, 'render_meta_box_content' ),
                 $post_type,
                 'side',
@@ -93,9 +93,9 @@ class SWP_MetaBox
 
         // Display the form, using the current value.
         echo '<p>
-                <strong>Välj produktlista</strong>
+                <strong>'.__('Choose Productlist', 'shopello').'</strong>
               </p>
-              <label class="screen-reader-text" for="parent_id">Välj produktlista</label>';
+              <label class="screen-reader-text" for="parent_id">'.__('Choose Productlist', 'shopello').'</label>';
 
         $items = SWP::Instance()->get_items();
 
@@ -107,9 +107,9 @@ class SWP_MetaBox
 
         // Start drawing selectbox with lists
         echo '<select name="swp_selected_list" id="swp_selected_list">';
-        echo 	'<option value="-1">- Ingen listning -</option>';
+        echo 	'<option value="-1">- '.__('No Listing', 'shopello').' -</option>';
 
-        foreach($items as $item ){
+        foreach ($items as $item ) {
             // BYGG IN SELECTED-FLAGGA
             $sel = ($item->get_id() == $selid ) ? ' selected="selected" ' : '';
             echo '<option value="'.$item->get_id().'" '.$sel.'>'.$item->name.'</option>';
