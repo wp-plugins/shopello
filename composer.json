@@ -2,6 +2,10 @@
     "require": {
         "shopello/api": "@stable"
     },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "@stable",
+        "leafo/scssphp": "dev-master"
+    },
     "repositories": [
         {
             "url": "https://github.com/Shopello/Shopello-PHP.git",

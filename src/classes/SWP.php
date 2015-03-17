@@ -1,5 +1,8 @@
 <?php
 
+use \Shopello\API\ApiClient as ShopelloAPI;
+use \Curl\Curl;
+
 /**
  * SWP is a class that contains listing of these SWP_Items
  * Accessible as:
@@ -16,9 +19,9 @@ class SWP
     private $max_items       = 15;
     private $active_item     = false;
 
-    /*
-      Method to retrieve Singleton instance
-    */
+    /**
+     * Method to retrieve Singleton instance
+     */
     public static function Instance()
     {
         if (is_null(self::$instance)) {
@@ -37,29 +40,26 @@ class SWP
         $this->load();
     }
 
-    /*
-      Manually set items of SWP_Items. Be careful here
-    */
+    /**
+     * Manually set items of SWP_Items. Be careful here
+     */
     public function set_items($a)
     {
-    	if(count( $a ) > 0) {
+        if (count($a) > 0) {
             $this->items = $a;
             $this->save();
-    	}
+        }
     }
 
     /**
-     *
      * Returns either a specific item based on index (or ID), or the whole array of items
      */
     public function get_items($id = false)
     {
-    	if($id === false) {
-            // return all
+        if ($id === false) {
             return $this->items;
         }
 
-        // return single item or false
         return $this->find($id);
     }
 
@@ -68,8 +68,8 @@ class SWP
      */
     public function add($item)
     {
-    	// Try to validate and push item to storage
-    	if (!$item instanceof SWP_Item) {
+        // Try to validate and push item to storage
+        if (!$item instanceof SWP_Item) {
             return false;
         } elseif (count($this->items) >= $this->max_items) {
             return false;
@@ -85,20 +85,20 @@ class SWP
             $this->save();
 
             return true;
-    	}
+        }
 
-    	return false;
+        return false;
     }
 
     public function remove($id)
     {
-    	$id = intval($id);
-    	$arr = $this->items;
-    	$rem = false;
-    	$i = 0;
+        $id = intval($id);
+        $arr = $this->items;
+        $rem = false;
+        $i = 0;
 
-    	if (count($arr)) {
-            for ($i=0;$i<count($arr); $i++) {
+        if (count($arr)) {
+            for ($i=0; $i<count($arr); $i++) {
                 if ($arr[$i]->get_id() == $id) {
                     array_splice($arr, $i, 1);
                     $rem = true;
@@ -109,19 +109,19 @@ class SWP
             $this->save();
         }
 
-    	return $rem;
+        return $rem;
     }
 
     public function save()
     {
-    	// Store changes in database option
-    	$serialized = serialize($this->items);
-    	$success = update_option( $this->option_list_key , $serialized);
+        // Store changes in database option
+        $serialized = serialize($this->items);
+        $success = update_option($this->option_list_key, $serialized);
     }
 
     public function get_serialized_items()
     {
-    	if (count( $this->items ) > 0) {
+        if (count($this->items) > 0) {
             return serialize($this->items);
         } else {
             return '';
@@ -142,15 +142,15 @@ class SWP
 
     public function edit($id, $props)
     {
-    	$id = intval($id);
-    	$arr = $this->items;
-    	$done = false;
+        $id = intval($id);
+        $arr = $this->items;
+        $done = false;
 
-    	for ($i=0;$i<count($arr);$i++) {
+        for ($i=0; $i < count($arr); $i++) {
             // Locate the item by id
             if ($arr[$i]->get_id() == $id) {
                 // Iterate all properties on $props, apply them to $arr[$i] if suitable
-                foreach ($props as $key=>$val) {
+                foreach ($props as $key => $val) {
                     // Property must exist to be set
                     if (isset($arr[$i]->$key)) {
                         $arr[$i]->$key = $val;
@@ -167,48 +167,53 @@ class SWP
                 // Dont loop more than necessary
                 break;
             }
-    	}
+        }
 
-    	// Tell if all went ok
-    	return $done;
+        // Tell if all went ok
+        return $done;
     }
 
     public function set_active_item(SWP_Item $item)
     {
-    	$this->active_item = $item;
+        $this->active_item = $item;
     }
 
     public function run_query($params = false)
     {
-    	// Set passed item as active
-    	if ($params == false || empty($params)) {
+        // Set passed item as active
+        if ($params == false || empty($params)) {
             $params = $this->get_active_params();
 
             // Check that active item is valid
             if ($params == false || empty($params)) {
-                throw new Exception(sprintf(__('You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP', 'shopello'), $active_item, $params));
-                return false;
+                throw new Exception(
+                    sprintf(
+                        __('You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP', 'shopello'),
+                        $active_item,
+                        $params
+                    )
+                );
             }
 
             $params = shopello_sanitize_params($params);
         }
 
-        // Get endpoint settings
-        $api_key      = get_option('swp_api_key');
-        $api_endpoint = get_option('swp_api_endpoint');
-
         // Setup API instance
-        $shopello = new Shopello();
-        $shopello->set_api_key($api_key);
-        $shopello->set_api_endpoint($api_endpoint);
+        $shopelloApi = new ShopelloAPI(new Curl());
+        $shopelloApi->setApiKey(get_option('swp_api_key'));
+        $shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
 
         // Run API query
-        $api_result = $shopello->call('products', $params);
+        try {
+            $apiResult = $shopelloApi->getProducts($params);
+        } catch (Exception $e) {
+            $apiResult = false;
+        }
 
         // Cache and return result if successful
-        if ($api_result) {
+        if ($apiResult) {
             // return results
-            return $api_result;
+            return $apiResult;
         } else {
             return false;
         }
@@ -221,13 +226,13 @@ class SWP
             $this->set_active_item($item);
         }
 
-    	// Check that active item is valid
-    	if (!$this->active_item || !$this->active_item instanceof SWP_Item) {
+        // Check that active item is valid
+        if (!$this->active_item || !$this->active_item instanceof SWP_Item) {
             return false;
         }
 
-    	// Get basic query info from active item
-    	$item = $this->active_item;
+        // Get basic query info from active item
+        $item = $this->active_item;
         $keyword = $item->keyword;
         $pagesize = $item->pagesize;
         $filters  = $item->filters;
@@ -253,15 +258,15 @@ class SWP
 
     private function find($id)
     {
-    	$arr = $this->items;
+        $arr = $this->items;
 
-    	for ($i=0;$i<count($arr);$i++) {
+        for ($i = 0; $i < count($arr); $i++) {
             if ($arr[$i]->get_id() === $id) {
                 return $arr[$i];
             }
-    	}
+        }
 
-    	return false;
+        return false;
     }
 
     private function generate_id()
@@ -274,8 +279,8 @@ class SWP
 
         // Randomize number ID until we have a unique one
         do {
-            $id = rand(1000,9999);
-        } while(in_array($id, $ids));
+            $id = rand(1000, 9999);
+        } while (in_array($id, $ids));
 
         // Return new valid ID
         return $id;
@@ -321,11 +326,11 @@ class SWP
     public function frontend_dependencies()
     {
         // Shopello css
-        wp_enqueue_style( 'shopello_css', SHOPELLO_PLUGIN_URL.'css/shopello_all.css');
+        wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css');
 
         // Shopello custom stuff
-        wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL."js/jquery.form.min.js", false, '1.0', true);
-        wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL."js/swp_api_generator.js", false, '1.0.1', true);
-        wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'js/frontend.js', false, '0.1', true);
+        wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'assets/js/jquery.form.min.js', false, '1.0', true);
+        wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL.'assets/js/swp_api_generator.js', false, '1.0.1', true);
+        wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'assets/js/frontend.js', false, '0.1', true);
     }
 }

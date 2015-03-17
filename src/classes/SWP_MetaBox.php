@@ -102,16 +102,16 @@ class SWP_MetaBox
         // Get currently selected list item, for pre-selecting in select box below.
         $selid = get_post_meta($post->ID, '_swp_selected_list');
         // Parse ID to int. Also break out of array if wrapped in such.
-        $selid = intval(is_array( $selid ) ? $selid[0] : $selid);
+        $selid = intval(is_array($selid) ? $selid[0] : $selid);
 
 
         // Start drawing selectbox with lists
         echo '<select name="swp_selected_list" id="swp_selected_list">';
-        echo 	'<option value="-1">- '.__('No Listing', 'shopello').' -</option>';
+        echo     '<option value="-1">- '.__('No Listing', 'shopello').' -</option>';
 
-        foreach ($items as $item ) {
+        foreach ($items as $item) {
             // BYGG IN SELECTED-FLAGGA
-            $sel = ($item->get_id() == $selid ) ? ' selected="selected" ' : '';
+            $sel = ($item->get_id() == $selid) ? ' selected="selected" ' : '';
             echo '<option value="'.$item->get_id().'" '.$sel.'>'.$item->name.'</option>';
         }
 

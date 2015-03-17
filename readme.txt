@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.10.0
+Stable tag: 1.10.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,9 @@ A neat plugin that gives you two shortcodes and enables you to make money throug
 == Description ==
 This plugin enables your wordpress website to make use of two main shortcodes - one search form and one product listing. Mainly focused on enabling You to display one or more selections of products from the products available at Shopello.se, Shopello.no and Shopello.dk. Using you API key you get access to a simplified admin interface to compose lists of products which are fetched directly from Shopello's JSON API.
 
-If you'd like to extend or suggest functionality - please notify us at info@shopello.se! To get your unique API-key start earn money contact same email adress.
+Read more at https://www.shopelloapi.com/.
+
+If you'd like to extend or suggest functionality - please notify us at partner@shopello.se! To get your unique API-key start earn money contact same email adress.
 
 
 == Installation ==
@@ -30,12 +32,19 @@ PS: You can contact info@shopello.se to request an API key to use with this pulg
 
 
 == Frequently Asked Questions ==
-I cannot use any of the shortcodes?
 
-Make sure you have entered a correct API-key and API-endpoint. If you have problems with this, please contact info@shopello.se
+= Why cannot I use any of the shortcodes? =
+Make sure you have entered a correct API-key and API-endpoint. If you have problems with this, please contact partner@shopello.se
+
+
 
 
 == Changelog ==
+
+= 1.10.1 =
+* Improved handling of 404 errors from API, now it won't destroy the entire page.
+* Major code improvements
+* Migrated from LESSCSS to SCSS
 
 = 1.10.0 =
 * Internationalization and Localization support, we currently have English and Swedish.
@@ -100,8 +109,8 @@ Sökfältet består av en omslutande div med html attribut för att särskilja e
 
 **1.2 Shortcode**
 
-[shopello_sok]
-[shopello_sok target="/sok" placeholder="Vad letar du efter?" class="min_sok_ruta" label="Sök på min sajt!" search_label="Hitta nu!"]
+[shopello_search]
+[shopello_search target="/sok" placeholder="Vad letar du efter?" class="min_sok_ruta" label="Sök på min sajt!" search_label="Hitta nu!"]
 
 
 **1.3. Shortcode-parametrar**
@@ -119,7 +128,7 @@ search_label [string: frivillig (default "Sök"): Ersätter text på sökknapp)
 
 Placerar ut en sökresultatlistning baserat på något utav följande:
 Fördefinierad lista ifrån admin
-Parameterlista och postdata ifrån shopello_sok formulär
+Parameterlista och postdata ifrån shopello_search formulär
 Parameterlista i shortcode (med eller utan definierat sökord)
 Använder fluid layout med klasser för att utöka och kunna justera layout.
 Listningen ska kunna pagineras om träfflistans längd överträffar sidstorleken, detta sker med GET-parametrar.
@@ -127,8 +136,8 @@ Listningen ska kunna pagineras om träfflistans längd överträffar sidstorleke
 
 **2.2 Shortcode**
 
-[shopello_resultat]
-[shopello_resultat title="Hittade %antal träffar för ordet %ord" pagesize=12 categories="1,2,42,44" keyword="nike" class="my-css-class" sort="DESC" sortby="relevance" filters="false"]
+[shopello_result]
+[shopello_result title="Hittade %antal träffar för ordet %ord" pagesize=12 categories="1,2,42,44" keyword="nike" class="my-css-class" sort="DESC" sortby="relevance" filters="false"]
 
 
 **2.3 Shortcode-parametrar**
@@ -141,6 +150,21 @@ title - Skriv en text för att presentera antalet resultat. Standard är: Hittad
 sort - För stigande ordning, skriv ASC. För fallande ordning, skriv DESC
 sortby - Sortera på något utav följande: relevance, price
 filters - Slår på eller av Filters / Kategori-sektionen. filters="off" stänger av, men som standard är filtren påslagna.
+
+= 3. Produktlistning =
+
+Konceptet Listor går ut på att du skapar produktlistor i Shopello-delen av WP Admin. Du kan sedan applicera
+en utav dessa listor per sida eller post. Om du sedan - i PHP eller i WP Editor fältet - använder
+shortcoden [shopello_products] så kommer listningen att dyka upp där.
+
+= 4. Visa Filter =
+
+För att visa filter för en sökning så måste du i första hand ha valt några filter (kryssrutor) när du skapade
+listningen. För att visa filtren så använder du shortcoden [shopello_filters]
+Filtren renderas i kolumn-format (uppifrån och nedåt) och lämpar sig bäst i en sidebar eller egen kolumn.
+Det finns en Widget inkluderad i pluginet som förenklar detta och automatiskt
+visar filtren när det finns en listning på sidan / posten.
+
 
 == Screenshots ==
 1. Example Frontend

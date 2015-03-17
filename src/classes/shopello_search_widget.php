@@ -12,7 +12,7 @@ class shopello_search_widget extends WP_Widget
         $options = array(
             'description' => __('Simplest way to start working from any page', 'shopello'),
             'name'        => __('Shopello Productfilter', 'shopello'),
-            'label'  	  => __('Label', 'shopello')
+            'label'       => __('Label', 'shopello')
         );
 
         parent::WP_Widget(false, $name = __('Shopello Search', 'shopello'), $options);
@@ -29,7 +29,7 @@ class shopello_search_widget extends WP_Widget
         );
 
         // Loop out each of them so the user can edit
-        foreach ($fields as $field=>$label) {
+        foreach ($fields as $field => $label) {
             $val = $instance ? esc_attr($instance[$field]) : '';
 
             echo '<p>';

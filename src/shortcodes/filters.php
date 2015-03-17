@@ -4,11 +4,8 @@
  * [shopello_filters]
  * Shows the filter capabilities in a designated space, separated from the rest of the code
  */
-
-add_shortcode('shopello_filters', 'shortcode_shopello_filters');
-function shortcode_shopello_filters($atts)
-{
-    if(!$item = get_post_swp_item(get_the_ID())) {
+add_shortcode('shopello_filters', (function () {
+    if (!$item = get_post_swp_item(get_the_ID())) {
         return;
     }
 
@@ -21,4 +18,4 @@ function shortcode_shopello_filters($atts)
 
     // Run filter-code
     return shopello_render_filters($params);
-}
+}));

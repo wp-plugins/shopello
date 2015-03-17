@@ -4,7 +4,7 @@ global $shopello_db_version;
 $shopello_db_version = '2.0';
 
 // On plugin activate, install database tables
-register_activation_hook(SHOPELLO_PLUGIN_DIR . 'shopello_api.php' , 'swp_db_install');
+register_activation_hook(SHOPELLO_PLUGIN_DIR.'shopello_api.php', 'swp_db_install');
 
 function swp_db_install()
 {
@@ -21,11 +21,11 @@ function swp_db_install()
      */
     $charset_collate = '';
 
-    if ( ! empty( $wpdb->charset ) ) {
+    if (!empty($wpdb->charset)) {
         $charset_collate = "DEFAULT CHARACTER SET {$wpdb->charset}";
     }
 
-    if ( ! empty( $wpdb->collate ) ) {
+    if (!empty($wpdb->collate)) {
         $charset_collate .= " COLLATE {$wpdb->collate}";
     }
 
@@ -38,12 +38,12 @@ function swp_db_install()
 
     require_once(ABSPATH.'wp-admin/includes/upgrade.php');
 
-    dbDelta( $sql1 );
-    dbDelta( $sql2 );
-    dbDelta( $sql3 );
+    dbDelta($sql1);
+    dbDelta($sql2);
+    dbDelta($sql3);
 
     add_option('shopello_db_version', $shopello_db_version);
-    wp_schedule_event(time(), 'daily','swpsynccategories');
+    wp_schedule_event(time(), 'daily', 'swpsynccategories');
 }
 
 
