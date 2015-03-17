@@ -38,14 +38,14 @@
 		    <div id="test-spinner">
 		    	<div class="spinner"></div>
 		    </div>
-		    <div class="settings_status <?php if(get_option('swp_settings_status') == 'false') echo 'tested';?>">
+		    <div class="settings_status <?php if (get_option('swp_settings_status') == 'false') { echo 'tested'; } ?>">
 			<span class="good-label"><?php _e('Settings are correct.', 'shopello') ?></span>
 			<span class="bad-label"><?php _e('Please check your settings and check if ping works on the System Test page.', 'shopello') ?></span>
 		    </div>
 	    </tr>
 	</table>
 
-	<?php if(get_option('swp_settings_status') === 'true') : ?>
+	<?php if (get_option('swp_settings_status') === 'true') : ?>
 	<h2><?php _e('General Settings', 'shopello'); ?></h2>
 
 	<table class="form-table compact">
@@ -84,6 +84,6 @@
 	</table>
 	<?php endif; // settings status == ok ?>
 
-	<?php submit_button('Save','primary'); ?>
+	<?php submit_button('Save', 'primary'); ?>
     </form>
 </div>

@@ -3,7 +3,8 @@
 /**
  * Calls the class on the post edit screen.
  */
-function swp_init_metabox() {
+function swp_init_metabox()
+{
     new SWP_MetaBox();
 }
 

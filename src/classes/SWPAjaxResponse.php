@@ -7,7 +7,7 @@ class SWPAjaxResponse
     public $success = false;
     public $data = false;
 
-    function json()
+    public function json()
     {
         return json_encode($this);
     }

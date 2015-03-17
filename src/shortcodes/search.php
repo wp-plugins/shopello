@@ -1,15 +1,14 @@
 <?php
-/*
-	Shortcode definition: [shopello_search]
+
+/**
+ * Shortcode definition: [shopello_search]
  */
-add_shortcode('shopello_search', 'shortcode_shopello_search');
-function shortcode_shopello_search($atts)
-{
+add_shortcode('shopello_search', (function ($atts) {
     // Shopello css
-    wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'css/shopello_all.css');
+    wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css');
 
     // Shopello custom stuff
-    wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'js/frontend.js', array(), '0.1', true);
+    wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'assets/js/frontend.js', array(), '0.1', true);
 
     // Get possibly passed attributes
     extract(shortcode_atts(array(
@@ -27,4 +26,4 @@ function shortcode_shopello_search($atts)
     ob_end_clean();
 
     return $html;
-}
+}));

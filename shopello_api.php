@@ -1,17 +1,15 @@
 <?php
-
 session_start();
 
 /**
  * @package Shopello API
+ *
+ * Plugin Name: Shopello API
+ * Plugin URI: http://shopello.se/api/wordpress
+ * Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
+ * Version: 1.10.1
+ * Author: Shopello AB
  */
-/**
-Plugin Name: Shopello API
-Plugin URI: http://shopello.se/api/wordpress
-Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
-Version: 1.10.0
-Author: Shopello AB
-*/
 
 // Define base folder and url for this plugin
 define('SHOPELLO_PLUGIN_DIR', plugin_dir_path(__FILE__));
@@ -28,30 +26,29 @@ require_once(SHOPELLO_PLUGIN_DIR.'vendor/autoload.php');
 
 // Add hook to init language support
 add_action('plugins_loaded', (function () {
-    load_plugin_textdomain('shopello', false, dirname(plugin_basename(__FILE__)).'/lang/');
+    load_plugin_textdomain('shopello', false, dirname(plugin_basename(__FILE__)).'/src/lang/');
 }));
 
 // Include the install script for database tables
-require_once(SHOPELLO_PLUGIN_DIR.'dbinstall.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/dbinstall.php');
 
 // Methods for getting data, API access and rendering / parsing
-include(SHOPELLO_PLUGIN_DIR.'src/helpers.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/helpers.php');
 
 // Setup widget and admin for widget
-include(SHOPELLO_PLUGIN_DIR.'widget.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/widget.php');
 
 // Setup adminpage for the plugin
-include(SHOPELLO_PLUGIN_DIR.'admin.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/admin.php');
 
 // Include Ajax handling
-include(SHOPELLO_PLUGIN_DIR.'ajax.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/ajax.php');
 
 // Include all the shortcode-codes
-include(SHOPELLO_PLUGIN_DIR.'shortcodes.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes.php');
 
 // Include productlist metabox for posts/pages
-include(SHOPELLO_PLUGIN_DIR.'metabox.php');
-
+require_once(SHOPELLO_PLUGIN_DIR.'src/metabox.php');
 
 // Load dependencies if not in admin-page
 if (!is_admin()) {

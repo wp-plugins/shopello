@@ -67,6 +67,6 @@ class SWP_Item
             $d[] = sprintf(__('Page size: %s', 'shopello'), $this->pagesize);
         }
 
-        return count($d) > 0 ? implode($del , $d) : '';
+        return count($d) > 0 ? implode($del, $d) : '';
     }
 }

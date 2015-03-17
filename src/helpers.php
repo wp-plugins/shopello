@@ -22,36 +22,37 @@ function required_options_check()
 
     $error = '';
 
-    if(!$api_key) {
+    if (!$api_key) {
         $error .= __('No API-Key has been entered, please enter your API-Key and save the settings. If you do not have an API-Key so please visit https://www.shopelloapi.com/ to get one.', 'shopello');
     }
-    if(!$api_endpoint) {
+    if (!$api_endpoint) {
         $error .= __('No API-Endpoint has been entered, please enter your API-Endpoint and save the settings. If you do not have an API-Endpoint so please visit https://www.shopelloapi.com/ to get one.', 'shopello');
     }
 
-    if(strlen($error) > 0) {
+    if (strlen($error) > 0) {
         print '<div class="message-error">';
         print $error;
         print '</div>';
     }
 }
 
-function get_post_swp_item( $post_id = false ) {
+function get_post_swp_item($post_id = false)
+{
     if (!$post_id) {
         $post_id = get_the_ID();
 
-        if(!$post_id) {
+        if (!$post_id) {
             $post_id = post('post_id');
         }
 
-        if(!$post_id) {
+        if (!$post_id) {
             return false;
         }
     }
 
     // Get SWP_Item ID from post meta
-    $swp_list_id = get_post_meta( $post_id, '_swp_selected_list' );
-    $swp_list_id = intval( is_array( $swp_list_id ) ? $swp_list_id[0] : $swp_list_id );
+    $swp_list_id = get_post_meta($post_id, '_swp_selected_list');
+    $swp_list_id = intval(is_array($swp_list_id) ? $swp_list_id[0] : $swp_list_id);
 
     // Try to fetch SWP_Item through SWP Class
     return SWP::Instance()->get_items($swp_list_id);
@@ -66,7 +67,7 @@ function shopello_sanitize_params($params, $full = false)
     // Querystring?
     if (request('keyword')) {
         $params['keyword'] = request('keyword');
-        $params['query'] = strlen($params['query'] ) > 0 ? ' '.trim(request('keyword')) : request('keyword');
+        $params['query'] = strlen($params['query']) > 0 ? ' '.trim(request('keyword')) : request('keyword');
     }
 
     if (request('color')) {
@@ -135,17 +136,19 @@ function shopello_render_products($api_result, $params = false)
     $title = get_option('swp_result_title');
 
     // Make sure we have the params that were used this request
-    if(!$params) {
+    if (!$params) {
         $params = shopello_sanitize_params(SWP::Instance()->get_active_params());
     }
 
     // Insert variables to rubrik
     $productcount = $api_result->total_found ? intval($api_result->total_found) : 'inga';
-    $productcount = is_int($productcount) ? number_format(floatval($productcount), 0,  '.', ' ') : $productcount;
+    $productcount = is_int($productcount) ? number_format(floatval($productcount), 0, '.', ' ') : $productcount;
 
     $querystring  = $params['keyword'];
 
-    if( strlen($querystring) > 0 && strlen(get_option('swp_keyword_title')) > 0 ) $title .= ' '. get_option('swp_keyword_title');
+    if (strlen($querystring) > 0 && strlen(get_option('swp_keyword_title')) > 0) {
+        $title .= ' '. get_option('swp_keyword_title');
+    }
 
     $prod_count_suffix_label = ($productcount == 1) ? __('product', 'shopello') : __('products', 'shopello');
     $title = preg_replace("#".__('products', 'shopello')."#", $prod_count_suffix_label, $title);
@@ -222,7 +225,7 @@ function has_swp_item()
     global $is_admin_ajax;
 
     $post_id = intval(get_the_ID() ? get_the_ID() : post('post_id'));
-    $item = get_post_swp_item( $post_id );
+    $item = get_post_swp_item($post_id);
 
     return ($item ? true : false );//$is_admin_ajax == true ? true : false);
 }
@@ -230,7 +233,7 @@ function has_swp_item()
 function get_swp_item()
 {
     $post_id = intval(get_the_ID() ? get_the_ID() : post('post_id'));
-    $item = get_post_swp_item( $post_id );
+    $item = get_post_swp_item($post_id);
 
     return $item ? $item : new SWP_Item();
 }
@@ -241,13 +244,15 @@ function shopello_render_filters($params)
     global $is_admin_ajax;
 
     // Get API data from last/this page's listing
-    $api_response = SWP::Instance()->run_query( $params );
+    $api_response = SWP::Instance()->run_query($params);
 
     // Put array in variables, for template rendering
     extract($params);
 
     // bullet proofing the variable.
-    if(!$filters) $filters = array();
+    if (!$filters) {
+        $filters = array();
+    }
 
     $fallback_roof = 5000;
     $max_price = is_int(intval($api_response->extra->max_price)) ? intval($api_response->extra->max_price) : $fallback_roof;
@@ -305,7 +310,7 @@ function load_swp_template($template_path)
     if (!file_exists($full_path)) {
         $full_path .= '.php';
 
-        if(!file_exists($full_path)) {
+        if (!file_exists($full_path)) {
             return false;
         }
     }
@@ -319,10 +324,10 @@ function load_swp_template($template_path)
 /**
  * Core extension to locate templates in plugin folders
  */
-function locate_plugin_template($template_names, $load = false, $require_once = true )
+function locate_plugin_template($template_names, $load = false, $require_once = true)
 {
     if (!is_array($template_names)) {
-    	if (is_string($template_names)) {
+        if (is_string($template_names)) {
             $template_names = array($template_names);
         } else {
             return '';
@@ -331,7 +336,7 @@ function locate_plugin_template($template_names, $load = false, $require_once = 
 
     $located = '';
 
-    $this_plugin_dir = WP_PLUGIN_DIR.'/'.str_replace( basename( __FILE__), "", plugin_basename(__FILE__) );
+    $this_plugin_dir = WP_PLUGIN_DIR.'/'.str_replace(basename(__FILE__), "", plugin_basename(__FILE__));
 
     foreach ($template_names as $template_name) {
         if (!$template_name) {
@@ -370,8 +375,8 @@ function swp_get_category_list()
         ."case (rel.parent_id is NULL) when 1 then 0 else rel.parent_id end AS category_parent "
         ." FROM $categories_table AS cat"
         ." LEFT JOIN $relations_table AS rel ON cat.category_id = rel.category_id"
-        ." ORDER BY cat.name"
-        ,OBJECT
+        ." ORDER BY cat.name",
+        OBJECT
     );
     return $categories;
 }
@@ -384,7 +389,7 @@ function swp_get_active_categories($params)
 {
     global $wpdb;
 
-    if(!$params['category_id']) {
+    if (!$params['category_id']) {
         return array();
     }
 
@@ -399,8 +404,8 @@ function swp_get_active_categories($params)
         ." LEFT JOIN $relations_table AS rel ON cat.category_id = rel.category_id"
         ." WHERE cat.category_id IN (".$params['category_id'].")"
         ." GROUP BY cat.category_id"
-        ." ORDER BY cat.name"
-        ,OBJECT
+        ." ORDER BY cat.name",
+        OBJECT
     );
 
     return $categories;
@@ -419,7 +424,8 @@ function swp_get_category_tree()
 /**
  * part of swp_get_category_tree
  */
-function swp_get_category_children($pid, $categories) {
+function swp_get_category_children($pid, $categories)
+{
     $children = array();
 
     foreach ($categories as $c) {
@@ -439,17 +445,19 @@ function get_json($file)
 }
 function get_file($file)
 {
-    if(!file_exists($file))
+    if (!file_exists($file)) {
         return "Invalid file: $file";
-    else
+    } else {
         return file_get_contents($file);
+    }
 }
 function jsonp_decode($jsonp, $assoc = false)  // PHP 5.3 adds depth as third parameter to json_decode
 {
-    if($jsonp[0] !== '[' && $jsonp[0] !== '{') { // we have JSONP
+    if ($jsonp[0] !== '[' && $jsonp[0] !== '{') { // we have JSONP
         $jsonp = substr($jsonp, strpos($jsonp, '('));
     }
-    return json_decode(trim($jsonp,'();'), $assoc);
+
+    return json_decode(trim($jsonp, '();'), $assoc);
 }
 function nice_print($v)
 {
@@ -470,7 +478,7 @@ function post($p)
 
 function get($p)
 {
-    if(!isset($_GET[$p])) {
+    if (!isset($_GET[$p])) {
         return false;
     } else {
         return $_GET[$p];
@@ -478,9 +486,9 @@ function get($p)
 }
 function request($p)
 {
-    if(post($p)) {
+    if (post($p)) {
         return post($p);
-    } else if( get($p)) {
+    } elseif (get($p)) {
         return get($p);
     } else {
         return false;

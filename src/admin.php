@@ -3,7 +3,7 @@
 session_start();
 $is_admin_ajax = true;
 
-define('DESC_DELIMITER','&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+define('DESC_DELIMITER', '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
 
 // Message-variables
 global $swp_notices, $swp_success, $swp_warnings;
@@ -12,7 +12,7 @@ $swp_success = array();
 $swp_warnings = array();
 
 // Max number of shortcodes to save
-define('swp_SC_MAX', 6);
+define('SWP_SC_MAX', 6);
 
 
 
@@ -35,10 +35,10 @@ add_action('admin_menu', (function () {
  * Hook styles/script loading
  */
 add_action('admin_enqueue_scripts', (function () {
-    wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'css/shopello_all.css', false, '1.0.0');
-    wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'js/jquery.form.min.js', false, '1.0', true);
-    wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL.'js/swp_api_generator.js', false, '1.0.0', true);
-    wp_enqueue_script('admin_js', SHOPELLO_PLUGIN_URL.'js/admin.js', false, '1.0.0', true);
+    wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css', false, '1.0.0');
+    wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'assets/js/jquery.form.min.js', false, '1.0', true);
+    wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL.'assets/js/swp_api_generator.js', false, '1.0.0', true);
+    wp_enqueue_script('admin_js', SHOPELLO_PLUGIN_URL.'assets/js/admin.js', false, '1.0.0', true);
 
     wp_localize_script('admin_js', 'adminL10n', array(
         'working_button' => __('Working... This can take several minutes...', 'shopello'),
@@ -140,7 +140,7 @@ add_action('wp_ajax_edit_item', (function () {
         $changes = array();
         $possible = array('name', 'pagesize', 'categories', 'keyword');
 
-        foreach($possible as $key) {
+        foreach ($possible as $key) {
             if (isset($_POST[$key])) {
                 $changes[$key] = $_POST[$key];
             }
@@ -195,7 +195,7 @@ add_action('admin_init', (function () {
 
 
 add_action('swpsynccategories', (function () {
-    if(get_option('swp_settings_status') == true) {
+    if (get_option('swp_settings_status') == true) {
         $lib = new category_lib();
         $lib->synchronize_categories_from_server();
     }
@@ -208,7 +208,7 @@ add_action('swpsynccategories', (function () {
  */
 function shopello_api_adminpage_account()
 {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('manage_options')) {
         wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
     }
 
@@ -224,7 +224,7 @@ function shopello_api_adminpage()
 {
     global $is_admin_ajax;
 
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('manage_options')) {
         wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
     }
 
@@ -241,7 +241,7 @@ function shopello_api_adminpage()
  */
 function shopello_api_adminpage_system_test()
 {
-    if (!current_user_can('manage_options'))  {
+    if (!current_user_can('manage_options')) {
         wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
     }
 

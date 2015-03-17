@@ -1,5 +1,5 @@
 <div class='shopello_api shopello_search <?php echo $class; ?>'>
-    <?php if($label) : ?>
+    <?php if ($label) : ?>
 	<label for="shopello_search_query"><?php echo $label; ?></label>
     <?php endif; ?>
     <form method='get' action='<?php echo $target; ?>' role="search" class="s_qs_search_form">
