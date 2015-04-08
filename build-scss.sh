@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-for file in $(/usr/bin/find src/scss/ -type f ! -name '_*'); do
-    scss=$(/bin/echo $file | sed "s:src/scss/::") # Remove search path from filename
-    css=$(/bin/echo $scss  | sed 's/scss$/css/')  # Change file-extension
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-    echo "Compiling $file to assets/css/$css"
-    ./vendor/bin/pscss -i=src/scss/ -f=compressed < src/scss/$scss > assets/css/$css
+SCSS_PATH=$DIR/src/scss/
+CSS_PATH=$DIR/assets/css/
+
+for file in $(/usr/bin/find $SCSS_PATH -type f ! -name '_*'); do
+    scss=$(/bin/echo $file | sed "s:"$SCSS_PATH"::") # Remove search path from filename
+    css=$(/bin/echo $scss  | sed 's:scss$:css:')     # Change file-extension from scss to css
+
+    echo "Compiling $SCSS_PATH$scss to $CSS_PATH$css"
+    $DIR/vendor/bin/pscss -i=$SCSS_PATH -f=compressed < $SCSS_PATH$scss > $CSS_PATH$css
 done

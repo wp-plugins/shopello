@@ -1,5 +1,7 @@
 <?php
 
+use \SWP\Ajax;
+
 use \Shopello\API\ApiClient as ShopelloAPI;
 use \Curl\Curl;
 
@@ -29,34 +31,10 @@ add_action('wp_ajax_sync_categories', (function () {
  * Hooks for doing ajax-magic  - a port to the api
  * Basically an API for the Shopello API
  */
-add_action('wp_ajax_sapi_get_listing', (function () {
-    // Make globals accesssible
-    global $is_admin_ajax;
+$ajax = new Ajax();
 
-    $is_admin_ajax = true;
-
-    $shopelloApi = new ShopelloAPI(new Curl());
-    $shopelloApi->setApiKey(get_option('swp_api_key'));
-    $shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
-
-    // Admin uses a flag which means we wont use a predefined SWP Item
-    // Therefore we create a new temporary SWP_item for this request
-    SWP::Instance()->set_active_item(get_swp_item());
-
-    // Get params from whichever object we're using
-    $params = SWP::Instance()->get_active_params();
-    $params = shopello_sanitize_params($params);
-
-    $result = $shopelloApi->getProducts($params);
-
-    $response = (object) array(
-        'status' => $result->status,
-        'products' => shopello_render_products($result)
-    );
-
-    // Possible to request only html
-    die(json_encode($response));
-}));
+add_action('wp_ajax_sapi_get_listing', array($ajax, 'sapiGetListingAdmin'));
+add_action('wp_ajax_nopriv_sapi_get_listing', array($ajax, 'sapiGetListing'));
 
 
 
