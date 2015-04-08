@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.1.1
-Stable tag: 1.10.1
+Stable tag: 1.10.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,7 +28,7 @@ How to install and configure the plugin:
 4. Go to "Shopello" and fill in the API-key and API-endpoint.
 5. Synchronize the categories before you start using the plugin.
 
-PS: You can contact info@shopello.se to request an API key to use with this pulgin.
+If you do not have an API key, please visit https://www.shopelloapi.com/ to request one.
 
 
 == Frequently Asked Questions ==
@@ -40,6 +40,9 @@ Make sure you have entered a correct API-key and API-endpoint. If you have probl
 
 
 == Changelog ==
+
+= 1.10.2 =
+* Improvements in fetching of products
 
 = 1.10.1 =
 * Improved handling of 404 errors from API, now it won't destroy the entire page.

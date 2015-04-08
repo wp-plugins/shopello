@@ -62,14 +62,14 @@
         },
         {
             "name": "shopello/api",
-            "version": "1.0.0",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Shopello/Shopello-PHP.git",
-                "reference": "2712c807294f81a17baebd10d05b07d1f0174f60"
+                "reference": "48d4a05dfea3dded45cf5a6906ba30e772b576c9"
             },
             "require": {
-                "curl/curl": "@stable"
+                "curl/curl": "1.2.0"
             },
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "@stable",
@@ -101,7 +101,7 @@
                 }
             ],
             "description": "PHP Client for Shopello API",
-            "time": "2015-03-05 15:25:29"
+            "time": "2015-04-07 12:38:15"
         }
     ],
     "packages-dev": [
