@@ -1,6 +1,7 @@
 {
     "require": {
-        "shopello/api": "@stable"
+        "shopello/api": "@stable",
+        "twig/twig": "@stable"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "@stable",

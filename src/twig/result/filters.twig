@@ -1,0 +1,125 @@
+<div class="swp-filters filters" id="shopello_filter_wrap">
+    {% if settings.show_keyword_filter %}
+        <div class="item filter-keyword">
+            <h4>{{ lang.keyword }}</h4>
+            <input type="text" id="input-keyword" name="input-keyword" placeholder="{{ lang.keyword }}" value="{{ params.query }}" />
+        </div>
+    {% endif %}
+
+    {% if settings.show_categories_filter %}
+        <div class="item filter-categories">
+            <h4>{{ lang.categories }}</h4>
+            {% if not has_swp_item and is_admin_ajax %}
+                <p class="filter-hint">
+                    {{ lang.categories_hint }}
+                </p>
+                This isn't implemented.
+                <div class="scrollable">
+                    @TODO add category tree here
+                </div>
+            {% else %}
+                {% for category in categories %}
+                    <a href="{{ category.uri }}">{{ category.category_name }}</a><br />
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if settings.show_sorting_filter %}
+        <div class="item filter-pagesize">
+            <h4>{{ lang.products_per_page }}</h4>
+            <select name="preview_per_page" id="input-pagesize">
+                <option value="16" {% if params.pagesize == 16 %}selected="selected"{% endif %}>16</option>
+                <option value="32" {% if params.pagesize == 32 %}selected="selected"{% endif %}>32</option>
+                <option value="64" {% if params.pagesize == 64 %}selected="selected"{% endif %}>64</option>
+            </select>
+        </div>
+    {% endif %}
+
+    {% if settings.show_maxprice_filter %}
+        <div class="item filter-price-max">
+            <h4>
+                {{ lang.max_price }}
+                <span id="label-price-max" style="font-weight: normal;">
+                    {% if maxPrice %}
+                        {{ maxPrice }}{{ lang.currency }}
+                    {% endif %}
+                </span>
+            </h4>
+            <input type="range" id="input-price-max" min="10" max="{{ maxPrice }}" step="1" value="{{ maxPrice }}" />
+            <input type="button" class="button" id="reset-price-max" value="{{ lang.remove_max_price }}" />
+        </div>
+    {% endif %}
+
+    {% if settings.show_sorting_filter %}
+        <div class="item filter-sort">
+            <h4>{{ lang.sorting }}</h4>
+            <select name="preview_sort" id="input-sort-field">
+                {% for value, label in sortables %}
+                    {% if params.order_by == value %}
+                        <option value="{{ value }}" selected="selected">{{ label }}</option>
+                    {% else %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <select name="preview_sort_order" id="input-sort-order">
+                {% for value, label in sortables_order %}
+                    {% if params.order == value %}
+                        <option value="{{ value }}" selected="selected">{{ label }}</option>
+                    {% else %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+
+    {% if settings.show_color_filter %}
+        <div class="item filter-color">
+            <h4>{{ lang.color_filter }}</h4>
+            <div class="colors">
+                {% for slug, name in colors %}
+                    {% if params.color == name %}
+                        <input type="radio" id="color_filter_{{ slug }}" name="color" class="color {{ slug }}" value="{{ name }}" title="{{ name }}" checked="checked" />
+                    {% else %}
+                        <input type="radio" id="color_filter_{{ slug }}" name="color" class="color {{ slug }}" value="{{ name }}" title="{{ name }}" checked="false" />
+                    {% endif %}
+                    <label for="color_filter_{{ slug }}" title="{{ name }}"></label>
+                {% endfor %}
+            </div>
+        </div>
+        <p class="filter-hint">{{ lang.color_hint }}</p>
+    {% endif %}
+
+    {# Admin specific fields #}
+    {% if not has_swp_item and is_admin_ajax %}
+        <div class="item filter-filters">
+            <h4>{{ lang.available_for_listing }}</h4>
+            <fieldset class="cb_list">
+                <input type="checkbox" name="filters" id="cb_filters_keyword" value="keyword">
+                <label for="cb_filters_keyword">{{ lang.keyword }}</label>
+
+                <input type="checkbox" name="filters" id="cb_filters_categories" value="categories">
+                <label for="cb_filters_categories">{{ lang.categories }}</label>
+
+                <input type="checkbox" name="filters" id="cb_filters_pagesize" value="pagesize">
+                <label for="cb_filters_pagesize">{{ lang.products_per_page }}</label>
+
+                <input type="checkbox" name="filters" id="cb_filters_pricemax" value="pricemax">
+                <label for="cb_filters_pricemax">{{ lang.max_price }}</label>
+
+                <input type="checkbox" name="filters" id="cb_filters_sorting" value="sorting">
+                <label for="cb_filters_sorting">{{ lang.sorting }}</label>
+
+                <input type="checkbox" name="filters" id="cb_filters_colors" value="colors">
+                <label for="cb_filters_colors">{{ lang.color_filter }}</label>
+            </fieldset>
+        </div>
+
+        <div class="item">
+            <h4>{{ lang.save_listing }}</h4>
+            <input type="button" class="button" id="save_button" value="{{ lang.save_listing }}"/>
+        </div>
+    {% endif %}
+</div>

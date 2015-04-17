@@ -2,12 +2,51 @@
 namespace SWP;
 
 use \SWP;
+use \category_lib;
 
 use \Shopello\API\ApiClient as ShopelloAPI;
-use \Curl\Curl;
 
-class Ajax
+class Ajax extends RegisterWpActions
 {
+    /** @var ShopelloAPI */
+    private $shopelloApi;
+
+    /** @var category_lib */
+    private $categoryLib;
+
+    public function __construct(ShopelloAPI $shopelloApi, category_lib $categoryLib)
+    {
+        $this->shopelloApi = $shopelloApi;
+        $this->categoryLib = $categoryLib;
+
+        $this->registerActions();
+    }
+
+    /**
+     * Request new list of categories from shopello servers
+     *
+     * @action wp_ajax_sync_categories
+     */
+    public function syncCategories()
+    {
+        if (get_option('swp_settings_status') == true) {
+            if ($this->categoryLib->synchronize_categories_from_server()) {
+                echo '<em class="valid">'.__('The categories has been updated!', 'shopello').'</em>';
+            } else {
+                echo '<em class="invalid">'.__('Could not update, try again later or contact the support.', 'shopello').'</em>';
+            }
+        } else {
+            echo '<em class="invalid">'.__('You have to configure the API-Settings first.', 'shopello').'</em>';
+        }
+
+        wp_die();
+    }
+
+    /**
+     * Get product listing from admin
+     *
+     * @action wp_ajax_sapi_get_listing
+     */
     public function sapiGetListingAdmin()
     {
         // Make globals accesssible
@@ -17,14 +56,15 @@ class Ajax
         return $this->sapiGetListing();
     }
 
+    /**
+     * Get product listing without privilegies
+     *
+     * @action wp_ajax_nopriv_sapi_get_listing
+     */
     public function sapiGetListing()
     {
         // Make globals accesssible
         global $is_admin_ajax;
-
-        $shopelloApi = new ShopelloAPI(new Curl());
-        $shopelloApi->setApiKey(get_option('swp_api_key'));
-        $shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
 
         // Admin uses a flag which means we wont use a predefined SWP Item
         // Therefore we create a new temporary SWP_item for this request
@@ -34,7 +74,7 @@ class Ajax
         $params = SWP::Instance()->get_active_params();
         $params = shopello_sanitize_params($params);
 
-        $result = $shopelloApi->getProducts($params);
+        $result = $this->shopelloApi->getProducts($params);
 
         $response = (object) array(
             'status' => $result->status,
@@ -43,5 +83,130 @@ class Ajax
 
         // Possible to request only html
         wp_die(json_encode($response));
+    }
+
+
+    /**
+     * Admin Get Filters
+     *
+     * @action wp_ajax_sapi_get_filters
+     */
+    public function sapiGetFiltersAdmin()
+    {
+        // Make globals accessible
+        global $is_admin_ajax;
+        $is_admin_ajax = true;
+
+        return $this->sapiGetFilters();
+    }
+
+    /**
+     * Get Filters
+     *
+     * @action wp_ajax_nopriv_sapi_get_filters
+     * @note: This is used, don't know for what though.
+     */
+    public function sapiGetFilters()
+    {
+        // Make globals accesssible
+        global $is_admin_ajax;
+
+        // Flag to ignore json and return html
+        $html_only = post('html_only');
+
+        // Admin uses a flag which means we wont use a predefined SWP Item
+        // Therefore we create a new temporary SWP_item for this request
+        SWP::Instance()->set_active_item(get_swp_item());
+
+        // Get default filters from swp item, and append post/get filters with sanitizer
+        $params = SWP::Instance()->get_active_params();
+        $params = shopello_sanitize_params($params);
+
+        // Run filter-code
+        $html = shopello_render_filters($params);
+
+        $response = (object) array(
+            'status' => true,
+            'params' => $params,
+            'html' => $html
+        );
+
+        // Return generated markup
+    }
+
+    /**
+     * Method to test the API settings provided in options page
+     *
+     * @action wp_ajax_test_api_settings
+     */
+    public function testApiSettingsAdmin()
+    {
+        // Break and fail if key or endpoint not specified.
+        if (post('key') === false && post('endpoint') === false) {
+            die(__('Api Key or Api Endpoint are missing.', 'shopello'));
+        }
+
+        $this->shopelloApi->setApiKey(post('key'));
+        $this->shopelloApi->setApiEndpoint(post('endpoint'));
+
+        try {
+            $testCall = $this->shopelloApi->getProducts(array(
+                'offset' => 0,
+                'limit' => 1
+            ));
+        } catch (Exception $e) {
+            $testCall = $e;
+        }
+
+        $response = (object) array(
+            'status' => (isset($testCall->status) && $testCall->status === true)
+        );
+
+        wp_die(json_encode($response));
+    }
+
+    /**
+     * Ajax method to store item in admin
+     *
+     * @action wp_ajax_save_item
+     */
+    public function saveItem()
+    {
+        $name       = post('name');
+        $pagesize   = post('pagesize');
+        $keyword    = post('keyword');
+        $pricemax   = post('pricemax');
+        $filters    = post('filters');
+        $sort       = post('sort');
+        $sort_order = post('sort_order');
+        $color      = post('color');
+        $categories = explode(',', post('categories', ''));
+
+
+        $item = new \SWP_Item($name, $pagesize, $keyword, $categories);
+        $item->sort       = $sort;
+        $item->sort_order = $sort_order;
+        $item->pricemax   = $pricemax;
+        $item->filters    = $filters;
+        $item->color      = $color;
+        $saved = SWP::Instance()->add($item);
+
+        update_option('swp_list', $_SESSION['SWP_last_saved']);
+
+        // Display-version of added item
+        $data = (object) array(
+            'name' => $item->name,
+            'description' => $item->get_description(DESC_DELIMITER),
+            'id' => $item->get_id()
+        );
+
+        // JSON Response
+        $resp = new \SWPAjaxResponse();
+        $resp->success = $saved;
+        $resp->message = __('New item stored', 'shopello');
+        $resp->serialized = SWP::Instance()->get_serialized_items();
+        $resp->data = $data;
+
+        wp_die($resp->json());
     }
 }

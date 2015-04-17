@@ -1,0 +1,58 @@
+<ul class="shopello_product_list">
+    {% for product in api_result.data %}
+        <li>
+            <div class="shopello_product product {{ product.locale }}" id="product_{{ product.product_id }}">
+                <div class="product_image_wrap">
+                    {% for image in product.images|cast_to_array %}
+                        {% if loop.last %}
+                            <img src="{{ image }}" title="{{ product.name }}" />
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="text">
+                    <h3>
+                        <a href="{{ product.url }}" target="_blank" title="{{ product.name }}">
+                            {{ product.name|slice(0,50) }}
+                        </a>
+                    </h3>
+                    <p class="description">
+                        <p class="price_wrap">
+                            {% if product.price.regular_price > 0 %}
+                                <span class="price sales">{{ product.price.price|number_format }} {{ product.price.currency }}</span>
+                                <span class="price old_price">{{ product.price.regular_price|number_format }} {{ product.price.currency }}</span>
+                            {% else %}
+                                <span class="price">{{ product.price.price|number_format }} {{ product.price.currency }}</span>
+                            {% endif %}
+                        </p>
+                    </p>
+                </div>
+                <div class="checkout_button">
+                    <a href="{{ product.url }}" target="_blank" title="{{ lang.goToProduct }}">{{ lang.buy }}</a>
+                </div>
+            </div>
+        </li>
+    {% else %}
+        {{ lang.noProductsFound }}
+    {% endfor %}
+</ul>
+<div class="shopello_paging">
+    <ul class="pagination">
+        {% if pager.previous %}
+            <li><a href="{{ pager.pages[pager.previous] }}">&laquo;</a></li>
+        {% endif %}
+
+        {% for number,uri in pager.pages %}
+            {% set class = "" %}
+
+            {% if number == pager.active %}
+                {% set class = "active" %}
+            {% endif %}
+
+            <li class="{{ class }}"><a data-pagenum="{{ number }}" class="{{ class }}" href="{{ uri }}">{{ number }}</a></li>
+        {% endfor %}
+
+        {% if pager.next %}
+            <li><a href="{{ pager.pages[pager.next] }}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+</div>

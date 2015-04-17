@@ -188,7 +188,7 @@ class SWP
             if ($params == false || empty($params)) {
                 throw new Exception(
                     sprintf(
-                        __('You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP', 'shopello'),
+                        'You cannot run_query %1$s unless you pass some %2$s',
                         $active_item,
                         $params
                     )
@@ -330,7 +330,7 @@ class SWP
 
         // Shopello custom stuff
         wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'assets/js/jquery.form.min.js', false, '1.0', true);
-        wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL.'assets/js/swp_api_generator.js', false, '1.0.1', true);
         wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'assets/js/frontend.js', false, '0.1', true);
+        wp_enqueue_script('SwpApiGeneratorV2', SHOPELLO_PLUGIN_URL.'assets/js/SwpApiGeneratorV2.js', false, 1.0, true);
     }
 }

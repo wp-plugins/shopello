@@ -209,7 +209,7 @@ function shopello_render_products($api_result, $params = false)
 
     // The full markup
     return $html_start_tag
-        //. print_r($params, true)
+        //. '<pre>' . print_r($params, true) . '</pre>'
         . $title
         . $product_html
         . $pagination
@@ -437,36 +437,9 @@ function swp_get_category_children($pid, $categories)
     return $children;
 }
 
-
-// TEMPORARY DEV FUNCTIONS
-function get_json($file)
-{
-    return json_decode(get_file($file));
-}
-function get_file($file)
-{
-    if (!file_exists($file)) {
-        return "Invalid file: $file";
-    } else {
-        return file_get_contents($file);
-    }
-}
-function jsonp_decode($jsonp, $assoc = false)  // PHP 5.3 adds depth as third parameter to json_decode
-{
-    if ($jsonp[0] !== '[' && $jsonp[0] !== '{') { // we have JSONP
-        $jsonp = substr($jsonp, strpos($jsonp, '('));
-    }
-
-    return json_decode(trim($jsonp, '();'), $assoc);
-}
-function nice_print($v)
-{
-    echo "<pre>";
-    print_r($v);
-    echo "</pre>";
-}
-
-
+/**
+ * Read POST and GET vars
+ */
 function post($p)
 {
     if (!isset($_POST[$p])) {

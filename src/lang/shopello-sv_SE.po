@@ -4,38 +4,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shopello API 1.9.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-03-13 15:42:28+00:00\n"
-"PO-Revision-Date: 2015-03-13 16:43+0100\n"
+"POT-Creation-Date: 2015-04-17 14:30:39+00:00\n"
+"PO-Revision-Date: 2015-04-17 16:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.php:24 admin.php:27
+#: src/admin.php:24 src/admin.php:27
 msgid "Shopello"
 msgstr "Shopello"
 
-#: admin.php:27 src/templates/admin/product-lists.php:16
+#: src/admin.php:27 src/templates/admin/product-lists.php:16
 msgid "Product Listings"
 msgstr "Produktlistningar"
 
-#: admin.php:28 src/templates/admin/account.php:2
+#: src/admin.php:28 src/templates/admin/account.php:2
 msgid "API-Settings"
 msgstr "API-Inställningar"
 
-#: admin.php:29 src/templates/admin/system-test.php:39
+#: src/admin.php:29 src/templates/admin/system-test.php:39
 msgid "System Test"
 msgstr "Systemtester"
 
-#: admin.php:44
+#: src/admin.php:48
 msgid "Working... This can take several minutes..."
 msgstr "Arbetar... Detta kan ta flera minuter..."
 
-#: admin.php:45
+#: src/admin.php:49
 msgid ""
 "You have reached max number of listings (%d st). Remove one to be able to "
 "save this new one."
@@ -43,43 +43,41 @@ msgstr ""
 "Du har uppnått max antal listningar (%d st). Ta bort en för att kunna spara "
 "den nya."
 
-#: admin.php:46
+#: src/admin.php:50
 msgid "Error while saving. Reload the page and try again."
 msgstr "Något gick fel vid sparandet. Ladda om sidan och försök igen."
 
-#: admin.php:47
+#: src/admin.php:51
 msgid "Choose a name for your listing:"
 msgstr "Vilket namn vill du spara din listning med?"
 
-#: admin.php:172
+#: src/admin.php:176
 msgid "Item %d removed"
 msgstr "Listning %d har tagits bort"
 
-#: admin.php:212 admin.php:228 admin.php:245
+#: src/admin.php:216 src/admin.php:232 src/admin.php:249
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Du har inte tillräckliga rättigheter för att besöka denna sida."
 
-#: ajax.php:16
+#: src/classes/SWP/Ajax.php:34
 msgid "The categories has been updated!"
 msgstr "Kategorierna har uppdaterats!"
 
-#: ajax.php:18
+#: src/classes/SWP/Ajax.php:36
 msgid "Could not update, try again later or contact the support."
 msgstr "Kunde inte uppdatera, försök igen senare eller kontakta supporten."
 
-#: ajax.php:21
+#: src/classes/SWP/Ajax.php:39
 msgid "You have to configure the API-Settings first."
 msgstr "Du måste ställa in API-inställningarna först."
 
-#: ajax.php:108
+#: src/classes/SWP/Ajax.php:146
 msgid "Api Key or Api Endpoint are missing."
 msgstr "API-Nyckel eller API-Adress saknas."
 
-#: src/classes/SWP.php:191
-msgid "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
-msgstr ""
-"Du kan inte köra run_query %1$s är satt eller så måste du skicka %2$s! // "
-"Mvh, SWP"
+#: src/classes/SWP/Ajax.php:206
+msgid "New item stored"
+msgstr "Nytt objekt sparat"
 
 #: src/classes/SWP_Item.php:55
 msgid "Query: %s"
@@ -158,15 +156,158 @@ msgstr ""
 "inställningarna. Har du ingen API-endpoint så kan du besöka https://www."
 "shopelloapi.com/ för att erhålla en."
 
-#: src/helpers.php:153
+#: src/helpers.php:153 src/rendering_helpers.php:42
 msgid "product"
 msgstr "produkt"
 
-#: src/helpers.php:153 src/helpers.php:154
+#: src/helpers.php:153 src/helpers.php:154 src/rendering_helpers.php:42
+#: src/rendering_helpers.php:43
 msgid "products"
 msgstr "produkter"
 
-#: src/shortcodes/result.php:29
+#: src/rendering_helpers.php:21
+msgid "Go to product"
+msgstr "Gå till produkt"
+
+#: src/rendering_helpers.php:22
+msgid "Buy"
+msgstr "Köp"
+
+#: src/rendering_helpers.php:23
+msgid "No products found"
+msgstr "Inga produkter hittade"
+
+#: src/rendering_helpers.php:30
+msgid "none"
+msgstr "inga"
+
+#: src/rendering_helpers.php:123 src/templates/result/filters.php:98
+msgid "Price"
+msgstr "Pris"
+
+#: src/rendering_helpers.php:124 src/templates/result/filters.php:99
+msgid "Name"
+msgstr "Namn"
+
+#: src/rendering_helpers.php:125 src/templates/result/filters.php:100
+msgid "Clicks"
+msgstr "Click"
+
+#: src/rendering_helpers.php:126 src/templates/result/filters.php:101
+msgid "Popularity"
+msgstr "Popularitet"
+
+#: src/rendering_helpers.php:130
+msgid "Ascending"
+msgstr "Stigande"
+
+#: src/rendering_helpers.php:131
+msgid "Descending"
+msgstr "Fallande"
+
+#: src/rendering_helpers.php:135 src/templates/result/filters.php:127
+msgid "white"
+msgstr "vit"
+
+#: src/rendering_helpers.php:136 src/templates/result/filters.php:128
+msgid "gray"
+msgstr "grå"
+
+#: src/rendering_helpers.php:137 src/templates/result/filters.php:129
+msgid "black"
+msgstr "svart"
+
+#: src/rendering_helpers.php:138 src/templates/result/filters.php:130
+msgid "blue"
+msgstr "blå"
+
+#: src/rendering_helpers.php:139 src/templates/result/filters.php:131
+msgid "green"
+msgstr "grön"
+
+#: src/rendering_helpers.php:140 src/templates/result/filters.php:132
+msgid "yellow"
+msgstr "gul"
+
+#: src/rendering_helpers.php:141 src/templates/result/filters.php:133
+msgid "orange"
+msgstr "orange"
+
+#: src/rendering_helpers.php:142 src/templates/result/filters.php:134
+msgid "red"
+msgstr "röd"
+
+#: src/rendering_helpers.php:143 src/templates/result/filters.php:135
+msgid "pink"
+msgstr "rosa"
+
+#: src/rendering_helpers.php:144 src/templates/result/filters.php:136
+msgid "purple"
+msgstr "lila"
+
+#: src/rendering_helpers.php:161 src/templates/result/filters.php:48
+#: src/templates/result/filters.php:49 src/templates/result/filters.php:164
+msgid "Keyword"
+msgstr "Sökord"
+
+#: src/rendering_helpers.php:162 src/templates/admin/account.php:75
+#: src/templates/result/filters.php:56 src/templates/result/filters.php:167
+msgid "Categories"
+msgstr "Kategorier"
+
+#: src/rendering_helpers.php:163 src/templates/result/filters.php:58
+msgid ""
+"If a selected category has sub-categories, the subcategories will be "
+"included even when not selected."
+msgstr ""
+"Om en vald kategori har underkategorier så tas de automatiskt med i valet, "
+"trots att de inte är ikryssade."
+
+#: src/rendering_helpers.php:164 src/templates/result/filters.php:75
+#: src/templates/result/filters.php:173
+msgid "Products per page"
+msgstr "Produkter per sida"
+
+#: src/rendering_helpers.php:165 src/templates/result/filters.php:86
+#: src/templates/result/filters.php:176
+msgid "Max Price"
+msgstr "Pristak"
+
+#: src/rendering_helpers.php:166 src/templates/result/filters.php:86
+msgid " kr"
+msgstr " kr"
+
+#: src/rendering_helpers.php:167 src/templates/result/filters.php:88
+msgid "Remove max price"
+msgstr "Ta bort Pristak"
+
+#: src/rendering_helpers.php:168 src/templates/result/filters.php:94
+#: src/templates/result/filters.php:179
+msgid "Sorting"
+msgstr "Sortering"
+
+#: src/rendering_helpers.php:169 src/templates/result/filters.php:123
+#: src/templates/result/filters.php:182
+msgid "Color Filter"
+msgstr "Färgfilter"
+
+#: src/rendering_helpers.php:170 src/templates/result/filters.php:152
+msgid ""
+"You can only choose one color. Click on the chosen color to remove the "
+"colorfilter."
+msgstr ""
+"Du kan bara välja en färg. För att bort färgfilter, klicka på vald färg igen."
+
+#: src/rendering_helpers.php:171 src/templates/result/filters.php:160
+msgid "Available filters for listing"
+msgstr "Tillgängliga filter för listning"
+
+#: src/rendering_helpers.php:172 src/templates/result/filters.php:188
+msgid "Save Listing"
+msgstr "Spara Produktlistning"
+
+#: src/shortcodes/result.php:29 src/shortcodes/shopello_filters.php:11
+#: src/shortcodes/shopello_products.php:14
 msgid ""
 "The product listing you are trying to use does not exist. Please check your "
 "API-Settings."
@@ -240,11 +381,6 @@ msgstr "Till exempel: \"för sökordet %phrase%\"."
 #: src/templates/admin/account.php:70
 msgid "Result: \"Found 247 products for phrase Shoes\""
 msgstr "Resultat: \"Hittade 247 produkter för sökordet Skor\""
-
-#: src/templates/admin/account.php:75 src/templates/result/filters.php:56
-#: src/templates/result/filters.php:167
-msgid "Categories"
-msgstr "Kategorier"
 
 #: src/templates/admin/account.php:78
 msgid "Synchronize categories"
@@ -328,58 +464,9 @@ msgstr "CURL tilläget installerat"
 msgid "Able to connect to Shopello with CURL"
 msgstr "Lyckas ansluta till Shopello med CURL"
 
-#: src/templates/result/filters.php:48 src/templates/result/filters.php:49
-#: src/templates/result/filters.php:164
-msgid "Keyword"
-msgstr "Sökord"
-
 #: src/templates/result/filters.php:50
 msgid "Use your own keywords to limit the results."
 msgstr "Använd egna sökord för att begränsa produkturvalet."
-
-#: src/templates/result/filters.php:58
-msgid ""
-"If a selected category has sub-categories, the subcategories will be "
-"included even when not selected."
-msgstr ""
-"Om en vald kategori har underkategorier så tas de automatiskt med i valet, "
-"trots att de inte är ikryssade."
-
-#: src/templates/result/filters.php:75 src/templates/result/filters.php:173
-msgid "Products per page"
-msgstr "Produkter per sida"
-
-#: src/templates/result/filters.php:86 src/templates/result/filters.php:176
-msgid "Max Price"
-msgstr "Pristak"
-
-#: src/templates/result/filters.php:86
-msgid " kr"
-msgstr " kr"
-
-#: src/templates/result/filters.php:88
-msgid "Remove max price"
-msgstr "Ta bort Pristak"
-
-#: src/templates/result/filters.php:94 src/templates/result/filters.php:179
-msgid "Sorting"
-msgstr "Sortering"
-
-#: src/templates/result/filters.php:98
-msgid "Price"
-msgstr "Pris"
-
-#: src/templates/result/filters.php:99
-msgid "Name"
-msgstr "Namn"
-
-#: src/templates/result/filters.php:100
-msgid "Clicks"
-msgstr "Click"
-
-#: src/templates/result/filters.php:101
-msgid "Popularity"
-msgstr "Popularitet"
 
 #: src/templates/result/filters.php:115
 msgid "Rising"
@@ -388,65 +475,6 @@ msgstr "Stigande"
 #: src/templates/result/filters.php:116
 msgid "Falling"
 msgstr "Fallande"
-
-#: src/templates/result/filters.php:123 src/templates/result/filters.php:182
-msgid "Color Filter"
-msgstr "Färgfilter"
-
-#: src/templates/result/filters.php:127
-msgid "white"
-msgstr "vit"
-
-#: src/templates/result/filters.php:128
-msgid "gray"
-msgstr "grå"
-
-#: src/templates/result/filters.php:129
-msgid "black"
-msgstr "svart"
-
-#: src/templates/result/filters.php:130
-msgid "blue"
-msgstr "blå"
-
-#: src/templates/result/filters.php:131
-msgid "green"
-msgstr "grön"
-
-#: src/templates/result/filters.php:132
-msgid "yellow"
-msgstr "gul"
-
-#: src/templates/result/filters.php:133
-msgid "orange"
-msgstr "orange"
-
-#: src/templates/result/filters.php:134
-msgid "red"
-msgstr "röd"
-
-#: src/templates/result/filters.php:135
-msgid "pink"
-msgstr "rosa"
-
-#: src/templates/result/filters.php:136
-msgid "purple"
-msgstr "lila"
-
-#: src/templates/result/filters.php:152
-msgid ""
-"You can only choose one color. Click on the chosen color to remove the "
-"colorfilter."
-msgstr ""
-"Du kan bara välja en färg. För att bort färgfilter, klicka på vald färg igen."
-
-#: src/templates/result/filters.php:160
-msgid "Available filters for listing"
-msgstr "Tillgängliga filter för listning"
-
-#: src/templates/result/filters.php:188
-msgid "Save Listing"
-msgstr "Spara Produktlistning"
 
 #: src/templates/result/no_hits.php:1
 msgid "We did not find any results for this search."
@@ -471,3 +499,9 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Shopello AB"
 msgstr "Shopello AB"
+
+#~ msgid ""
+#~ "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
+#~ msgstr ""
+#~ "Du kan inte köra run_query %1$s är satt eller så måste du skicka %2$s! // "
+#~ "Mvh, SWP"

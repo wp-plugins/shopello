@@ -40,6 +40,10 @@ add_action('admin_enqueue_scripts', (function () {
     wp_enqueue_script('generator_js', SHOPELLO_PLUGIN_URL.'assets/js/swp_api_generator.js', false, '1.0.0', true);
     wp_enqueue_script('admin_js', SHOPELLO_PLUGIN_URL.'assets/js/admin.js', false, '1.0.0', true);
 
+    wp_localize_script('generator_js', 'scriptL10n', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
+
     wp_localize_script('admin_js', 'adminL10n', array(
         'working_button' => __('Working... This can take several minutes...', 'shopello'),
         'max_listings' => __('You have reached max number of listings (%d st). Remove one to be able to save this new one.', 'shopello'),

@@ -7,7 +7,7 @@ session_start();
  * Plugin Name: Shopello API
  * Plugin URI: http://shopello.se/api/wordpress
  * Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
- * Version: 1.10.2
+ * Version: 2.0.0
  * Author: Shopello AB
  */
 
@@ -22,18 +22,19 @@ define('SHOPELLO_PLUGIN_TEMPLATE_DIR', SHOPELLO_PLUGIN_DIR.'src/templates/');
 define('SHOPELLO_PLUGIN_TABLE_CATEGORIES', 'swp_categories');
 define('SHOPELLO_PLUGIN_TABLE_RELATIONS', 'swp_category_parents');
 
-require_once(SHOPELLO_PLUGIN_DIR.'vendor/autoload.php');
-
 // Add hook to init language support
 add_action('plugins_loaded', (function () {
     load_plugin_textdomain('shopello', false, dirname(plugin_basename(__FILE__)).'/src/lang/');
 }));
+
+require_once(SHOPELLO_PLUGIN_DIR.'vendor/autoload.php');
 
 // Include the install script for database tables
 require_once(SHOPELLO_PLUGIN_DIR.'src/dbinstall.php');
 
 // Methods for getting data, API access and rendering / parsing
 require_once(SHOPELLO_PLUGIN_DIR.'src/helpers.php');
+require_once(SHOPELLO_PLUGIN_DIR.'src/rendering_helpers.php');
 
 // Setup widget and admin for widget
 require_once(SHOPELLO_PLUGIN_DIR.'src/widget.php');
@@ -41,8 +42,19 @@ require_once(SHOPELLO_PLUGIN_DIR.'src/widget.php');
 // Setup adminpage for the plugin
 require_once(SHOPELLO_PLUGIN_DIR.'src/admin.php');
 
-// Include Ajax handling
-require_once(SHOPELLO_PLUGIN_DIR.'src/ajax.php');
+
+
+// Setup Ajax handling
+global $is_admin_ajax;
+$is_admin_ajax = false;
+
+$shopelloApi = new \Shopello\API\ApiClient(new \Curl\Curl());
+$shopelloApi->setApiKey(get_option('swp_api_key'));
+$shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
+
+$swpAjax = new \SWP\Ajax($shopelloApi, new \category_lib());
+
+
 
 // Include all the shortcode-codes
 require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes.php');
