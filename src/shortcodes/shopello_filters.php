@@ -49,7 +49,7 @@ add_shortcode('shopello_filters', (function () {
     }
 
     if (get('swp_color')) {
-        $params['query'] .= ' '.get('swp_color');
+        $params['color'] = get('swp_color');
     }
 
     // Run filter-code

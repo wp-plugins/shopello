@@ -83,7 +83,7 @@
                     {% if params.color == name %}
                         <input type="radio" id="color_filter_{{ slug }}" name="color" class="color {{ slug }}" value="{{ name }}" title="{{ name }}" checked="checked" />
                     {% else %}
-                        <input type="radio" id="color_filter_{{ slug }}" name="color" class="color {{ slug }}" value="{{ name }}" title="{{ name }}" checked="false" />
+                        <input type="radio" id="color_filter_{{ slug }}" name="color" class="color {{ slug }}" value="{{ name }}" title="{{ name }}" />
                     {% endif %}
                     <label for="color_filter_{{ slug }}" title="{{ name }}"></label>
                 {% endfor %}
