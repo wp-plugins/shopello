@@ -4,38 +4,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shopello API 1.9.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-03-13 15:42:28+00:00\n"
-"PO-Revision-Date: 2015-03-13 16:43+0100\n"
+"POT-Creation-Date: 2015-04-16 09:16:48+00:00\n"
+"PO-Revision-Date: 2015-04-16 11:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.php:24 admin.php:27
+#: src/admin.php:24 src/admin.php:27
 msgid "Shopello"
 msgstr "Shopello"
 
-#: admin.php:27 src/templates/admin/product-lists.php:16
+#: src/admin.php:27 src/templates/admin/product-lists.php:16
 msgid "Product Listings"
 msgstr "Product Listings"
 
-#: admin.php:28 src/templates/admin/account.php:2
+#: src/admin.php:28 src/templates/admin/account.php:2
 msgid "API-Settings"
 msgstr "API-Settings"
 
-#: admin.php:29 src/templates/admin/system-test.php:39
+#: src/admin.php:29 src/templates/admin/system-test.php:39
 msgid "System Test"
 msgstr "System Test"
 
-#: admin.php:44
+#: src/admin.php:44
 msgid "Working... This can take several minutes..."
 msgstr "Working... This can take several minutes..."
 
-#: admin.php:45
+#: src/admin.php:45
 msgid ""
 "You have reached max number of listings (%d st). Remove one to be able to "
 "save this new one."
@@ -43,41 +43,41 @@ msgstr ""
 "You have reached max number of listings (%d st). Remove one to be able to "
 "save this new one."
 
-#: admin.php:46
+#: src/admin.php:46
 msgid "Error while saving. Reload the page and try again."
 msgstr "Error while saving. Reload the page and try again."
 
-#: admin.php:47
+#: src/admin.php:47
 msgid "Choose a name for your listing:"
 msgstr "Choose a name for your listing:"
 
-#: admin.php:172
+#: src/admin.php:172
 msgid "Item %d removed"
 msgstr "Item %d removed"
 
-#: admin.php:212 admin.php:228 admin.php:245
+#: src/admin.php:212 src/admin.php:228 src/admin.php:245
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
-#: ajax.php:16
+#: src/classes/SWP/Ajax.php:34
 msgid "The categories has been updated!"
 msgstr "The categories has been updated!"
 
-#: ajax.php:18
+#: src/classes/SWP/Ajax.php:36
 msgid "Could not update, try again later or contact the support."
 msgstr "Could not update, try again later or contact the support."
 
-#: ajax.php:21
+#: src/classes/SWP/Ajax.php:39
 msgid "You have to configure the API-Settings first."
 msgstr "You have to configure the API-Settings first."
 
-#: ajax.php:108
+#: src/classes/SWP/Ajax.php:146
 msgid "Api Key or Api Endpoint are missing."
 msgstr "Api Key or Api Endpoint are missing."
 
-#: src/classes/SWP.php:191
-msgid "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
-msgstr "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
+#: src/classes/SWP/Ajax.php:206
+msgid "New item stored"
+msgstr "New item stored"
 
 #: src/classes/SWP_Item.php:55
 msgid "Query: %s"
@@ -156,15 +156,159 @@ msgstr ""
 "the settings. If you do not have an API-Endpoint so please visit https://www."
 "shopelloapi.com/ to get one."
 
-#: src/helpers.php:153
+#: src/helpers.php:153 src/rendering_helpers.php:42
 msgid "product"
 msgstr "product"
 
-#: src/helpers.php:153 src/helpers.php:154
+#: src/helpers.php:153 src/helpers.php:154 src/rendering_helpers.php:42
+#: src/rendering_helpers.php:43
 msgid "products"
 msgstr "products"
 
-#: src/shortcodes/result.php:29
+#: src/rendering_helpers.php:21
+msgid "Go to product"
+msgstr "Go to product"
+
+#: src/rendering_helpers.php:22
+msgid "Buy"
+msgstr "Buy"
+
+#: src/rendering_helpers.php:23
+msgid "No products found"
+msgstr "No products found"
+
+#: src/rendering_helpers.php:30
+msgid "none"
+msgstr "none"
+
+#: src/rendering_helpers.php:105 src/templates/result/filters.php:98
+msgid "Price"
+msgstr "Price"
+
+#: src/rendering_helpers.php:106 src/templates/result/filters.php:99
+msgid "Name"
+msgstr "Name"
+
+#: src/rendering_helpers.php:107 src/templates/result/filters.php:100
+msgid "Clicks"
+msgstr "Clicks"
+
+#: src/rendering_helpers.php:108 src/templates/result/filters.php:101
+msgid "Popularity"
+msgstr "Popularity"
+
+#: src/rendering_helpers.php:112
+msgid "Ascending"
+msgstr "Ascending"
+
+#: src/rendering_helpers.php:113
+msgid "Descending"
+msgstr "Descending"
+
+#: src/rendering_helpers.php:117 src/templates/result/filters.php:127
+msgid "white"
+msgstr "vit"
+
+#: src/rendering_helpers.php:118 src/templates/result/filters.php:128
+msgid "gray"
+msgstr "grågra"
+
+#: src/rendering_helpers.php:119 src/templates/result/filters.php:129
+msgid "black"
+msgstr "svart"
+
+#: src/rendering_helpers.php:120 src/templates/result/filters.php:130
+msgid "blue"
+msgstr "blå"
+
+#: src/rendering_helpers.php:121 src/templates/result/filters.php:131
+msgid "green"
+msgstr "grön"
+
+#: src/rendering_helpers.php:122 src/templates/result/filters.php:132
+msgid "yellow"
+msgstr "gul"
+
+#: src/rendering_helpers.php:123 src/templates/result/filters.php:133
+msgid "orange"
+msgstr "orange"
+
+#: src/rendering_helpers.php:124 src/templates/result/filters.php:134
+msgid "red"
+msgstr "röd"
+
+#: src/rendering_helpers.php:125 src/templates/result/filters.php:135
+msgid "pink"
+msgstr "rosa"
+
+#: src/rendering_helpers.php:126 src/templates/result/filters.php:136
+msgid "purple"
+msgstr "lila"
+
+#: src/rendering_helpers.php:143 src/templates/result/filters.php:48
+#: src/templates/result/filters.php:49 src/templates/result/filters.php:164
+msgid "Keyword"
+msgstr "Keyword"
+
+#: src/rendering_helpers.php:144 src/templates/admin/account.php:75
+#: src/templates/result/filters.php:56 src/templates/result/filters.php:167
+msgid "Categories"
+msgstr "Categories"
+
+#: src/rendering_helpers.php:145 src/templates/result/filters.php:58
+msgid ""
+"If a selected category has sub-categories, the subcategories will be "
+"included even when not selected."
+msgstr ""
+"If a selected category has sub-categories, the subcategories will be "
+"included even when not selected."
+
+#: src/rendering_helpers.php:146 src/templates/result/filters.php:75
+#: src/templates/result/filters.php:173
+msgid "Products per page"
+msgstr "Products per page"
+
+#: src/rendering_helpers.php:147 src/templates/result/filters.php:86
+#: src/templates/result/filters.php:176
+msgid "Max Price"
+msgstr "Max Price"
+
+#: src/rendering_helpers.php:148 src/templates/result/filters.php:86
+msgid " kr"
+msgstr " kr"
+
+#: src/rendering_helpers.php:149 src/templates/result/filters.php:88
+msgid "Remove max price"
+msgstr "Remove max price"
+
+#: src/rendering_helpers.php:150 src/templates/result/filters.php:94
+#: src/templates/result/filters.php:179
+msgid "Sorting"
+msgstr "Sorting"
+
+#: src/rendering_helpers.php:151 src/templates/result/filters.php:123
+#: src/templates/result/filters.php:182
+msgid "Color Filter"
+msgstr "Color Filter"
+
+#: src/rendering_helpers.php:152 src/templates/result/filters.php:152
+msgid ""
+"You can only choose one color. Click on the chosen color to remove the "
+"colorfilter."
+msgstr ""
+"You can only choose one color. Click on the chosen color to remove the "
+"colorfilter."
+
+#: src/rendering_helpers.php:153 src/templates/result/filters.php:160
+msgid "Available filters for listing"
+msgstr "Available filters for listing"
+
+#: src/rendering_helpers.php:154 src/templates/result/filters.php:188
+msgid "Save Listing"
+msgstr "Save Listing"
+
+#: src/shortcodes/result.php:29 src/shortcodes/shopello_filters.php:11
+#: src/shortcodes/shopello_products.php:14
 msgid ""
 "The product listing you are trying to use does not exist. Please check your "
 "API-Settings."
@@ -237,11 +381,6 @@ msgstr "For example: \"for phrase %phrase%\"."
 #: src/templates/admin/account.php:70
 msgid "Result: \"Found 247 products for phrase Shoes\""
 msgstr "Result: \"Found 247 products for phrase Shoes\""
-
-#: src/templates/admin/account.php:75 src/templates/result/filters.php:56
-#: src/templates/result/filters.php:167
-msgid "Categories"
-msgstr "Categories"
 
 #: src/templates/admin/account.php:78
 msgid "Synchronize categories"
@@ -323,58 +462,9 @@ msgstr "CURL Extension installed"
 msgid "Able to connect to Shopello with CURL"
 msgstr "Able to connect to Shopello with CURL"
 
-#: src/templates/result/filters.php:48 src/templates/result/filters.php:49
-#: src/templates/result/filters.php:164
-msgid "Keyword"
-msgstr "Keyword"
-
 #: src/templates/result/filters.php:50
 msgid "Use your own keywords to limit the results."
 msgstr "Use your own keywords to limit the results."
-
-#: src/templates/result/filters.php:58
-msgid ""
-"If a selected category has sub-categories, the subcategories will be "
-"included even when not selected."
-msgstr ""
-"If a selected category has sub-categories, the subcategories will be "
-"included even when not selected."
-
-#: src/templates/result/filters.php:75 src/templates/result/filters.php:173
-msgid "Products per page"
-msgstr "Products per page"
-
-#: src/templates/result/filters.php:86 src/templates/result/filters.php:176
-msgid "Max Price"
-msgstr "Max Price"
-
-#: src/templates/result/filters.php:86
-msgid " kr"
-msgstr " kr"
-
-#: src/templates/result/filters.php:88
-msgid "Remove max price"
-msgstr "Remove max price"
-
-#: src/templates/result/filters.php:94 src/templates/result/filters.php:179
-msgid "Sorting"
-msgstr "Sorting"
-
-#: src/templates/result/filters.php:98
-msgid "Price"
-msgstr "Price"
-
-#: src/templates/result/filters.php:99
-msgid "Name"
-msgstr "Name"
-
-#: src/templates/result/filters.php:100
-msgid "Clicks"
-msgstr "Clicks"
-
-#: src/templates/result/filters.php:101
-msgid "Popularity"
-msgstr "Popularity"
 
 #: src/templates/result/filters.php:115
 msgid "Rising"
@@ -383,66 +473,6 @@ msgstr "Rising"
 #: src/templates/result/filters.php:116
 msgid "Falling"
 msgstr "Falling"
-
-#: src/templates/result/filters.php:123 src/templates/result/filters.php:182
-msgid "Color Filter"
-msgstr "Color Filter"
-
-#: src/templates/result/filters.php:127
-msgid "white"
-msgstr "vit"
-
-#: src/templates/result/filters.php:128
-msgid "gray"
-msgstr "grågra"
-
-#: src/templates/result/filters.php:129
-msgid "black"
-msgstr "svart"
-
-#: src/templates/result/filters.php:130
-msgid "blue"
-msgstr "blå"
-
-#: src/templates/result/filters.php:131
-msgid "green"
-msgstr "grön"
-
-#: src/templates/result/filters.php:132
-msgid "yellow"
-msgstr "gul"
-
-#: src/templates/result/filters.php:133
-msgid "orange"
-msgstr "orange"
-
-#: src/templates/result/filters.php:134
-msgid "red"
-msgstr "röd"
-
-#: src/templates/result/filters.php:135
-msgid "pink"
-msgstr "rosa"
-
-#: src/templates/result/filters.php:136
-msgid "purple"
-msgstr "lila"
-
-#: src/templates/result/filters.php:152
-msgid ""
-"You can only choose one color. Click on the chosen color to remove the "
-"colorfilter."
-msgstr ""
-"You can only choose one color. Click on the chosen color to remove the "
-"colorfilter."
-
-#: src/templates/result/filters.php:160
-msgid "Available filters for listing"
-msgstr "Available filters for listing"
-
-#: src/templates/result/filters.php:188
-msgid "Save Listing"
-msgstr "Save Listing"
 
 #: src/templates/result/no_hits.php:1
 msgid "We did not find any results for this search."
@@ -467,3 +497,8 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Shopello AB"
 msgstr "Shopello AB"
+
+#~ msgid ""
+#~ "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
+#~ msgstr ""
+#~ "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"
