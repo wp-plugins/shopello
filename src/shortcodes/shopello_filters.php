@@ -32,10 +32,6 @@ add_shortcode('shopello_filters', (function () {
         $params['limit'] = $params['pagesize'];
     }
 
-    if (get('swp_query')) {
-        $params['query'] = get('swp_query');
-    }
-
     if (get('swp_maxprice')) {
         $params['price_max'] = intval(get('swp_maxprice'));
     }

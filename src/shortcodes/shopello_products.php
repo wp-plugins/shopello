@@ -43,6 +43,10 @@ add_shortcode('shopello_products', (function () {
         $params['price_max'] = intval(get('swp_maxprice'));
     }
 
+    if (get('swp_category')) {
+        $params['category_id'] = get('swp_category');
+    }
+
     if (get('swp_sorting')) {
         $params['order_by'] = get('swp_sorting');
     }
