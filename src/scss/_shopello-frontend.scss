@@ -105,20 +105,16 @@ ul.shopello_product_list {
 	    }
 
 	    .checkout_button {
-		padding: 0px;
-
-		a {
-		    text-align: center;
-		    display: block;
-		    background: #ccc; // rgba(65,148,192,1);
-		    border-radius: 3px;
-		    color: white;
-		    font-weight: bold;
-		    text-decoration: none;
-		    padding: 5px;
-		    font-size: 12px;
-		    text-transform: uppercase;
-		}
+		text-align: center;
+		display: block;
+		background: #ccc;
+		border-radius: 3px;
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+		padding: 5px;
+		font-size: 12px;
+		text-transform: uppercase;
 	    }
 
 	    a {
@@ -133,8 +129,8 @@ ul.shopello_product_list {
 		a {
 		    color:rgba(65,148,192,1);
 		}
-		.checkout_button a {
-		    color:#fff;
+		.checkout_button {
+		    color: #fff;
 		    background: rgba(65,148,192,0.8);
 		}
 	    }

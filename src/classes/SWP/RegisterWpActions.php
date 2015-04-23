@@ -1,7 +1,7 @@
 <?php
 namespace SWP;
 
-class RegisterWpActions
+abstract class RegisterWpActions
 {
     public function registerActions()
     {

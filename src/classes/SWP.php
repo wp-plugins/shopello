@@ -326,7 +326,7 @@ class SWP
     public function frontend_dependencies()
     {
         // Shopello css
-        wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css');
+        wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css', array(), '1.0.0');
 
         // Shopello custom stuff
         wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'assets/js/jquery.form.min.js', false, '1.0', true);
