@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "388f9f3fb397d45d64004bb1223be201",
+    "hash": "e85dd8c6de0bcc01480e48d5b90e2e6e",
     "packages": [
         {
             "name": "curl/curl",
@@ -66,7 +66,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Shopello/Shopello-PHP.git",
-                "reference": "48d4a05dfea3dded45cf5a6906ba30e772b576c9"
+                "reference": "3271e860fe0345c11b1d62c95625cab5a5625ab7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Shopello/Shopello-PHP/zipball/3271e860fe0345c11b1d62c95625cab5a5625ab7",
+                "reference": "3271e860fe0345c11b1d62c95625cab5a5625ab7",
+                "shasum": ""
             },
             "require": {
                 "curl/curl": "1.2.0"
@@ -83,11 +89,7 @@
                     "Shopello\\API\\": "src/ShopelloAPI"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\Shopello\\API\\": "unit/src/ShopelloAPI"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "ISC"
             ],
@@ -105,20 +107,20 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.18.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "4cf7464348e7f9893a93f7096a90b73722be99cf"
+                "reference": "9f70492f44398e276d1b81c1b43adfe6751c7b7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/4cf7464348e7f9893a93f7096a90b73722be99cf",
-                "reference": "4cf7464348e7f9893a93f7096a90b73722be99cf",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9f70492f44398e276d1b81c1b43adfe6751c7b7f",
+                "reference": "9f70492f44398e276d1b81c1b43adfe6751c7b7f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4"
+                "php": ">=5.2.7"
             },
             "type": "library",
             "extra": {
@@ -158,7 +160,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-01-25 17:32:08"
+            "time": "2015-04-19 08:30:27"
         }
     ],
     "packages-dev": [
@@ -168,12 +170,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/scssphp.git",
-                "reference": "cc3e8945fc7a46350c09d3610f2714875b15954a"
+                "reference": "75db4524f22a19ca4ff36899c8d3be311d53f93d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafo/scssphp/zipball/cc3e8945fc7a46350c09d3610f2714875b15954a",
-                "reference": "cc3e8945fc7a46350c09d3610f2714875b15954a",
+                "url": "https://api.github.com/repos/leafo/scssphp/zipball/75db4524f22a19ca4ff36899c8d3be311d53f93d",
+                "reference": "75db4524f22a19ca4ff36899c8d3be311d53f93d",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +217,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2015-01-27 19:12:34"
+            "time": "2015-04-15 18:02:44"
         },
         {
             "name": "squizlabs/php_codesniffer",

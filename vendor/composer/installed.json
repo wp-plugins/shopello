@@ -62,7 +62,13 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Shopello/Shopello-PHP.git",
-            "reference": "48d4a05dfea3dded45cf5a6906ba30e772b576c9"
+            "reference": "3271e860fe0345c11b1d62c95625cab5a5625ab7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Shopello/Shopello-PHP/zipball/3271e860fe0345c11b1d62c95625cab5a5625ab7",
+            "reference": "3271e860fe0345c11b1d62c95625cab5a5625ab7",
+            "shasum": ""
         },
         "require": {
             "curl/curl": "1.2.0"
@@ -75,17 +81,13 @@
         },
         "time": "2015-04-07 12:38:15",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Shopello\\API\\": "src/ShopelloAPI"
             }
         },
-        "autoload-dev": {
-            "psr-4": {
-                "Tests\\Shopello\\API\\": "unit/src/ShopelloAPI"
-            }
-        },
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "ISC"
         ],
@@ -102,23 +104,23 @@
     },
     {
         "name": "twig/twig",
-        "version": "v1.18.0",
-        "version_normalized": "1.18.0.0",
+        "version": "v1.18.1",
+        "version_normalized": "1.18.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "4cf7464348e7f9893a93f7096a90b73722be99cf"
+            "reference": "9f70492f44398e276d1b81c1b43adfe6751c7b7f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/4cf7464348e7f9893a93f7096a90b73722be99cf",
-            "reference": "4cf7464348e7f9893a93f7096a90b73722be99cf",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/9f70492f44398e276d1b81c1b43adfe6751c7b7f",
+            "reference": "9f70492f44398e276d1b81c1b43adfe6751c7b7f",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.2.4"
+            "php": ">=5.2.7"
         },
-        "time": "2015-01-25 17:32:08",
+        "time": "2015-04-19 08:30:27",
         "type": "library",
         "extra": {
             "branch-alias": {
