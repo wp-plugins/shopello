@@ -209,4 +209,55 @@ class Ajax extends RegisterWpActions
 
         wp_die($resp->json());
     }
+
+    /**
+     * Admin page: Edit item -- does this work?
+     *
+     * @action wp_ajax_edit_item
+     */
+    public function editItem()
+    {
+        $id = isset($_POST['id']) ? intval($_POST['id']) : false;
+        $done = false;
+
+        if ($id) {
+            $changes = array();
+            $possible = array('name', 'pagesize', 'categories', 'keyword');
+
+            foreach ($possible as $key) {
+                if (isset($_POST[$key])) {
+                    $changes[$key] = $_POST[$key];
+                }
+            }
+
+            $done = SWP::Instance()->edit($id, $changes);
+        }
+
+        // JSON Response
+        $resp = new SWPAjaxResponse();
+        $resp->success = $done;
+        $resp->message = 'Item '.$id.' edited.';
+        $resp->serialized = SWP::Instance()->get_serialized_items();
+
+        die($resp->json());
+    }
+
+    /**
+     * Admin page: Remove Item
+     *
+     * @action wp_ajax_remove_item
+     */
+    public function removeItem()
+    {
+        $id = $_POST['id'];
+        $removed = SWP::Instance()->remove($id);
+
+        // JSON Response
+        $resp = new SWPAjaxResponse();
+        $resp->success = $removed;
+        $resp->message = sprintf(__('Item %d removed', 'shopello'), $id);
+        $resp->serialized = SWP::Instance()->get_serialized_items();
+
+        die($resp->json());
+    }
 }

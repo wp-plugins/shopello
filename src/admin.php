@@ -136,53 +136,6 @@ function sanitize_swp_items()
 
 
 
-add_action('wp_ajax_edit_item', (function () {
-    $id = isset($_POST['id']) ? intval($_POST['id']) : false;
-    $done = false;
-
-    if ($id) {
-        $changes = array();
-        $possible = array('name', 'pagesize', 'categories', 'keyword');
-
-        foreach ($possible as $key) {
-            if (isset($_POST[$key])) {
-                $changes[$key] = $_POST[$key];
-            }
-        }
-        $done = SWP::Instance()->edit($id, $changes);
-    }
-
-
-    // JSON Response
-    $resp = new SWPAjaxResponse();
-    $resp->success = $done;
-    $resp->message = 'Item '.$id.' edited.';
-    $resp->serialized = SWP::Instance()->get_serialized_items();
-
-    echo $resp->json();
-
-    die();
-}));
-
-
-
-add_action('wp_ajax_remove_item', (function () {
-    $id = $_POST['id'];
-    $removed = SWP::Instance()->remove($id);
-
-    // JSON Response
-    $resp = new SWPAjaxResponse();
-    $resp->success = $removed;
-    $resp->message = sprintf(__('Item %d removed', 'shopello'), $id);
-    $resp->serialized = SWP::Instance()->get_serialized_items();
-
-    echo $resp->json();
-
-    die();
-}));
-
-
-
 /**
  * Include scripts for ajax-saving the options page.
  */
@@ -198,6 +151,9 @@ add_action('admin_init', (function () {
 
 
 
+/**
+ * Used from the cronjob to sync categories
+ */
 add_action('swpsynccategories', (function () {
     if (get_option('swp_settings_status') == true) {
         $lib = new category_lib();
