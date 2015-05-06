@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.2
-Stable tag: 2.0.5
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Make sure you have entered a correct API-key and API-endpoint. If you have probl
 
 
 == Changelog ==
+
+= 2.1.0 =
+* Introducing the Danish translation
 
 = 2.0.5 =
 * Hide query in filters
