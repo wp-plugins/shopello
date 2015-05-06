@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 3.8.0
 Tested up to: 4.2.1
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,14 @@ problems with this, please contact partner@shopello.se
 
 
 == Changelog ==
+= 2.1.1 =
+* Hide errormessage from widget when visiting a page without listing.
+* Documentation improvements
+* Renamed some scripts to make sense
+* Stopped including unused scripts
+* Code improvements and polish
+* Tested with Wordpress 4.2.1
+
 = 2.1.0 =
 * Introducing the Danish translation
 
