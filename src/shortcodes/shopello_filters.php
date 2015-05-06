@@ -8,7 +8,7 @@ add_shortcode('shopello_filters', (function () {
     $SWPItem = get_post_swp_item(get_the_ID());
 
     if (empty($SWPItem)) {
-        return __('The product listing you are trying to use does not exist. Please check your API-Settings.', 'shopello');
+        return null;
     }
 
     // include apis and helpers

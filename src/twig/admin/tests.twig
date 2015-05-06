@@ -1,0 +1,25 @@
+<div class="wrap">
+    <h1>{{ lang.systemTest }}</h1>
+    <hr />
+    <p>{{ lang.infoText }}</p>
+
+    <h2>{{ lang.testResults }}</h2>
+    <ul>
+        <li>
+            {{ lang.curlInstalled }}
+            {% if curlCheck %}
+                <span style="color: green; font-size: 2em;">&#x2714;</span>
+            {% else %}
+                <span style="color: red; font-size: 2em;">&#x2718;</span>
+            {% endif %}
+        </li>
+        <li>
+            {{ lang.curlConnect }}
+            {% if pingCheck is same as (true) %}
+                <span style="color: green; font-size: 2em;">&#x2714;</span>
+            {% else %}
+                {{ pingCheck }}
+            {% endif %}
+        </li>
+    </ul>
+</div>
