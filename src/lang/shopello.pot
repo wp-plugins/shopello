@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Shopello API package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Shopello API 1.10.2\n"
+"Project-Id-Version: Shopello API 2.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-04-17 14:30:39+00:00\n"
+"POT-Creation-Date: 2015-05-06 09:23:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,11 +46,7 @@ msgstr ""
 msgid "Choose a name for your listing:"
 msgstr ""
 
-#: src/admin.php:176
-msgid "Item %d removed"
-msgstr ""
-
-#: src/admin.php:216 src/admin.php:232 src/admin.php:249
+#: src/admin.php:172 src/admin.php:188 src/admin.php:205
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
@@ -72,6 +68,10 @@ msgstr ""
 
 #: src/classes/SWP/Ajax.php:206
 msgid "New item stored"
+msgstr ""
+
+#: src/classes/SWP/Ajax.php:258
+msgid "Item %d removed"
 msgstr ""
 
 #: src/classes/SWP_Item.php:55

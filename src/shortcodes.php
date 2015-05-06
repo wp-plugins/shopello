@@ -7,6 +7,3 @@ require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes/shopello_products.php');
 
 // Shortcode definition: [shopello_filters]
 require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes/shopello_filters.php');
-
-// Shortcode definition: [shopello_search]
-// require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes/search.php');

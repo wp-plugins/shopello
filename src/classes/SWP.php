@@ -292,45 +292,12 @@ class SWP
         return $response->extra->categories;
     }
 
-    /*
-    public function get_filters($post_id)
-    {
-        if ($post_id) {
-            $x = 0;
-        }
-
-        $atts = get_post_attributes();
-
-        // Make globals accesssible
-        global $product;
-
-        // Only add css when needed.
-        wp_enqueue_style('shopello_css');
-
-        global $shopelloResponse;
-
-        $categories = $shopelloResponse->extra->categories;
-
-        // Load template into $html string
-        $tmpl = SHOPELLO_PLUGIN_TEMPLATE_DIR.'result/categories_list.php'; // item file to load
-
-        // Read in everything
-        ob_start();
-        include( $tmpl );
-        $html = ob_get_contents();
-        ob_end_clean();
-
-        return $html;
-    }
-    //*/
     public function frontend_dependencies()
     {
         // Shopello css
-        wp_enqueue_style('shopello_css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css', array(), '1.0.0');
+        wp_enqueue_style('shopello-css', SHOPELLO_PLUGIN_URL.'assets/css/shopello-all.css', array(), 1.0);
 
         // Shopello custom stuff
-        wp_enqueue_script('jquery_form', SHOPELLO_PLUGIN_URL.'assets/js/jquery.form.min.js', false, '1.0', true);
-        wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'assets/js/frontend.js', false, '0.1', true);
-        wp_enqueue_script('SwpApiGeneratorV2', SHOPELLO_PLUGIN_URL.'assets/js/SwpApiGeneratorV2.js', false, 1.0, true);
+        wp_enqueue_script('shopello-frontend', SHOPELLO_PLUGIN_URL.'assets/js/frontend.js', false, 1.0, true);
     }
 }

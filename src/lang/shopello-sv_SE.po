@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shopello API 1.9.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-04-17 14:30:39+00:00\n"
-"PO-Revision-Date: 2015-04-17 16:31+0100\n"
+"POT-Creation-Date: 2015-05-06 09:23:21+00:00\n"
+"PO-Revision-Date: 2015-05-06 11:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -51,11 +51,7 @@ msgstr "Något gick fel vid sparandet. Ladda om sidan och försök igen."
 msgid "Choose a name for your listing:"
 msgstr "Vilket namn vill du spara din listning med?"
 
-#: src/admin.php:176
-msgid "Item %d removed"
-msgstr "Listning %d har tagits bort"
-
-#: src/admin.php:216 src/admin.php:232 src/admin.php:249
+#: src/admin.php:172 src/admin.php:188 src/admin.php:205
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Du har inte tillräckliga rättigheter för att besöka denna sida."
 
@@ -78,6 +74,10 @@ msgstr "API-Nyckel eller API-Adress saknas."
 #: src/classes/SWP/Ajax.php:206
 msgid "New item stored"
 msgstr "Nytt objekt sparat"
+
+#: src/classes/SWP/Ajax.php:258
+msgid "Item %d removed"
+msgstr "Listning %d har tagits bort"
 
 #: src/classes/SWP_Item.php:55
 msgid "Query: %s"
