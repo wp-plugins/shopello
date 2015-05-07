@@ -20,13 +20,21 @@ class AdminPages
 
     public function registerActions()
     {
-        add_action('admin_menu', (function () {
+        /**
+         * Feel the JavaScript uglyness when reading this code
+         *
+         * Reason: PHP 5.3 Scopes doesn't allow using $this inside
+         * of anonymous functions.
+         */
+        $self = $this;
+
+        add_action('admin_menu', (function () use ($self) {
             add_menu_page(
                 __('Shopello', 'shopello'),           // Page Title
                 __('Shopello', 'shopello'),           // Menu Title
                 'manage_options',                     // Permissions
                 'shopello_options',                   // Menu SLUG
-                array($this, 'adminListings'),        // Callback
+                array($self, 'adminListings'),        // Callback
                 null,                                 // Icon
                 76                                    // Sort
             );
@@ -37,7 +45,7 @@ class AdminPages
                 __('Product Listings', 'shopello'),   // Menu Title
                 'manage_options',                     // Permissions
                 'shopello_options',                   // Menu SLUG
-                array($this, 'adminListings')         // Callback
+                array($self, 'adminListings')         // Callback
             );
 
             add_submenu_page(
@@ -46,7 +54,7 @@ class AdminPages
                 __('API-Settings', 'shopello'),       // Menu Title
                 'manage_options',                     // Permissions
                 'shopello_options_account',           // Menu SLUG
-                array($this, 'adminAccount')          // Callback
+                array($self, 'adminAccount')          // Callback
             );
 
             add_submenu_page(
@@ -55,7 +63,7 @@ class AdminPages
                 __('System Test', 'shopello'),        // Menu Title
                 'manage_options',                     // Permissions
                 'shopello_system_test',               // Menu SLUG
-                array($this, 'adminSystemTests')      // Callback
+                array($self, 'adminSystemTests')      // Callback
             );
         }));
 
