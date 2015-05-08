@@ -1,12 +1,17 @@
+{# This will trick token_get_all() when generating the language .pot file <?php #}
 <div class="wrap">
-    <h1>{{ lang.systemTest }}</h1>
+    <h1>{{ __('System Test', 'shopello') }}</h1>
     <hr />
-    <p>{{ lang.infoText }}</p>
+    <p>
+        {{ __('This page will perform some system-tests to detect problems in your Wordpress setup while using the
+               Shopello API. More tests will be added over time when we come up with things to test for, so please
+               report issues to partner@shopello.se.', 'shopello') }}
+    </p>
 
-    <h2>{{ lang.testResults }}</h2>
+    <h2>{{ __('Performing checks', 'shopello') }}</h2>
     <ul>
         <li>
-            {{ lang.curlInstalled }}
+            {{ __('CURL Extension installed', 'shopello') }}
             {% if curlCheck %}
                 <span style="color: green; font-size: 2em;">&#x2714;</span>
             {% else %}
@@ -14,7 +19,7 @@
             {% endif %}
         </li>
         <li>
-            {{ lang.curlConnect }}
+            {{ __('Able to connect to Shopello with CURL', 'shopello') }}
             {% if pingCheck is same as (true) %}
                 <span style="color: green; font-size: 2em;">&#x2714;</span>
             {% else %}

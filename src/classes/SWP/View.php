@@ -5,6 +5,7 @@ use \Twig_Loader_Filesystem;
 use \Twig_Environment;
 use \Twig_Extension_Debug;
 use \Twig_SimpleFilter;
+use \Twig_SimpleFunction;
 
 class View
 {
@@ -34,6 +35,10 @@ class View
         // Add cast_to_array to cast objects to arrays
         $this->twigEnvironment->addFilter(new Twig_SimpleFilter('cast_to_array', function ($stdClassObject) {
             return (array) $stdClassObject;
+        }));
+
+        $this->twigEnvironment->addFunction(new Twig_SimpleFunction('__', function ($string, $namespace) {
+            return __($string, $namespace);
         }));
     }
 

@@ -163,19 +163,7 @@ class AdminPages
 
         $data = array(
             'curlCheck' => $this->systemTests->isCurlInstalled(),
-            'pingCheck' => $this->systemTests->pingShopello(),
-            'lang' => array(
-                'systemTest'    => __('System Test', 'shopello'),
-                'infoText'      => __(
-                    'This page will perform some system-tests to detect problems in your Wordpress setup'
-                    .' while using the Shopello API. More tests will be added over time when we come up'
-                    .' with things to test for, so please report issues to partner@shopello.se.',
-                    'shopello'
-                ),
-                'testResults'   => __('Performing checks', 'shopello'),
-                'curlInstalled' => __('CURL Extension installed', 'shopello'),
-                'curlConnect'   => __('Able to connect to Shopello with CURL', 'shopello')
-            )
+            'pingCheck' => $this->systemTests->pingShopello()
         );
 
         echo $this->view->render('admin/tests', $data);

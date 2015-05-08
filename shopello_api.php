@@ -7,7 +7,7 @@ session_start();
  * Plugin Name: Shopello API
  * Plugin URI: http://shopello.se/api/wordpress
  * Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
- * Version: 2.1.3
+ * Version: 2.2.0
  * Author: Shopello AB
  */
 
@@ -48,11 +48,7 @@ require_once(SHOPELLO_PLUGIN_DIR.'src/admin.php');
 global $is_admin_ajax;
 $is_admin_ajax = false;
 
-$shopelloApi = new \Shopello\API\ApiClient(new \Curl\Curl());
-$shopelloApi->setApiKey(get_option('swp_api_key'));
-$shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
-
-$swpAjax = new \SWP\Ajax($shopelloApi, new \category_lib());
+$swpAjax = new \SWP\Ajax(\SWP\ApiClient::getInstance(), new \category_lib());
 
 
 

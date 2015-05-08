@@ -1,3 +1,4 @@
+{# This will trick token_get_all() when generating the language .pot file <?php #}
 <ul class="shopello_product_list">
     {% for product in api_result.data %}
         <li>
@@ -6,7 +7,7 @@
                     <div class="product_image_wrap">
                         {% for image in product.images|cast_to_array %}
                             {% if loop.last %}
-                                <img src="{{ image }}" title="{{ product.name }} -- {{ lang.goToProduct }}" />
+                                <img src="{{ image }}" title="{{ product.name }} -- {{ __('Go to product', 'shopello') }}" />
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -26,13 +27,13 @@
                         </p>
                     </div>
                     <div class="checkout_button">
-                        {{ lang.buy }}
+                        {{ __('Buy', 'shopello') }}
                     </div>
                 </a>
             </div>
         </li>
     {% else %}
-        {{ lang.noProductsFound }}
+        {{ __('No products found', 'shopello') }}
     {% endfor %}
 </ul>
 <div class="shopello_paging">

@@ -3,8 +3,7 @@ namespace SWP;
 
 use \SWP;
 use \category_lib;
-
-use \Shopello\API\ApiClient as ShopelloAPI;
+use \SWP\ApiClient as ShopelloAPI;
 
 class Ajax extends RegisterWpActions
 {
@@ -148,6 +147,7 @@ class Ajax extends RegisterWpActions
 
         $this->shopelloApi->setApiKey(post('key'));
         $this->shopelloApi->setApiEndpoint(post('endpoint'));
+        $this->shopelloApi->cache(false);
 
         try {
             $testCall = $this->shopelloApi->getProducts(array(

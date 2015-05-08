@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shopello API 1.9.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-05-06 09:23:21+00:00\n"
-"PO-Revision-Date: 2015-05-06 11:24+0100\n"
+"POT-Creation-Date: 2015-05-07 14:32:33+00:00\n"
+"PO-Revision-Date: 2015-05-07 16:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: da_DK\n"
@@ -15,27 +15,30 @@ msgstr ""
 "X-Generator: Poedit 1.7.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/admin.php:24 src/admin.php:27
+#: src/classes/SWP/AdminPages.php:33 src/classes/SWP/AdminPages.php:34
+#: src/classes/SWP/AdminPages.php:44
 msgid "Shopello"
 msgstr "Shopello"
 
-#: src/admin.php:27 src/templates/admin/product-lists.php:16
+#: src/classes/SWP/AdminPages.php:45 src/templates/admin/product-lists.php:16
 msgid "Product Listings"
 msgstr "Produkt listing"
 
-#: src/admin.php:28 src/templates/admin/account.php:2
+#: src/classes/SWP/AdminPages.php:53 src/classes/SWP/AdminPages.php:54
+#: src/templates/admin/account.php:2
 msgid "API-Settings"
 msgstr "API-Indstillinger"
 
-#: src/admin.php:29 src/templates/admin/system-test.php:39
+#: src/classes/SWP/AdminPages.php:62 src/classes/SWP/AdminPages.php:63
+#: src/twig/admin/.tests.php:3
 msgid "System Test"
 msgstr "System Test"
 
-#: src/admin.php:48
+#: src/classes/SWP/AdminPages.php:91
 msgid "Working... This can take several minutes..."
 msgstr "Arbejder... Dette kan tage flere minutter"
 
-#: src/admin.php:49
+#: src/classes/SWP/AdminPages.php:92
 msgid ""
 "You have reached max number of listings (%d st). Remove one to be able to "
 "save this new one."
@@ -43,15 +46,16 @@ msgstr ""
 "Du har nået maksimum antal listings (%d st). Fjern en for at kunne gemme den "
 "nye."
 
-#: src/admin.php:50
+#: src/classes/SWP/AdminPages.php:96
 msgid "Error while saving. Reload the page and try again."
 msgstr "Der opstod en fejl, opdater siden og prøv igen."
 
-#: src/admin.php:51
+#: src/classes/SWP/AdminPages.php:97
 msgid "Choose a name for your listing:"
 msgstr "Vælg et navn til din listing."
 
-#: src/admin.php:172 src/admin.php:188 src/admin.php:205
+#: src/classes/SWP/AdminPages.php:134 src/classes/SWP/AdminPages.php:149
+#: src/classes/SWP/AdminPages.php:161
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Du har ikke de fornødne tilladelser for at få adgang til denne side."
 
@@ -156,158 +160,83 @@ msgstr ""
 "indstillingerne. Hvis du ikke har en API-Endpoint så besøg venligst https://"
 "www.shopelloapi.com/ for at få en."
 
-#: src/helpers.php:153 src/rendering_helpers.php:42
+#: src/helpers.php:153 src/rendering_helpers.php:37
 msgid "product"
 msgstr "produkt\t"
 
-#: src/helpers.php:153 src/helpers.php:154 src/rendering_helpers.php:42
-#: src/rendering_helpers.php:43
+#: src/helpers.php:153 src/helpers.php:154 src/rendering_helpers.php:37
+#: src/rendering_helpers.php:38
 msgid "products"
 msgstr "produkter"
 
-#: src/rendering_helpers.php:21
-msgid "Go to product"
-msgstr "Gå til produktet"
-
-#: src/rendering_helpers.php:22
-msgid "Buy"
-msgstr "Køb"
-
-#: src/rendering_helpers.php:23
-msgid "No products found"
-msgstr "Ingen produkter fundet"
-
-#: src/rendering_helpers.php:30
+#: src/rendering_helpers.php:25
 msgid "none"
 msgstr "ingen"
 
-#: src/rendering_helpers.php:123 src/templates/result/filters.php:98
+#: src/rendering_helpers.php:118 src/templates/result/filters.php:98
 msgid "Price"
 msgstr "Pris"
 
-#: src/rendering_helpers.php:124 src/templates/result/filters.php:99
+#: src/rendering_helpers.php:119 src/templates/result/filters.php:99
 msgid "Name"
 msgstr "Navn"
 
-#: src/rendering_helpers.php:125 src/templates/result/filters.php:100
+#: src/rendering_helpers.php:120 src/templates/result/filters.php:100
 msgid "Clicks"
 msgstr "Kliks"
 
-#: src/rendering_helpers.php:126 src/templates/result/filters.php:101
+#: src/rendering_helpers.php:121 src/templates/result/filters.php:101
 msgid "Popularity"
 msgstr "Popularitet"
 
-#: src/rendering_helpers.php:130
+#: src/rendering_helpers.php:125
 msgid "Ascending"
 msgstr "Stigende"
 
-#: src/rendering_helpers.php:131
+#: src/rendering_helpers.php:126
 msgid "Descending"
 msgstr "Faldende"
 
-#: src/rendering_helpers.php:135 src/templates/result/filters.php:127
+#: src/rendering_helpers.php:130 src/templates/result/filters.php:127
 msgid "white"
 msgstr "hHvid"
 
-#: src/rendering_helpers.php:136 src/templates/result/filters.php:128
+#: src/rendering_helpers.php:131 src/templates/result/filters.php:128
 msgid "gray"
 msgstr "grå"
 
-#: src/rendering_helpers.php:137 src/templates/result/filters.php:129
+#: src/rendering_helpers.php:132 src/templates/result/filters.php:129
 msgid "black"
 msgstr "sort"
 
-#: src/rendering_helpers.php:138 src/templates/result/filters.php:130
+#: src/rendering_helpers.php:133 src/templates/result/filters.php:130
 msgid "blue"
 msgstr "blå"
 
-#: src/rendering_helpers.php:139 src/templates/result/filters.php:131
+#: src/rendering_helpers.php:134 src/templates/result/filters.php:131
 msgid "green"
 msgstr "grøn"
 
-#: src/rendering_helpers.php:140 src/templates/result/filters.php:132
+#: src/rendering_helpers.php:135 src/templates/result/filters.php:132
 msgid "yellow"
 msgstr "gul"
 
-#: src/rendering_helpers.php:141 src/templates/result/filters.php:133
+#: src/rendering_helpers.php:136 src/templates/result/filters.php:133
 msgid "orange"
 msgstr "orange"
 
-#: src/rendering_helpers.php:142 src/templates/result/filters.php:134
+#: src/rendering_helpers.php:137 src/templates/result/filters.php:134
 msgid "red"
 msgstr "rød"
 
-#: src/rendering_helpers.php:143 src/templates/result/filters.php:135
+#: src/rendering_helpers.php:138 src/templates/result/filters.php:135
 msgid "pink"
 msgstr "pink"
 
-#: src/rendering_helpers.php:144 src/templates/result/filters.php:136
+#: src/rendering_helpers.php:139 src/templates/result/filters.php:136
 msgid "purple"
 msgstr "lilla"
 
-#: src/rendering_helpers.php:161 src/templates/result/filters.php:48
-#: src/templates/result/filters.php:49 src/templates/result/filters.php:164
-msgid "Keyword"
-msgstr "Søgeord"
-
-#: src/rendering_helpers.php:162 src/templates/admin/account.php:75
-#: src/templates/result/filters.php:56 src/templates/result/filters.php:167
-msgid "Categories"
-msgstr "Kategorier"
-
-#: src/rendering_helpers.php:163 src/templates/result/filters.php:58
-msgid ""
-"If a selected category has sub-categories, the subcategories will be "
-"included even when not selected."
-msgstr ""
-"Hvis en valgt kategori har under-kategorier, vil under-kategorierne blive "
-"inkludere selvom de ikke er valgte."
-
-#: src/rendering_helpers.php:164 src/templates/result/filters.php:75
-#: src/templates/result/filters.php:173
-msgid "Products per page"
-msgstr "Produkter per side"
-
-#: src/rendering_helpers.php:165 src/templates/result/filters.php:86
-#: src/templates/result/filters.php:176
-msgid "Max Price"
-msgstr "Maks. Pris"
-
-#: src/rendering_helpers.php:166 src/templates/result/filters.php:86
-msgid " kr"
-msgstr "kr"
-
-#: src/rendering_helpers.php:167 src/templates/result/filters.php:88
-msgid "Remove max price"
-msgstr "Fjern maks. pris"
-
-#: src/rendering_helpers.php:168 src/templates/result/filters.php:94
-#: src/templates/result/filters.php:179
-msgid "Sorting"
-msgstr "Sortering"
-
-#: src/rendering_helpers.php:169 src/templates/result/filters.php:123
-#: src/templates/result/filters.php:182
-msgid "Color Filter"
-msgstr "Farve filter"
-
-#: src/rendering_helpers.php:170 src/templates/result/filters.php:152
-msgid ""
-"You can only choose one color. Click on the chosen color to remove the "
-"colorfilter."
-msgstr ""
-"Du kan kun vælge én farve. Klik på den valgte farve for at fjerne "
-"farvefilter."
-
-#: src/rendering_helpers.php:171 src/templates/result/filters.php:160
-msgid "Available filters for listing"
-msgstr "Tilgængelige filtre for listingen"
-
-#: src/rendering_helpers.php:172 src/templates/result/filters.php:188
-msgid "Save Listing"
-msgstr "Gem Listing"
-
-#: src/shortcodes/result.php:29 src/shortcodes/shopello_filters.php:11
 #: src/shortcodes/shopello_products.php:14
 msgid ""
 "The product listing you are trying to use does not exist. Please check your "
@@ -382,6 +311,11 @@ msgstr "For eksempel: \"for frase %phrase%\"."
 msgid "Result: \"Found 247 products for phrase Shoes\""
 msgstr "Resultat: \"Fandt 247 produkter for frasen Sko\""
 
+#: src/templates/admin/account.php:75 src/templates/result/filters.php:56
+#: src/templates/result/filters.php:167 src/twig/result/.filters.php:12
+msgid "Categories"
+msgstr "Kategorier"
+
 #: src/templates/admin/account.php:78
 msgid "Synchronize categories"
 msgstr "Synkroniser kategorier"
@@ -439,35 +373,42 @@ msgstr "Ny Listing"
 msgid "Preview of your listing"
 msgstr "Forhåndsvisning af din listing"
 
-#: src/templates/admin/system-test.php:42
-msgid ""
-"This page will perform some system-tests to detect problems in your "
-"Wordpress setup while using the Shopello API.\n"
-"        More tests will be added over time when we come up with things to "
-"test for, so please report issues to\n"
-"        partner@shopello.se."
-msgstr ""
-"Denne side vil udfører nogle system-tests for at opdage problemer i dit "
-"Wordpress setup, når du bruger Shopello API'en.\n"
-"\tFlere test vil blive tilføhet over tid når vi kommer op med flere tests, "
-"så rapporter gerne fejl til: \n"
-"        partner@shopello.se."
-
-#: src/templates/admin/system-test.php:47
-msgid "Performing checks"
-msgstr "Udfører tjeks"
-
-#: src/templates/admin/system-test.php:49
-msgid "CURL Extension installed"
-msgstr "CURL Extenstion installeret"
-
-#: src/templates/admin/system-test.php:50
-msgid "Able to connect to Shopello with CURL"
-msgstr "Muligt at forbinde til Shopello med CURL"
+#: src/templates/result/filters.php:48 src/templates/result/filters.php:49
+#: src/templates/result/filters.php:164 src/twig/result/.filters.php:5
+msgid "Keyword"
+msgstr "Søgeord"
 
 #: src/templates/result/filters.php:50
 msgid "Use your own keywords to limit the results."
 msgstr "Brug dine egne søgeord for at begrænse resultatet."
+
+#: src/templates/result/filters.php:58 src/twig/result/.filters.php:15
+msgid ""
+"If a selected category has sub-categories, the subcategories will be "
+"included even when not selected."
+msgstr ""
+"Hvis en valgt kategori har under-kategorier, vil under-kategorierne blive "
+"inkludere selvom de ikke er valgte."
+
+#: src/templates/result/filters.php:75 src/templates/result/filters.php:173
+msgid "Products per page"
+msgstr "Produkter per side"
+
+#: src/templates/result/filters.php:86 src/templates/result/filters.php:176
+msgid "Max Price"
+msgstr "Maks. Pris"
+
+#: src/templates/result/filters.php:86
+msgid " kr"
+msgstr "kr"
+
+#: src/templates/result/filters.php:88
+msgid "Remove max price"
+msgstr "Fjern maks. pris"
+
+#: src/templates/result/filters.php:94 src/templates/result/filters.php:179
+msgid "Sorting"
+msgstr "Sortering"
 
 #: src/templates/result/filters.php:115
 msgid "Rising"
@@ -477,9 +418,62 @@ msgstr "Stigende"
 msgid "Falling"
 msgstr "Faldende"
 
+#: src/templates/result/filters.php:123 src/templates/result/filters.php:182
+msgid "Color Filter"
+msgstr "Farve filter"
+
+#: src/templates/result/filters.php:152
+msgid ""
+"You can only choose one color. Click on the chosen color to remove the "
+"colorfilter."
+msgstr ""
+"Du kan kun vælge én farve. Klik på den valgte farve for at fjerne "
+"farvefilter."
+
+#: src/templates/result/filters.php:160
+msgid "Available filters for listing"
+msgstr "Tilgængelige filtre for listingen"
+
+#: src/templates/result/filters.php:188
+msgid "Save Listing"
+msgstr "Gem Listing"
+
 #: src/templates/result/no_hits.php:1
 msgid "We did not find any results for this search."
 msgstr "Vi fandt ikke nogen resultater for denne søgning"
+
+#: src/twig/admin/.tests.php:6
+msgid ""
+"This page will perform some system-tests to detect problems in your "
+"Wordpress setup while using the\n"
+"               Shopello API. More tests will be added over time when we come "
+"up with things to test for, so please\n"
+"               report issues to partner@shopello.se."
+msgstr ""
+"Denne side vil udfører nogle system-tests for at opdage problemer i dit "
+"Wordpress setup, når du bruger Shopello API'en. Flere test vil blive "
+"tilføhet over tid når vi kommer op med flere tests, så rapporter gerne fejl "
+"til: partner@shopello.se."
+
+#: src/twig/admin/.tests.php:11
+msgid "Performing checks"
+msgstr "Udfører tjeks"
+
+#: src/twig/admin/.tests.php:14
+msgid "CURL Extension installed"
+msgstr "CURL Extenstion installeret"
+
+#: src/twig/admin/.tests.php:22
+msgid "Able to connect to Shopello with CURL"
+msgstr "Muligt at forbinde til Shopello med CURL"
+
+#: src/twig/result/.product_grid.php:30
+msgid "Buy"
+msgstr "Køb"
+
+#: src/twig/result/.product_grid.php:36
+msgid "No products found"
+msgstr "Ingen produkter fundet"
 
 #. Plugin Name of the plugin/theme
 msgid "Shopello API"
@@ -500,6 +494,22 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Shopello AB"
 msgstr "Shopello AB"
+
+#~ msgid "Go to product"
+#~ msgstr "Gå til produktet"
+
+#~ msgid ""
+#~ "This page will perform some system-tests to detect problems in your "
+#~ "Wordpress setup while using the Shopello API.\n"
+#~ "        More tests will be added over time when we come up with things to "
+#~ "test for, so please report issues to\n"
+#~ "        partner@shopello.se."
+#~ msgstr ""
+#~ "Denne side vil udfører nogle system-tests for at opdage problemer i dit "
+#~ "Wordpress setup, når du bruger Shopello API'en.\n"
+#~ "\tFlere test vil blive tilføhet over tid når vi kommer op med flere "
+#~ "tests, så rapporter gerne fejl til: \n"
+#~ "        partner@shopello.se."
 
 #~ msgid ""
 #~ "You cannot run_query %1$s is set or you pass some %2$s!   // Love, SWP"

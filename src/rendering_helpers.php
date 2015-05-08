@@ -17,11 +17,6 @@ function shopello_render_products_v2($api_result, $params = false)
         'title' => get_option('swp_result_title'),
         'params' => $params,
         'api_result' => $api_result,
-        'lang' => array(
-            'goToProduct' => __('Go to product', 'shopello'),
-            'buy' => __('Buy', 'shopello'),
-            'noProductsFound' => __('No products found', 'shopello')
-        )
     );
 
 
@@ -155,21 +150,6 @@ function shopello_render_filters_v2($params)
         'show_maxprice_filter' => shopello_show_filter_v2('pricemax', $filters, $is_admin_ajax),
         'show_sorting_filter' => shopello_show_filter_v2('sorting', $filters, $is_admin_ajax),
         'show_color_filter' => shopello_show_filter_v2('colors', $filters, $is_admin_ajax)
-    );
-
-    $data['lang'] = (object) array(
-        'keyword' => __('Keyword', 'shopello'),
-        'categories' => __('Categories', 'shopello'),
-        'categories_hint' => __('If a selected category has sub-categories, the subcategories will be included even when not selected.', 'shopello'),
-        'products_per_page' => __('Products per page', 'shopello'),
-        'max_price' => __('Max Price', 'shopello'),
-        'currency' => __(' kr', 'shopello'),
-        'remove_max_price' => __('Remove max price', 'shopello'),
-        'sorting' => __('Sorting', 'shopello'),
-        'color_filter' => __('Color Filter', 'shopello'),
-        'color_hint' => __('You can only choose one color. Click on the chosen color to remove the colorfilter.', 'shopello'),
-        'available_for_listing' => __('Available filters for listing', 'shopello'),
-        'save_listing' => __('Save Listing', 'shopello')
     );
 
 
