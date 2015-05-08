@@ -4,9 +4,6 @@
  * Shortcode definition: [shopello_products]
  */
 add_shortcode('shopello_products', (function () {
-    // Only used to make the paginator look good as far as I know
-    wp_enqueue_style('bootstrap', SHOPELLO_PLUGIN_URL.'assets/bootstrap/bootstrap.min.css', array(), '3.1.1', 'all');
-
     // Get the SWP Item for this article
     $SWPItem = get_post_swp_item(get_the_ID());
 
