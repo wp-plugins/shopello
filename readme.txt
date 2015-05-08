@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 4.2.0
 Tested up to: 4.2.2
-Stable tag: 2.1.3
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,11 @@ problems with this, please contact partner@shopello.se
 
 
 == Changelog ==
+= 2.2.0 =
+* Implemented Caching of API Requests, this will improve the pages responsetime
+by a great deal.
+* Code improvements
+
 = 2.1.3 =
 * Fixed regression in PHP 5.3
 

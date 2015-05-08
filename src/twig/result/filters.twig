@@ -1,17 +1,18 @@
+{# This will trick token_get_all() when generating the language .pot file <?php #}
 <div class="swp-filters filters" id="shopello_filter_wrap">
     {% if settings.show_keyword_filter %}
         <div class="item filter-keyword">
-            <h4>{{ lang.keyword }}</h4>
-            <input type="text" id="input-keyword" name="input-keyword" placeholder="{{ lang.keyword }}" value="" />
+            <h4>{{ __('Keyword', 'shopello') }}</h4>
+            <input type="text" id="input-keyword" name="input-keyword" placeholder="{{ __('Keyword', 'shopello') }}" value="" />
         </div>
     {% endif %}
 
     {% if settings.show_categories_filter %}
         <div class="item filter-categories">
-            <h4>{{ lang.categories }}</h4>
+            <h4>{{ __('Categories', 'shopello') }}</h4>
             {% if not has_swp_item and is_admin_ajax %}
                 <p class="filter-hint">
-                    {{ lang.categories_hint }}
+                    {{ __('If a selected category has sub-categories, the subcategories will be included even when not selected.', 'shopello') }}
                 </p>
                 This isn't implemented.
                 <div class="scrollable">
@@ -27,7 +28,7 @@
 
     {% if settings.show_sorting_filter %}
         <div class="item filter-pagesize">
-            <h4>{{ lang.products_per_page }}</h4>
+            <h4>{{ __('Products per page', 'shopello') }}</h4>
             <select name="preview_per_page" id="input-pagesize">
                 <option value="16" {% if params.pagesize == 16 %}selected="selected"{% endif %}>16</option>
                 <option value="32" {% if params.pagesize == 32 %}selected="selected"{% endif %}>32</option>
@@ -39,21 +40,21 @@
     {% if settings.show_maxprice_filter %}
         <div class="item filter-price-max">
             <h4>
-                {{ lang.max_price }}
+                {{ __('Max Price', 'shopello') }}
                 <span id="label-price-max" style="font-weight: normal;">
                     {% if maxPrice %}
-                        {{ maxPrice }}{{ lang.currency }}
+                        {{ maxPrice }}{{ __(' kr', 'shopello') }}
                     {% endif %}
                 </span>
             </h4>
             <input type="range" id="input-price-max" min="10" max="{{ maxPrice }}" step="1" value="{{ maxPrice }}" />
-            <input type="button" class="button" id="reset-price-max" value="{{ lang.remove_max_price }}" />
+            <input type="button" class="button" id="reset-price-max" value="{{ __('Remove max price', 'shopello') }}" />
         </div>
     {% endif %}
 
     {% if settings.show_sorting_filter %}
         <div class="item filter-sort">
-            <h4>{{ lang.sorting }}</h4>
+            <h4>{{ __('Sorting', 'shopello') }}</h4>
             <select name="preview_sort" id="input-sort-field">
                 {% for value, label in sortables %}
                     {% if params.order_by == value %}
@@ -77,7 +78,7 @@
 
     {% if settings.show_color_filter %}
         <div class="item filter-color">
-            <h4>{{ lang.color_filter }}</h4>
+            <h4>{{ __('Color Filter', 'shopello') }}</h4>
             <div class="colors">
                 {% for slug, name in colors %}
                     {% if params.color == name %}
@@ -89,37 +90,39 @@
                 {% endfor %}
             </div>
         </div>
-        <p class="filter-hint">{{ lang.color_hint }}</p>
+        <p class="filter-hint">
+            {{ __('You can only choose one color. Click on the chosen color to remove the colorfilter.', 'shopello') }}
+        </p>
     {% endif %}
 
     {# Admin specific fields #}
     {% if not has_swp_item and is_admin_ajax %}
         <div class="item filter-filters">
-            <h4>{{ lang.available_for_listing }}</h4>
+            <h4>{{ __('Available filters for listing', 'shopello') }}</h4>
             <fieldset class="cb_list">
                 <input type="checkbox" name="filters" id="cb_filters_keyword" value="keyword">
-                <label for="cb_filters_keyword">{{ lang.keyword }}</label>
+                <label for="cb_filters_keyword">{{ __('Keyword', 'shopello') }}</label>
 
                 <input type="checkbox" name="filters" id="cb_filters_categories" value="categories">
-                <label for="cb_filters_categories">{{ lang.categories }}</label>
+                <label for="cb_filters_categories">{{ __('Categories', 'shopello') }}</label>
 
                 <input type="checkbox" name="filters" id="cb_filters_pagesize" value="pagesize">
-                <label for="cb_filters_pagesize">{{ lang.products_per_page }}</label>
+                <label for="cb_filters_pagesize">{{ __('Products per page', 'shopello') }}</label>
 
                 <input type="checkbox" name="filters" id="cb_filters_pricemax" value="pricemax">
-                <label for="cb_filters_pricemax">{{ lang.max_price }}</label>
+                <label for="cb_filters_pricemax">{{ __('Max Price', 'shopello') }}</label>
 
                 <input type="checkbox" name="filters" id="cb_filters_sorting" value="sorting">
-                <label for="cb_filters_sorting">{{ lang.sorting }}</label>
+                <label for="cb_filters_sorting">{{ __('Sorting', 'shopello') }}</label>
 
                 <input type="checkbox" name="filters" id="cb_filters_colors" value="colors">
-                <label for="cb_filters_colors">{{ lang.color_filter }}</label>
+                <label for="cb_filters_colors">{{ __('Color Filter', 'shopello') }}</label>
             </fieldset>
         </div>
 
         <div class="item">
-            <h4>{{ lang.save_listing }}</h4>
-            <input type="button" class="button" id="save_button" value="{{ lang.save_listing }}"/>
+            <h4>{{ __('Save Listing', 'shopello') }}</h4>
+            <input type="button" class="button" id="save_button" value="{{ __('Save Listing', 'shopello') }}"/>
         </div>
     {% endif %}
 </div>

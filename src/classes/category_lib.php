@@ -1,7 +1,6 @@
 <?php
 
-use \Shopello\API\ApiClient as ShopelloAPI;
-use \Curl\Curl;
+use \SWP\ApiClient as ShopelloAPI;
 
 class category_lib
 {
@@ -55,9 +54,8 @@ class category_lib
     {
         global $wpdb;
 
-        $shopelloApi = new ShopelloAPI(new Curl());
-        $shopelloApi->setApiKey(get_option('swp_api_key'));
-        $shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
+        $shopelloApi = ShopelloAPI::getInstance();
+        $shopelloApi->cache(false);
 
         // Get categories from API
         $categories = $shopelloApi->getCategories();

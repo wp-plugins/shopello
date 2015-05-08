@@ -1,7 +1,5 @@
 <?php
-
-use \Shopello\API\ApiClient as ShopelloAPI;
-use \Curl\Curl;
+use \SWP\ApiClient as ShopelloAPI;
 
 /**
  * SWP is a class that contains listing of these SWP_Items
@@ -198,10 +196,8 @@ class SWP
             $params = shopello_sanitize_params($params);
         }
 
-        // Setup API instance
-        $shopelloApi = new ShopelloAPI(new Curl());
-        $shopelloApi->setApiKey(get_option('swp_api_key'));
-        $shopelloApi->setApiEndpoint(get_option('swp_api_endpoint'));
+        // Get API instance
+        $shopelloApi = ShopelloAPI::getInstance();
 
         // Run API query
         try {
