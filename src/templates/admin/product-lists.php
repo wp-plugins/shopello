@@ -5,7 +5,7 @@ if (!$settings_ok) :
     <div class="wrap">
         <h2><?php _e('Settings is incorrect', 'shopello'); ?></h2>
         <p><?php _e('One or more required settings is missing or incorrect to be able to use the API.', 'shopello'); ?></p>
-        <p><?php echo printf(__('Please visit <a href="%s">API-Settings</a> and check your settings.', 'shopello'), admin_url('admin.php?page=shopello_options_account')); ?></p>
+        <p><?php printf(__('Please visit <a href="%s">API-Settings</a> and check your settings.', 'shopello'), admin_url('admin.php?page=shopello_options_account')); ?></p>
 <?php
 else :
     // Get stored SWP Item list (or init new one)
@@ -14,10 +14,6 @@ else :
 ?>
         <div class="wrap">
             <h2><?php _e('Product Listings', 'shopello'); ?></h2>
-
-            <?php swp_print_success(); ?>
-            <?php swp_print_notices(); ?>
-            <?php swp_print_warnings(); ?>
 
             <hr/>
 

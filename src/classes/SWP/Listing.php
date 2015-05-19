@@ -1,10 +1,7 @@
 <?php
+namespace SWP;
 
-/**
- * SWP Item represents a Shopello Wordpress Plugin listing-instance
- * it's the definition of a listing and it's attributes
- */
-class SWP_Item
+class Listing
 {
     private $id;
     public $name;
@@ -17,14 +14,12 @@ class SWP_Item
     public $color;
     public $filters;
 
-
-    // Contruct an instance of this object
-    public function __construct($n = '', $p = 16, $k = '', $c = array())
+    public function __construct($name = '', $pagesize = 16, $keyword = '', $categories = array())
     {
-        $this->name       = $n ? $n : '';
-        $this->pagesize   = $p ? $p : 16;
-        $this->keyword    = $k ? $k : '';
-        $this->categories = $c ? $c : array();
+        $this->name = $name;
+        $this->pagesize = $pagesize;
+        $this->keyword = $keyword;
+        $this->categories = $categories;
     }
 
     public function get_shortcode_result()
@@ -68,5 +63,24 @@ class SWP_Item
         }
 
         return count($d) > 0 ? implode($del, $d) : '';
+    }
+
+    public function importSettings($settings)
+    {
+        foreach ($settings as $key => $val) {
+            $this->$key = $val;
+        }
+    }
+
+    public function exportSettings()
+    {
+        $settings = new \stdClass;
+
+        foreach ($this as $key => $val)
+        {
+            $settings->$key = $val;
+        }
+
+        return $settings;
     }
 }

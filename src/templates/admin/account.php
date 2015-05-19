@@ -1,10 +1,6 @@
 <div class="wrap">
     <h2><?php _e('API-Settings', 'shopello'); ?></h2>
 
-    <?php swp_print_success(); ?>
-    <?php swp_print_notices(); ?>
-    <?php swp_print_warnings(); ?>
-
     <hr/>
 
     <form method="post" action="options.php" id="swp_options_form">

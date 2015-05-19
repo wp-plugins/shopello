@@ -1,18 +1,19 @@
 <?php
 use \SWP\ApiClient as ShopelloAPI;
+use \SWP\Listing;
 
 /**
- * SWP is a class that contains listing of these SWP_Items
+ * SWP is a class that contains listing of these SWP\Listing
  * Accessible as:
  * - SWP::get_items( x ) for single item
  * - SWP::get_items()  for all items
- * - SWP::add( SWP_Item ) to add an item to the storage
+ * - SWP::add( SWP\Listing ) to add an item to the storage
  */
 class SWP
 {
     private static $instance;
     private $items           = false;
-    private $option_list_key = "swp_list";
+    private $option_list_key = "shopello_list";
     private $session_id      = "SWP_last_saved";
     private $max_items       = 15;
     private $active_item     = false;
@@ -39,7 +40,7 @@ class SWP
     }
 
     /**
-     * Manually set items of SWP_Items. Be careful here
+     * Manually set items of SWP\Listing's. Be careful here
      */
     public function set_items($a)
     {
@@ -67,7 +68,7 @@ class SWP
     public function add($item)
     {
         // Try to validate and push item to storage
-        if (!$item instanceof SWP_Item) {
+        if (!$item instanceof Listing) {
             return false;
         } elseif (count($this->items) >= $this->max_items) {
             return false;
@@ -112,29 +113,36 @@ class SWP
 
     public function save()
     {
-        // Store changes in database option
-        $serialized = serialize($this->items);
-        $success = update_option($this->option_list_key, $serialized);
+        update_option($this->option_list_key, $this->get_serialized_items());
     }
 
     public function get_serialized_items()
     {
+        $array = array();
+
         if (count($this->items) > 0) {
-            return serialize($this->items);
-        } else {
-            return '';
+            foreach ($this->items as $item) {
+                $array[] = $item->exportSettings();
+            }
         }
+
+        return json_encode($array);
     }
 
     public function load()
     {
-        // load from options
-        $opt = get_option($this->option_list_key);
+        $jsonItems = json_decode(get_option($this->option_list_key));
+        $this->items = array();
 
-        if (strlen($opt) == 0) {
-            $this->items = array();
-        } else {
-            $this->items = unserialize(get_option($this->option_list_key));
+        if (empty($jsonItems)) {
+            return;
+        }
+
+        foreach ($jsonItems as $jsonItem) {
+            $listing = new Listing();
+            $listing->importSettings($jsonItem);
+
+            $this->items[] = $listing;
         }
     }
 
@@ -171,7 +179,7 @@ class SWP
         return $done;
     }
 
-    public function set_active_item(SWP_Item $item)
+    public function set_active_item(Listing $item)
     {
         $this->active_item = $item;
     }
@@ -218,12 +226,12 @@ class SWP
     public function get_active_params($item = false)
     {
         // Set passed item as active
-        if ($item !== false && $item instanceof SWP_Item) {
+        if ($item !== false && $item instanceof Listing) {
             $this->set_active_item($item);
         }
 
         // Check that active item is valid
-        if (!$this->active_item || !$this->active_item instanceof SWP_Item) {
+        if (!$this->active_item || !$this->active_item instanceof Listing) {
             return false;
         }
 

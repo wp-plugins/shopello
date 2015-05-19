@@ -1,7 +1,7 @@
 <?php
 
 global $shopello_db_version;
-$shopello_db_version = '2.0';
+$shopello_db_version = '3.0';
 
 // On plugin activate, install database tables
 register_activation_hook(SHOPELLO_PLUGIN_DIR.'shopello_api.php', 'swp_db_install');
@@ -46,6 +46,36 @@ function swp_db_install()
     wp_schedule_event(time(), 'daily', 'swpsynccategories');
 }
 
+if (get_option('shopello_db_version') === '2.0') {
+    // Function to convert an __PHP_Incomplete_Class to stdClass
+    $incompleteClassToStdClass = (function ($incompleteClass) {
+        $object = new stdClass;
+        $incompleteClassArray = (array) $incompleteClass;
+
+        // Get classname of class and drop it from the array
+        $className = $incompleteClassArray['__PHP_Incomplete_Class_Name'];
+        unset($incompleteClassArray['__PHP_Incomplete_Class_Name']);
+
+        foreach ($incompleteClassArray as $key => $value) {
+            $newKey = trim(str_replace($className, '', $key));
+
+            $object->$newKey = $value;
+        }
+
+        return $object;
+    });
+
+    $array = array();
+    $swpList = unserialize(get_option('swp_list'));
+
+    foreach ($swpList as $item) {
+        $array[] = $incompleteClassToStdClass($item);
+    }
+
+    delete_option('swp_list');
+    add_option('shopello_list', json_encode($array));
+    update_option('shopello_db_version', $shopello_db_version);
+}
 
 /*
 // Mockup data

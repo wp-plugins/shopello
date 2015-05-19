@@ -107,7 +107,7 @@ class AdminPages
             add_option('swp_api_key', '');
             add_option('swp_api_endpoint', 'https://se.shopelloapi.com/1/');
             add_option('swp_settings_status', '');
-            add_option('swp_list', '');
+            add_option('shopello_list', '');
             add_option('swp_result_title', '');
             add_option('swp_keyword_title', '');
 
@@ -115,9 +115,17 @@ class AdminPages
             register_setting('default', 'swp_api_key');
             register_setting('default', 'swp_api_endpoint');
             register_setting('default', 'swp_settings_status');
-            register_setting('default', 'swp_list', 'sanitize_swp_items');
+            register_setting('default', 'shopello_list', 'sanitize_swp_items');
             register_setting('default', 'swp_result_title');
             register_setting('default', 'swp_keyword_title');
+
+            /**
+             * Include scripts for ajax-saving on the plugin's option page
+             */
+            if (is_admin() && isset($_GET['page']) && $_GET['page'] == 'shopello_api_options') {
+                wp_enqueue_script('jquery');
+                wp_enqueue_script('jquery-form');
+            }
         }));
     }
 
