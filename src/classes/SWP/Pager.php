@@ -62,7 +62,7 @@ class Pager
         $uri = preg_replace('/swp_page=\d+/', 'swp_page='.$page, $_SERVER['REQUEST_URI']);
 
         // swp_page did not exist, add it
-        if (strpos($uri, 'swp_page') === false) {
+        if (strpos($uri, 'swp_page=') === false) {
             $join = (bool) parse_url($uri, PHP_URL_QUERY) ? '&' : '?';
 
             $uri = $uri.$join.'swp_page='.$page;
