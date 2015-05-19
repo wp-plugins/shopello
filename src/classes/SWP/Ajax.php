@@ -183,15 +183,13 @@ class Ajax extends RegisterWpActions
         $categories = explode(',', post('categories', ''));
 
 
-        $item = new \SWP_Item($name, $pagesize, $keyword, $categories);
+        $item = new Listing($name, $pagesize, $keyword, $categories);
         $item->sort       = $sort;
         $item->sort_order = $sort_order;
         $item->pricemax   = $pricemax;
         $item->filters    = $filters;
         $item->color      = $color;
         $saved = SWP::Instance()->add($item);
-
-        update_option('swp_list', $_SESSION['SWP_last_saved']);
 
         // Display-version of added item
         $data = (object) array(
@@ -211,7 +209,7 @@ class Ajax extends RegisterWpActions
     }
 
     /**
-     * Admin page: Edit item -- does this work?
+     * Admin page: Edit item
      *
      * @action wp_ajax_edit_item
      */
@@ -234,7 +232,7 @@ class Ajax extends RegisterWpActions
         }
 
         // JSON Response
-        $resp = new SWPAjaxResponse();
+        $resp = new \SWPAjaxResponse();
         $resp->success = $done;
         $resp->message = 'Item '.$id.' edited.';
         $resp->serialized = SWP::Instance()->get_serialized_items();
@@ -253,7 +251,7 @@ class Ajax extends RegisterWpActions
         $removed = SWP::Instance()->remove($id);
 
         // JSON Response
-        $resp = new SWPAjaxResponse();
+        $resp = new \SWPAjaxResponse();
         $resp->success = $removed;
         $resp->message = sprintf(__('Item %d removed', 'shopello'), $id);
         $resp->serialized = SWP::Instance()->get_serialized_items();

@@ -1,5 +1,7 @@
 <?php
 
+use \SWP\Listing;
+
 $is_admin_ajax = false;
 
 /**
@@ -12,28 +14,6 @@ function load_template_part($template_name, $part_name = null)
     $var = ob_get_contents();
     ob_end_clean();
     return $var;
-}
-
-
-function required_options_check()
-{
-    $api_key      = get_option('swp_api_key');
-    $api_endpoint = get_option('swp_api_endpoint');
-
-    $error = '';
-
-    if (!$api_key) {
-        $error .= __('No API-Key has been entered, please enter your API-Key and save the settings. If you do not have an API-Key so please visit https://www.shopelloapi.com/ to get one.', 'shopello');
-    }
-    if (!$api_endpoint) {
-        $error .= __('No API-Endpoint has been entered, please enter your API-Endpoint and save the settings. If you do not have an API-Endpoint so please visit https://www.shopelloapi.com/ to get one.', 'shopello');
-    }
-
-    if (strlen($error) > 0) {
-        print '<div class="message-error">';
-        print $error;
-        print '</div>';
-    }
 }
 
 function get_post_swp_item($post_id = false)
@@ -50,11 +30,11 @@ function get_post_swp_item($post_id = false)
         }
     }
 
-    // Get SWP_Item ID from post meta
+    // Get SWP\Listing ID from post meta
     $swp_list_id = get_post_meta($post_id, '_swp_selected_list');
     $swp_list_id = intval(is_array($swp_list_id) ? $swp_list_id[0] : $swp_list_id);
 
-    // Try to fetch SWP_Item through SWP Class
+    // Try to fetch SWP\Listing's through SWP Class
     return SWP::Instance()->get_items($swp_list_id);
 }
 
@@ -235,7 +215,7 @@ function get_swp_item()
     $post_id = intval(get_the_ID() ? get_the_ID() : post('post_id'));
     $item = get_post_swp_item($post_id);
 
-    return $item ? $item : new SWP_Item();
+    return $item ? $item : new Listing();
 }
 
 
@@ -320,47 +300,6 @@ function load_swp_template($template_path)
     return ob_get_clean();
 }
 
-
-/**
- * Core extension to locate templates in plugin folders
- */
-function locate_plugin_template($template_names, $load = false, $require_once = true)
-{
-    if (!is_array($template_names)) {
-        if (is_string($template_names)) {
-            $template_names = array($template_names);
-        } else {
-            return '';
-        }
-    }
-
-    $located = '';
-
-    $this_plugin_dir = WP_PLUGIN_DIR.'/'.str_replace(basename(__FILE__), "", plugin_basename(__FILE__));
-
-    foreach ($template_names as $template_name) {
-        if (!$template_name) {
-            continue;
-        }
-
-        if (file_exists(STYLESHEETPATH . '/' . $template_name)) {
-            $located = STYLESHEETPATH . '/' . $template_name;
-            break;
-        } elseif (file_exists(TEMPLATEPATH . '/' . $template_name)) {
-            $located = TEMPLATEPATH . '/' . $template_name;
-            break;
-        } elseif (file_exists($this_plugin_dir .  $template_name)) {
-            $located =  $this_plugin_dir . $template_name;
-            break;
-        }
-    }
-
-    if ($load && '' != $located) {
-        load_template($located, $require_once);
-    }
-
-    return $located;
-}
 
 function swp_get_category_list()
 {

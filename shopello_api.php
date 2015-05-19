@@ -7,7 +7,7 @@ session_start();
  * Plugin Name: Shopello API
  * Plugin URI: http://shopello.se/api/wordpress
  * Description: This plugin was created to allow wordpress blogs and websites to in a simple manner include listings of products from Shopello.se.
- * Version: 2.3.0
+ * Version: 2.4.0
  * Author: Shopello AB
  */
 
@@ -52,8 +52,14 @@ $swpAjax = new \SWP\Ajax(\SWP\ApiClient::getInstance(), new \category_lib());
 
 
 
-// Include all the shortcode-codes
-require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes.php');
+// Include all the shortcodes
+// Shortcode definition: [shopello_products]
+require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes/shopello_products.php');
+
+// Shortcode definition: [shopello_filters]
+require_once(SHOPELLO_PLUGIN_DIR.'src/shortcodes/shopello_filters.php');
+
+
 
 // Include productlist metabox for posts/pages
 require_once(SHOPELLO_PLUGIN_DIR.'src/metabox.php');
