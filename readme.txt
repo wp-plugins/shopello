@@ -110,7 +110,7 @@ first public stable version.
 * Small fixes.
 * Major cleanup.
 
-= 1.0.0 =
+= 1.0.2 =
 * First stable version released.
 
 = 0.9 =
