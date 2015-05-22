@@ -2,6 +2,8 @@
 use \SWP\ApiClient as ShopelloAPI;
 use \SWP\Listing;
 
+use \Shopello\ListingManager;
+
 /**
  * SWP is a class that contains listing of these SWP\Listing
  * Accessible as:
@@ -12,15 +14,7 @@ use \SWP\Listing;
 class SWP
 {
     private static $instance;
-    private $items           = false;
-    private $option_list_key = "shopello_list";
-    private $session_id      = "SWP_last_saved";
-    private $max_items       = 15;
-    private $active_item     = false;
 
-    /**
-     * Method to retrieve Singleton instance
-     */
     public static function Instance()
     {
         if (is_null(self::$instance)) {
@@ -30,158 +24,70 @@ class SWP
         return self::$instance;
     }
 
+    /** @var ListingManager */
+    private $listingManager;
+    private $active_item = false;
+
     /**
      * private constructor = uncallable. Initialize by assigning items from session value
      */
     private function __construct()
     {
-        // Get options from admin page storage
-        $this->load();
+        $this->listingManager = ListingManager::getInstance();
     }
 
     /**
-     * Manually set items of SWP\Listing's. Be careful here
-     */
-    public function set_items($a)
-    {
-        if (count($a) > 0) {
-            $this->items = $a;
-            $this->save();
-        }
-    }
-
-    /**
-     * Returns either a specific item based on index (or ID), or the whole array of items
+     * Get Listing/s
      */
     public function get_items($id = false)
     {
         if ($id === false) {
-            return $this->items;
+            return $this->listingManager->getAllListings();
         }
 
-        return $this->find($id);
+        return $this->listingManager->getListingById($id);
     }
 
     /**
-     * Method for validating and appending an item to list of items
+     * Add Listing
      */
-    public function add($item)
+    public function add($listing)
     {
-        // Try to validate and push item to storage
-        if (!$item instanceof Listing) {
-            return false;
-        } elseif (count($this->items) >= $this->max_items) {
-            return false;
-        } else {
-            $arr = $this->items;
-
-            $id = $this->generate_id();
-            $item->set_id($id);
-
-            array_push($arr, $item);
-
-            $this->items = $arr;
-            $this->save();
-
-            return true;
-        }
-
-        return false;
+        return $this->listingManager->addListing($listing);
     }
 
+    /**
+     * Edit Listing
+     */
+    public function edit($id, $props)
+    {
+        $object = (object) $props;
+
+        return $this->listingManager->editListing($id, $object);
+    }
+
+    /**
+     * Remove Listing
+     */
     public function remove($id)
     {
-        $id = intval($id);
-        $arr = $this->items;
-        $rem = false;
-        $i = 0;
-
-        if (count($arr)) {
-            for ($i=0; $i<count($arr); $i++) {
-                if ($arr[$i]->get_id() == $id) {
-                    array_splice($arr, $i, 1);
-                    $rem = true;
-                    break;
-                }
-            }
-            $this->items = $arr;
-            $this->save();
-        }
-
-        return $rem;
+        return $this->listingManager->removeListing($id);
     }
 
-    public function save()
-    {
-        update_option($this->option_list_key, $this->get_serialized_items());
-    }
 
+
+    /**
+     * Random old methods that are used
+     */
     public function get_serialized_items()
     {
         $array = array();
 
-        if (count($this->items) > 0) {
-            foreach ($this->items as $item) {
-                $array[] = $item->exportSettings();
-            }
+        foreach ($this->listingManager->getAllListings() as $item) {
+            $array[] = $item->exportSettings();
         }
 
         return json_encode($array);
-    }
-
-    public function load()
-    {
-        $jsonItems = json_decode(get_option($this->option_list_key));
-        $this->items = array();
-
-        if (empty($jsonItems)) {
-            return;
-        }
-
-        foreach ($jsonItems as $jsonItem) {
-            $listing = new Listing();
-            $listing->importSettings($jsonItem);
-
-            $this->items[] = $listing;
-        }
-    }
-
-    public function edit($id, $props)
-    {
-        $id = intval($id);
-        $arr = $this->items;
-        $done = false;
-
-        for ($i=0; $i < count($arr); $i++) {
-            // Locate the item by id
-            if ($arr[$i]->get_id() == $id) {
-                // Iterate all properties on $props, apply them to $arr[$i] if suitable
-                foreach ($props as $key => $val) {
-                    // Property must exist to be set
-                    if (isset($arr[$i]->$key)) {
-                        $arr[$i]->$key = $val;
-                    }
-
-                    // All went ok
-                    $done = true;
-                }
-
-                // Store changes
-                $this->items = $arr;
-                $this->save();
-
-                // Dont loop more than necessary
-                break;
-            }
-        }
-
-        // Tell if all went ok
-        return $done;
-    }
-
-    public function set_active_item(Listing $item)
-    {
-        $this->active_item = $item;
     }
 
     public function run_query($params = false)
@@ -223,6 +129,11 @@ class SWP
         }
     }
 
+    public function set_active_item(Listing $item)
+    {
+        $this->active_item = $item;
+    }
+
     public function get_active_params($item = false)
     {
         // Set passed item as active
@@ -258,42 +169,6 @@ class SWP
 
         // Return this parameter object
         return $params;
-    }
-
-    private function find($id)
-    {
-        $arr = $this->items;
-
-        for ($i = 0; $i < count($arr); $i++) {
-            if ($arr[$i]->get_id() === $id) {
-                return $arr[$i];
-            }
-        }
-
-        return false;
-    }
-
-    private function generate_id()
-    {
-        // Fetch all ID's to compare new ID with
-        $ids = array();
-        foreach ($this->items as $i) {
-            $ids[] = $i->get_id();
-        }
-
-        // Randomize number ID until we have a unique one
-        do {
-            $id = rand(1000, 9999);
-        } while (in_array($id, $ids));
-
-        // Return new valid ID
-        return $id;
-    }
-
-    public function get_active_item_categories()
-    {
-        $response = $this->run_query($this->get_active_params());
-        return $response->extra->categories;
     }
 
     public function frontend_dependencies()

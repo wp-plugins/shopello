@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shopello API 1.9.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-05-07 14:32:33+00:00\n"
-"PO-Revision-Date: 2015-05-07 16:35+0100\n"
+"POT-Creation-Date: 2015-05-21 12:52:48+00:00\n"
+"PO-Revision-Date: 2015-05-21 14:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -54,66 +54,58 @@ msgstr "Något gick fel vid sparandet. Ladda om sidan och försök igen."
 msgid "Choose a name for your listing:"
 msgstr "Vilket namn vill du spara din listning med?"
 
-#: src/classes/SWP/AdminPages.php:134 src/classes/SWP/AdminPages.php:149
-#: src/classes/SWP/AdminPages.php:161
+#: src/classes/SWP/AdminPages.php:142 src/classes/SWP/AdminPages.php:157
+#: src/classes/SWP/AdminPages.php:169
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Du har inte tillräckliga rättigheter för att besöka denna sida."
 
-#: src/classes/SWP/Ajax.php:34
+#: src/classes/SWP/Ajax.php:33
 msgid "The categories has been updated!"
 msgstr "Kategorierna har uppdaterats!"
 
-#: src/classes/SWP/Ajax.php:36
+#: src/classes/SWP/Ajax.php:35
 msgid "Could not update, try again later or contact the support."
 msgstr "Kunde inte uppdatera, försök igen senare eller kontakta supporten."
 
-#: src/classes/SWP/Ajax.php:39
+#: src/classes/SWP/Ajax.php:38
 msgid "You have to configure the API-Settings first."
 msgstr "Du måste ställa in API-inställningarna först."
 
-#: src/classes/SWP/Ajax.php:146
+#: src/classes/SWP/Ajax.php:145
 msgid "Api Key or Api Endpoint are missing."
 msgstr "API-Nyckel eller API-Adress saknas."
 
-#: src/classes/SWP/Ajax.php:206
+#: src/classes/SWP/Ajax.php:204
 msgid "New item stored"
 msgstr "Nytt objekt sparat"
 
-#: src/classes/SWP/Ajax.php:258
+#: src/classes/SWP/Ajax.php:256
 msgid "Item %d removed"
 msgstr "Listning %d har tagits bort"
 
-#: src/classes/SWP_Item.php:55
+#: src/classes/SWP/Listing.php:50
 msgid "Query: %s"
 msgstr "Sökning: %s"
 
-#: src/classes/SWP_Item.php:57
+#: src/classes/SWP/Listing.php:52
 msgid "No querystring"
 msgstr "Saknar söksträng"
 
-#: src/classes/SWP_Item.php:61
+#: src/classes/SWP/Listing.php:56
 msgid "Categories: [%s]"
 msgstr "Kategorier: [%s]"
 
-#: src/classes/SWP_Item.php:63
+#: src/classes/SWP/Listing.php:58
 msgid "No categories selected"
 msgstr "Inga kategorier valda"
 
-#: src/classes/SWP_Item.php:67
+#: src/classes/SWP/Listing.php:62
 msgid "Page size: %s"
 msgstr "Sidstorlek: %s"
 
-#: src/classes/SWP_MetaBox.php:24
+#: src/classes/SWP_MetaBox.php:35
 msgid "Shopello listning"
 msgstr "Shopello Listning"
-
-#: src/classes/SWP_MetaBox.php:96 src/classes/SWP_MetaBox.php:98
-msgid "Choose Productlist"
-msgstr "Välj produktlistning"
-
-#: src/classes/SWP_MetaBox.php:110
-msgid "No Listing"
-msgstr "Ingen listning"
 
 #: src/classes/shopello_search_widget.php:13
 msgid "Simplest way to start working from any page"
@@ -140,31 +132,11 @@ msgstr "Beskrivning"
 msgid "CSS klass"
 msgstr "CSS klass"
 
-#: src/helpers.php:26
-msgid ""
-"No API-Key has been entered, please enter your API-Key and save the "
-"settings. If you do not have an API-Key so please visit https://www."
-"shopelloapi.com/ to get one."
-msgstr ""
-"Ingen API-nyckel har angivits. Var god ange din API-nyckel och spara "
-"inställningarna. Har du ingen API-nyckel så kan du besöka https://www."
-"shopelloapi.com/ för att erhålla en."
-
-#: src/helpers.php:29
-msgid ""
-"No API-Endpoint has been entered, please enter your API-Endpoint and save "
-"the settings. If you do not have an API-Endpoint so please visit https://www."
-"shopelloapi.com/ to get one."
-msgstr ""
-"Ingen API-Adress har angivits. Var god ange din API-endpoint och spara "
-"inställningarna. Har du ingen API-endpoint så kan du besöka https://www."
-"shopelloapi.com/ för att erhålla en."
-
-#: src/helpers.php:153 src/rendering_helpers.php:37
+#: src/helpers.php:133 src/rendering_helpers.php:37
 msgid "product"
 msgstr "produkt"
 
-#: src/helpers.php:153 src/helpers.php:154 src/rendering_helpers.php:37
+#: src/helpers.php:133 src/helpers.php:134 src/rendering_helpers.php:37
 #: src/rendering_helpers.php:38
 msgid "products"
 msgstr "produkter"
@@ -237,7 +209,7 @@ msgstr "rosa"
 msgid "purple"
 msgstr "lila"
 
-#: src/shortcodes/shopello_products.php:14
+#: src/shortcodes/shopello_products.php:11
 msgid ""
 "The product listing you are trying to use does not exist. Please check your "
 "API-Settings."
@@ -245,83 +217,83 @@ msgstr ""
 "Listningen du försöker använda finns inte, var god se över dina "
 "inställninngar."
 
-#: src/templates/admin/account.php:17
+#: src/templates/admin/account.php:13
 msgid "API-Key"
 msgstr "API-Nyckel"
 
-#: src/templates/admin/account.php:25
+#: src/templates/admin/account.php:21
 msgid "API-Endpoint"
 msgstr "API-Adress"
 
-#: src/templates/admin/account.php:33
+#: src/templates/admin/account.php:29
 msgid "Test API-Settings"
 msgstr "Testa API-Inställningarna"
 
-#: src/templates/admin/account.php:36
+#: src/templates/admin/account.php:32
 msgid "Test now"
 msgstr "Testa nu"
 
-#: src/templates/admin/account.php:42
+#: src/templates/admin/account.php:38
 msgid "Settings are correct."
 msgstr "Inställningarna är korrekta."
 
-#: src/templates/admin/account.php:43
+#: src/templates/admin/account.php:39
 msgid ""
 "Please check your settings and check if ping works on the System Test page."
 msgstr ""
 "Vänligen kontrollera dina inställningar och kontrollera om ping fungerar på "
 "Systemtest-sidan."
 
-#: src/templates/admin/account.php:49
+#: src/templates/admin/account.php:45
 msgid "General Settings"
 msgstr "Generella inställningar"
 
-#: src/templates/admin/account.php:54
+#: src/templates/admin/account.php:50
 msgid "Total amount of hits-text"
 msgstr "Antal träffar-text"
 
-#: src/templates/admin/account.php:57
+#: src/templates/admin/account.php:53
 msgid "Found %amount% products"
 msgstr "Hittade %amount% produkter"
 
-#: src/templates/admin/account.php:58
+#: src/templates/admin/account.php:54
 msgid "Found 247 products"
 msgstr "Hittade 247 produkter"
 
-#: src/templates/admin/account.php:59
+#: src/templates/admin/account.php:55
 msgid "Written: \"Found %amount% of products for phrase %phrase%\"."
 msgstr "Skrivs: \"Hittade %amount% produkter för sökordet %phrase%\"."
 
-#: src/templates/admin/account.php:64
+#: src/templates/admin/account.php:60
 msgid "Keyword-text"
 msgstr "Sökords-text"
 
-#: src/templates/admin/account.php:67
+#: src/templates/admin/account.php:63
 msgid "for phrase %phrase%."
 msgstr "för sökordet %phrase%."
 
-#: src/templates/admin/account.php:68
+#: src/templates/admin/account.php:64
 msgid "Completes previous \"Found 247 products\" with a keyword"
 msgstr "Kompletterar föregående \"Hittade 247 produkter\" med ett sökord."
 
-#: src/templates/admin/account.php:69
+#: src/templates/admin/account.php:65
 msgid "For example: \"for phrase %phrase%\"."
 msgstr "Till exempel: \"för sökordet %phrase%\"."
 
-#: src/templates/admin/account.php:70
+#: src/templates/admin/account.php:66
 msgid "Result: \"Found 247 products for phrase Shoes\""
 msgstr "Resultat: \"Hittade 247 produkter för sökordet Skor\""
 
-#: src/templates/admin/account.php:75 src/templates/result/filters.php:56
+#: src/templates/admin/account.php:71 src/templates/result/filters.php:56
 #: src/templates/result/filters.php:167 src/twig/result/.filters.php:12
 msgid "Categories"
 msgstr "Kategorier"
 
-#: src/templates/admin/account.php:78
+#: src/templates/admin/account.php:74
 msgid "Synchronize categories"
 msgstr "Synkronisera kategorier"
 
-#: src/templates/admin/account.php:80
+#: src/templates/admin/account.php:76
 msgid ""
 "Categories is automaticly updated daily. Use this button to manually update "
 "everything now."
@@ -329,7 +301,7 @@ msgstr ""
 "Kategorierna uppdateras dagligen. Använd knappen för att manuellt uppdatera "
 "alla kategorier."
 
-#: src/templates/admin/account.php:81
+#: src/templates/admin/account.php:77
 msgid ""
 "If it is the first time you are using the plugin, you probably need to click "
 "this."
@@ -355,7 +327,7 @@ msgstr ""
 "Vänligen gå till <a href=\"%s\">Inställningar</a> och kontrollera "
 "uppgifterna där."
 
-#: src/templates/admin/product-lists.php:43
+#: src/templates/admin/product-lists.php:39
 msgid ""
 "Saved Listings <em> - To Add / Save a listing you have to use the tool <a "
 "href=\"#new\">New Listing</a> a bit further down on this page. When done, "
@@ -365,11 +337,11 @@ msgstr ""
 "verktyget <a href=\"#new\">Nytt urval</a> längre ned på sidan. När du är "
 "klar, tryck på <strong>Spara urval</strong> så sparas den i denna lista.</em>"
 
-#: src/templates/admin/product-lists.php:64
+#: src/templates/admin/product-lists.php:60
 msgid "New Listing"
 msgstr "Nytt urval"
 
-#: src/templates/admin/product-lists.php:74
+#: src/templates/admin/product-lists.php:70
 msgid "Preview of your listing"
 msgstr "Förhandsgranskning av ditt urval"
 
@@ -441,6 +413,14 @@ msgstr "Spara Produktlistning"
 msgid "We did not find any results for this search."
 msgstr "Vi hittade inga resultat för din sökning"
 
+#: src/twig/admin/.metabox.php:3
+msgid "Choose Productlist"
+msgstr "Välj produktlistning"
+
+#: src/twig/admin/.metabox.php:7
+msgid "No Listing"
+msgstr "Ingen listning"
+
 #: src/twig/admin/.tests.php:6
 msgid ""
 "This page will perform some system-tests to detect problems in your "
@@ -493,6 +473,24 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Shopello AB"
 msgstr "Shopello AB"
+
+#~ msgid ""
+#~ "No API-Key has been entered, please enter your API-Key and save the "
+#~ "settings. If you do not have an API-Key so please visit https://www."
+#~ "shopelloapi.com/ to get one."
+#~ msgstr ""
+#~ "Ingen API-nyckel har angivits. Var god ange din API-nyckel och spara "
+#~ "inställningarna. Har du ingen API-nyckel så kan du besöka https://www."
+#~ "shopelloapi.com/ för att erhålla en."
+
+#~ msgid ""
+#~ "No API-Endpoint has been entered, please enter your API-Endpoint and save "
+#~ "the settings. If you do not have an API-Endpoint so please visit https://"
+#~ "www.shopelloapi.com/ to get one."
+#~ msgstr ""
+#~ "Ingen API-Adress har angivits. Var god ange din API-endpoint och spara "
+#~ "inställningarna. Har du ingen API-endpoint så kan du besöka https://www."
+#~ "shopelloapi.com/ för att erhålla en."
 
 #~ msgid "Go to product"
 #~ msgstr "Gå till produkt"

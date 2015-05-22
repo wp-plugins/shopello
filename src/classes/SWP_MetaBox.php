@@ -1,12 +1,23 @@
 <?php
+use \SWP\View;
+use \Shopello\ListingManager;
 
 class SWP_MetaBox
 {
+    /** @var View */
+    private $view;
+
+    /** @var ListingManager */
+    private $listingManager;
+
     /**
      * Hook into the appropriate actions when the class is constructed.
      */
     public function __construct()
     {
+        $this->view = View::getInstance();
+        $this->listingManager = ListingManager::getInstance();
+
         add_action('add_meta_boxes', array($this, 'swp_add_meta_box'));
         add_action('save_post', array($this, 'save'));
     }
@@ -91,30 +102,18 @@ class SWP_MetaBox
         // Add an nonce field so we can check for it later.
         wp_nonce_field('myplugin_inner_custom_box', 'myplugin_inner_custom_box_nonce');
 
-        // Display the form, using the current value.
-        echo '<p>
-                <strong>'.__('Choose Productlist', 'shopello').'</strong>
-              </p>
-              <label class="screen-reader-text" for="parent_id">'.__('Choose Productlist', 'shopello').'</label>';
-
-        $items = SWP::Instance()->get_items();
+        $listings = $this->listingManager->getAllListings();
 
         // Get currently selected list item, for pre-selecting in select box below.
-        $selid = get_post_meta($post->ID, '_swp_selected_list');
-        // Parse ID to int. Also break out of array if wrapped in such.
-        $selid = intval(is_array($selid) ? $selid[0] : $selid);
+        $selectedId = get_post_meta($post->ID, '_swp_selected_list');
+        $selectedId = intval(is_array($selectedId) ? $selectedId[0] : $selectedId);
 
-
-        // Start drawing selectbox with lists
-        echo '<select name="swp_selected_list" id="swp_selected_list">';
-        echo     '<option value="-1">- '.__('No Listing', 'shopello').' -</option>';
-
-        foreach ($items as $item) {
-            // BYGG IN SELECTED-FLAGGA
-            $sel = ($item->get_id() == $selid) ? ' selected="selected" ' : '';
-            echo '<option value="'.$item->get_id().'" '.$sel.'>'.$item->name.'</option>';
-        }
-
-        echo '</select>';
+        echo $this->view->render(
+            'admin/metabox',
+            [
+                'listings' => $listings,
+                'selectedId' => $selectedId
+            ]
+        );
     }
 }
