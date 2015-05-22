@@ -53,14 +53,7 @@ problems with this, please contact partner@shopello.se
 = 2.4.3 =
 * Solved big issue in all AJAX-Calls on servers running some kind of
 eAccelerator or other PHP-Extension that removes comments from the code.
-
-= 2.4.2 =
-* Maintanance release
-
-= 2.4.1 =
 * Resolved issue with the pagination if a custom pagesize is chosen.
-
-= 2.4.0 =
 * This update shouldn't affect any features, it's a big refactor of how we store
 our listings. The migration should happen automaticly.
 
@@ -76,85 +69,48 @@ by a great deal.
 
 = 2.1.3 =
 * Fixed regression in PHP 5.3
-
-= 2.1.2 =
 * Tested with Wordpress 4.2.2
-
-= 2.1.1 =
 * Hide errormessage from widget when visiting a page without listing.
 * Documentation improvements
 * Renamed some scripts to make sense
 * Stopped including unused scripts
 * Code improvements and polish
-* Tested with Wordpress 4.2.1
-
-= 2.1.0 =
 * Introducing the Danish translation
 
 = 2.0.5 =
 * Hide query in filters
-
-= 2.0.4 =
 * Updated to support Wordpress 4.2
-
-= 2.0.3 =
 * Minor change of the anchor-links for the product item, you can click anywhere
 on the product in the listing now.
-
-= 2.0.2 =
 * Category filtering fix
-
-= 2.0.1 =
 * Small CSS fix for product listing
 * Color filtering fix
-
-= 2.0.0 =
 * Rewrite of the entire productlisting and filter handling
 * Major code improvements of AJAX related backend
 * Updated translations (still only English and Swedish available).
 
 = 1.10.2 =
 * Improvements in fetching of products
-
-= 1.10.1 =
 * Improved handling of 404 errors from API, now it won't destroy the entire
 page.
 * Major code improvements
 * Migrated from LESSCSS to SCSS
-
-= 1.10.0 =
 * Internationalization and Localization support, we currently have English and
 Swedish.
 
 = 1.9.8 =
 * Major code improvements, no new features.
-
-= 1.9.7 =
 * Added initial support for autoloading with composer
-
-= 1.9.6 =
 * Added adminpage to check for CURL as dependency and to Ping the API.
-
-= 1.9.5 =
 * Minor changes to readme, just layouting of text.
-
-= 1.9.4 =
 * Added Screenshots to readme
-
-= 1.9.3 =
 * Readme and cosmetic fixes, no code or feature changes.
-
-= 1.9.2 =
 * More small fixes. We're progressing to get to version 2.0.0 which will be the
 first public stable version.
-
-= 1.9.1 =
 * Small fixes.
-
-= 1.9.0 =
 * Major cleanup.
 
-= 1.0.0 =
+= 1.0.2 =
 * First stable version released.
 
 = 0.9 =
