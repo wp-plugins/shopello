@@ -110,10 +110,10 @@ class SWP_MetaBox
 
         echo $this->view->render(
             'admin/metabox',
-            [
+            array(
                 'listings' => $listings,
                 'selectedId' => $selectedId
-            ]
+            )
         );
     }
 }
