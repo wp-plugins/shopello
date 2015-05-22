@@ -1,0 +1,15 @@
+{# This will trick token_get_all() when generating the language .pot file <?php #}
+<p>
+    <label for="swp_selected_list"><strong>{{ __('Choose Productlist', 'shopello') }}</strong></label>
+</p>
+
+<select name="swp_selected_list" id="swp_selected_list">
+    <option value="-1">- {{ __('No Listing', 'shopello') }} -</option>
+    {% for key, value in listings %}
+        {% if key == selectedId %}
+            <option selected="selected" value="{{ key }}">{{ value.name }}</option>
+        {% else %}
+            <option value="{{ key }}">{{ value.name }}</option>
+        {% endif %}
+    {% endfor %}
+</select>

@@ -35,7 +35,7 @@ function get_post_swp_item($post_id = false)
     $swp_list_id = intval(is_array($swp_list_id) ? $swp_list_id[0] : $swp_list_id);
 
     // Try to fetch SWP\Listing's through SWP Class
-    return SWP::Instance()->get_items($swp_list_id);
+    return \Shopello\ListingManager::getInstance()->getListingById($swp_list_id);
 }
 
 /**

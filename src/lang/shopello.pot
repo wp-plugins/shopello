@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Shopello API package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Shopello API 2.1.3\n"
+"Project-Id-Version: Shopello API 2.4.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-05-07 14:32:33+00:00\n"
+"POT-Creation-Date: 2015-05-21 12:52:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,65 +49,57 @@ msgstr ""
 msgid "Choose a name for your listing:"
 msgstr ""
 
-#: src/classes/SWP/AdminPages.php:134 src/classes/SWP/AdminPages.php:149
-#: src/classes/SWP/AdminPages.php:161
+#: src/classes/SWP/AdminPages.php:142 src/classes/SWP/AdminPages.php:157
+#: src/classes/SWP/AdminPages.php:169
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:34
+#: src/classes/SWP/Ajax.php:33
 msgid "The categories has been updated!"
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:36
+#: src/classes/SWP/Ajax.php:35
 msgid "Could not update, try again later or contact the support."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:39
+#: src/classes/SWP/Ajax.php:38
 msgid "You have to configure the API-Settings first."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:146
+#: src/classes/SWP/Ajax.php:145
 msgid "Api Key or Api Endpoint are missing."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:206
+#: src/classes/SWP/Ajax.php:204
 msgid "New item stored"
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:258
+#: src/classes/SWP/Ajax.php:256
 msgid "Item %d removed"
 msgstr ""
 
-#: src/classes/SWP_Item.php:55
+#: src/classes/SWP/Listing.php:50
 msgid "Query: %s"
 msgstr ""
 
-#: src/classes/SWP_Item.php:57
+#: src/classes/SWP/Listing.php:52
 msgid "No querystring"
 msgstr ""
 
-#: src/classes/SWP_Item.php:61
+#: src/classes/SWP/Listing.php:56
 msgid "Categories: [%s]"
 msgstr ""
 
-#: src/classes/SWP_Item.php:63
+#: src/classes/SWP/Listing.php:58
 msgid "No categories selected"
 msgstr ""
 
-#: src/classes/SWP_Item.php:67
+#: src/classes/SWP/Listing.php:62
 msgid "Page size: %s"
 msgstr ""
 
-#: src/classes/SWP_MetaBox.php:24
+#: src/classes/SWP_MetaBox.php:35
 msgid "Shopello listning"
-msgstr ""
-
-#: src/classes/SWP_MetaBox.php:96 src/classes/SWP_MetaBox.php:98
-msgid "Choose Productlist"
-msgstr ""
-
-#: src/classes/SWP_MetaBox.php:110
-msgid "No Listing"
 msgstr ""
 
 #: src/classes/shopello_search_widget.php:13
@@ -135,25 +127,11 @@ msgstr ""
 msgid "CSS klass"
 msgstr ""
 
-#: src/helpers.php:26
-msgid ""
-"No API-Key has been entered, please enter your API-Key and save the "
-"settings. If you do not have an API-Key so please visit https://www."
-"shopelloapi.com/ to get one."
-msgstr ""
-
-#: src/helpers.php:29
-msgid ""
-"No API-Endpoint has been entered, please enter your API-Endpoint and save "
-"the settings. If you do not have an API-Endpoint so please visit https://www."
-"shopelloapi.com/ to get one."
-msgstr ""
-
-#: src/helpers.php:153 src/rendering_helpers.php:37
+#: src/helpers.php:133 src/rendering_helpers.php:37
 msgid "product"
 msgstr ""
 
-#: src/helpers.php:153 src/helpers.php:154 src/rendering_helpers.php:37
+#: src/helpers.php:133 src/helpers.php:134 src/rendering_helpers.php:37
 #: src/rendering_helpers.php:38
 msgid "products"
 msgstr ""
@@ -226,93 +204,93 @@ msgstr ""
 msgid "purple"
 msgstr ""
 
-#: src/shortcodes/shopello_products.php:14
+#: src/shortcodes/shopello_products.php:11
 msgid ""
 "The product listing you are trying to use does not exist. Please check your "
 "API-Settings."
 msgstr ""
 
-#: src/templates/admin/account.php:17
+#: src/templates/admin/account.php:13
 msgid "API-Key"
 msgstr ""
 
-#: src/templates/admin/account.php:25
+#: src/templates/admin/account.php:21
 msgid "API-Endpoint"
 msgstr ""
 
-#: src/templates/admin/account.php:33
+#: src/templates/admin/account.php:29
 msgid "Test API-Settings"
 msgstr ""
 
-#: src/templates/admin/account.php:36
+#: src/templates/admin/account.php:32
 msgid "Test now"
 msgstr ""
 
-#: src/templates/admin/account.php:42
+#: src/templates/admin/account.php:38
 msgid "Settings are correct."
 msgstr ""
 
-#: src/templates/admin/account.php:43
+#: src/templates/admin/account.php:39
 msgid ""
 "Please check your settings and check if ping works on the System Test page."
 msgstr ""
 
-#: src/templates/admin/account.php:49
+#: src/templates/admin/account.php:45
 msgid "General Settings"
 msgstr ""
 
-#: src/templates/admin/account.php:54
+#: src/templates/admin/account.php:50
 msgid "Total amount of hits-text"
 msgstr ""
 
-#: src/templates/admin/account.php:57
+#: src/templates/admin/account.php:53
 msgid "Found %amount% products"
 msgstr ""
 
-#: src/templates/admin/account.php:58
+#: src/templates/admin/account.php:54
 msgid "Found 247 products"
 msgstr ""
 
-#: src/templates/admin/account.php:59
+#: src/templates/admin/account.php:55
 msgid "Written: \"Found %amount% of products for phrase %phrase%\"."
 msgstr ""
 
-#: src/templates/admin/account.php:64
+#: src/templates/admin/account.php:60
 msgid "Keyword-text"
 msgstr ""
 
-#: src/templates/admin/account.php:67
+#: src/templates/admin/account.php:63
 msgid "for phrase %phrase%."
 msgstr ""
 
-#: src/templates/admin/account.php:68
+#: src/templates/admin/account.php:64
 msgid "Completes previous \"Found 247 products\" with a keyword"
 msgstr ""
 
-#: src/templates/admin/account.php:69
+#: src/templates/admin/account.php:65
 msgid "For example: \"for phrase %phrase%\"."
 msgstr ""
 
-#: src/templates/admin/account.php:70
+#: src/templates/admin/account.php:66
 msgid "Result: \"Found 247 products for phrase Shoes\""
 msgstr ""
 
-#: src/templates/admin/account.php:75 src/templates/result/filters.php:56
+#: src/templates/admin/account.php:71 src/templates/result/filters.php:56
 #: src/templates/result/filters.php:167 src/twig/result/.filters.php:12
 msgid "Categories"
 msgstr ""
 
-#: src/templates/admin/account.php:78
+#: src/templates/admin/account.php:74
 msgid "Synchronize categories"
 msgstr ""
 
-#: src/templates/admin/account.php:80
+#: src/templates/admin/account.php:76
 msgid ""
 "Categories is automaticly updated daily. Use this button to manually update "
 "everything now."
 msgstr ""
 
-#: src/templates/admin/account.php:81
+#: src/templates/admin/account.php:77
 msgid ""
 "If it is the first time you are using the plugin, you probably need to click "
 "this."
@@ -332,18 +310,18 @@ msgstr ""
 msgid "Please visit <a href=\"%s\">API-Settings</a> and check your settings."
 msgstr ""
 
-#: src/templates/admin/product-lists.php:43
+#: src/templates/admin/product-lists.php:39
 msgid ""
 "Saved Listings <em> - To Add / Save a listing you have to use the tool <a "
 "href=\"#new\">New Listing</a> a bit further down on this page. When done, "
 "press the button <strong>Save Listing</strong> to save to this list.</em>"
 msgstr ""
 
-#: src/templates/admin/product-lists.php:64
+#: src/templates/admin/product-lists.php:60
 msgid "New Listing"
 msgstr ""
 
-#: src/templates/admin/product-lists.php:74
+#: src/templates/admin/product-lists.php:70
 msgid "Preview of your listing"
 msgstr ""
 
@@ -410,6 +388,14 @@ msgstr ""
 
 #: src/templates/result/no_hits.php:1
 msgid "We did not find any results for this search."
+msgstr ""
+
+#: src/twig/admin/.metabox.php:3
+msgid "Choose Productlist"
+msgstr ""
+
+#: src/twig/admin/.metabox.php:7
+msgid "No Listing"
 msgstr ""
 
 #: src/twig/admin/.tests.php:6

@@ -18,7 +18,7 @@ $admin->registerActions();
  */
 function sanitize_swp_items()
 {
-    return SWP::Instance()->get_serialized_items();
+    return (object) \Shopello\ListingManager::getInstance()->getAllListings();
 }
 
 
