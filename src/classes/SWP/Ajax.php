@@ -4,8 +4,9 @@ namespace SWP;
 use \SWP;
 use \category_lib;
 use \SWP\ApiClient as ShopelloAPI;
+use \WpWrappers;
 
-class Ajax extends RegisterWpActions
+class Ajax
 {
     /** @var ShopelloAPI */
     private $shopelloApi;
@@ -18,7 +19,21 @@ class Ajax extends RegisterWpActions
         $this->shopelloApi = $shopelloApi;
         $this->categoryLib = $categoryLib;
 
-        $this->registerActions();
+        $actions = array(
+            'wp_ajax_sync_categories' => 'syncCategories',
+            'wp_ajax_sapi_get_listing' => 'sapiGetListingAdmin',
+            'wp_ajax_nopriv_sapi_get_listing' => 'sapiGetListing',
+            'wp_ajax_sapi_get_filters' => 'sapiGetFiltersAdmin',
+            'wp_ajax_nopriv_sapi_get_filters' => 'sapiGetFilters',
+            'wp_ajax_test_api_settings' => 'testApiSettingsAdmi',
+            'wp_ajax_save_item' => 'saveItem',
+            'wp_ajax_edit_item' => 'editItem',
+            'wp_ajax_remove_item' => 'removeItem'
+        );
+
+        foreach ($actions as $action => $method) {
+            WpWrappers::addAction($action, array($this, $method));
+        }
     }
 
     /**

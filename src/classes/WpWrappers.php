@@ -14,4 +14,9 @@ class WpWrappers
     {
         return update_option($name, $data);
     }
+
+    public static function addAction($action, $callback)
+    {
+        return add_action($action, $callback);
+    }
 }
