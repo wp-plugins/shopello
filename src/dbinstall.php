@@ -1,7 +1,7 @@
 <?php
 
 global $shopello_db_version;
-$shopello_db_version = '3.1';
+$shopello_db_version = '3.2';
 
 // On plugin activate, install database tables
 register_activation_hook(SHOPELLO_PLUGIN_DIR.'shopello_api.php', 'swp_db_install');
@@ -94,4 +94,18 @@ if (get_option('shopello_db_version') === '3.0') {
 
     update_option('shopello_list', json_encode((object) $array));
     update_option('shopello_db_version', '3.1');
+}
+
+/**
+ * We had overlooked a piece of code and got data stored incorrectly, this
+ * migration intend to fix that.
+ */
+if (get_option('shopello_db_version') === '3.1') {
+    $data = get_option('shopello_list');
+
+    if ('object' === gettype($data)) {
+        update_option('shopello_list', json_encode($data));
+    }
+
+    update_option('shopello_db_version', '3.2');
 }
