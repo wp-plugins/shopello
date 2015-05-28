@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 4.2.0
 Tested up to: 4.2.2
-Stable tag: 2.4.4
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ problems with this, please contact partner@shopello.se
 
 
 == Changelog ==
+= 2.5.0 =
+* Some users experienced issues regarding "json_decode", fixed the cause of the
+issue and added migration to repair the database.
+
 = 2.4.4 =
 * PHP 5.3 Regression
 * Solved big issue in all AJAX-Calls on servers running some kind of
