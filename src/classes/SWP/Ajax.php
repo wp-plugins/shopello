@@ -25,7 +25,7 @@ class Ajax
             'wp_ajax_nopriv_sapi_get_listing' => 'sapiGetListing',
             'wp_ajax_sapi_get_filters' => 'sapiGetFiltersAdmin',
             'wp_ajax_nopriv_sapi_get_filters' => 'sapiGetFilters',
-            'wp_ajax_test_api_settings' => 'testApiSettingsAdmi',
+            'wp_ajax_test_api_settings' => 'testApiSettingsAdmin',
             'wp_ajax_save_item' => 'saveItem',
             'wp_ajax_edit_item' => 'editItem',
             'wp_ajax_remove_item' => 'removeItem'
