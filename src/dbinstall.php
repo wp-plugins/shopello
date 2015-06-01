@@ -1,7 +1,7 @@
 <?php
 
 global $shopello_db_version;
-$shopello_db_version = '3.2';
+$shopello_db_version = '3.3';
 
 // On plugin activate, install database tables
 register_activation_hook(SHOPELLO_PLUGIN_DIR.'shopello_api.php', 'swp_db_install');
@@ -108,4 +108,18 @@ if (get_option('shopello_db_version') === '3.1') {
     }
 
     update_option('shopello_db_version', '3.2');
+}
+
+/**
+ * Migration to add ID's to the listing objects
+ */
+if (get_option('shopello_db_version') === '3.2') {
+    $items = json_decode(get_option('shopello_list'));
+
+    foreach ($items as $id => $item) {
+        $items->$id->id = $id;
+    }
+
+    update_option('shopello_list', json_encode($items));
+    update_option('shopello_db_version', '3.3');
 }
