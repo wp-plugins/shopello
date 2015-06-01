@@ -41,13 +41,13 @@ else :
                 <table class="form-table lists" id="shortcode_table">
                     <?php
                     // Get stashed shortcodes
-                    foreach ($items as $item) :
+                    foreach ($items as $id => $item) :
                     ?>
                         <tr>
                             <td width="15%"><input type="text" name="swp_shortcodes_names[]" class="swp_item_name" value="<?php echo htmlspecialchars($item->name);?>" /></td>
                             <td width="40%"><span class="swp_item_desc"><?php echo $item->get_description(DESC_DELIMITER);?></span></td>
                             <td width="10%">
-                                <input type="hidden" name="swp_item_id" class="swp_item_id" value="<?php echo $item->get_id(); ?>"/>
+                                <input type="hidden" name="swp_item_id" class="swp_item_id" value="<?php echo $id ?>"/>
                                 <input type="button" class="button remove" value="Ta bort" />
                             </td>
                         </tr>
