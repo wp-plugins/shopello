@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 4.2.0
 Tested up to: 4.2.2
-Stable tag: 2.5.2
+Stable tag: 2.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ problems with this, please contact partner@shopello.se
 
 
 == Changelog ==
+= 2.6.0 =
+* Added mediaquerys for the product grid to work better on cellphones.
+
 = 2.5.2 =
 * Fixed regression in the Listing Management.
 * Repaired a small case of database corruption.

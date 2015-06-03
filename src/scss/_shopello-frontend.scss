@@ -88,7 +88,7 @@ ul.shopello_product_list {
 	list-style: none;
 	margin: 0;
 	float: left;
-        height: 335px;
+        height: 290px;
 
 	.product {
 	    padding: 10px;
@@ -112,13 +112,14 @@ ul.shopello_product_list {
 		    max-width: 100%;
 		    max-height: 100%;
 		    vertical-align: middle;
+                    margin-left: auto;
+                    margin-right: auto;
 		}
 	    }
 
-	    .description {
-		overflow: hidden;
-		height: 40px;
-	    }
+            .text {
+                text-align: center;
+            }
 
 	    .price_wrap {
 		font-size: 14px;
@@ -258,4 +259,16 @@ ul.shopello_product_list {
     width: 100%;
     border-bottom: 1px #eee solid;
     margin-bottom: 1em;
+}
+
+@media screen and (max-width: 700px) {
+    ul.shopello_product_list li {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul.shopello_product_list li {
+        width: 100%;
+    }
 }

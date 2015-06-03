@@ -15,15 +15,14 @@
                         <h3>
                             {{ product.name|slice(0,50) }}
                         </h3>
-                        <p class="description">
-                            <p class="price_wrap">
-                                {% if product.price.regular_price > 0 %}
-                                    <span class="price sales">{{ product.price.price|number_format }} {{ product.price.currency }}</span>
-                                    <span class="price old_price">{{ product.price.regular_price|number_format }} {{ product.price.currency }}</span>
-                                {% else %}
-                                    <span class="price">{{ product.price.price|number_format }} {{ product.price.currency }}</span>
-                                {% endif %}
-                            </p>
+                        <p class="price_wrap">
+                            {% if product.price.regular_price > 0 %}
+                                <span class="price sales">{{ product.price.price|number_format }} {{ product.price.currency }}</span><br />
+                                <span class="price old_price">{{ product.price.regular_price|number_format }} {{ product.price.currency }}</span>
+                            {% else %}
+                                <span class="price sales"></span><br />
+                                <span class="price">{{ product.price.price|number_format }} {{ product.price.currency }}</span>
+                            {% endif %}
                         </p>
                     </div>
                     <div class="checkout_button">
