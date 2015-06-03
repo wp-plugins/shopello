@@ -56,11 +56,7 @@ problems with this, please contact partner@shopello.se
 = 2.5.2 =
 * Fixed regression in the Listing Management.
 * Repaired a small case of database corruption.
-
-= 2.5.1 =
 * Fixed regression in the "Test API" button in settings.
-
-= 2.5.0 =
 * Some users experienced issues regarding "json_decode", fixed the cause of the
 issue and added migration to repair the database.
 
