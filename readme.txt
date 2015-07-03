@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 4.2.0
 Tested up to: 4.2.2
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,11 @@ problems with this, please contact partner@shopello.se
 
 
 == Changelog ==
+= 2.6.1 =
+* Replaced inputbox with selectbox when choosing API-Endpoint, should be less
+issues to get the correct endpoint like this.
+* Made the "Test API-Settings" script more reliable.
+
 = 2.6.0 =
 * Added mediaquerys for the product grid to work better on cellphones.
 

@@ -157,7 +157,32 @@ class AdminPages
             wp_die(__('You do not have sufficient permissions to access this page.', 'shopello'));
         }
 
-        include(SHOPELLO_PLUGIN_TEMPLATE_DIR.'admin/account.php');
+        /**
+         * Output Buffering hack to run settings_fields() and get data to use in the form
+         */
+        ob_start();
+        settings_fields('default');
+        $hiddenWpFields = ob_get_contents();
+        ob_clean();
+
+        submit_button('Save', 'primary');
+        $submitButton = ob_get_contents();
+        ob_end_clean();
+        /**
+         * End hack
+         */
+
+        $data = array(
+            'hiddenWpFields' => $hiddenWpFields,
+            'swpApiKey' => get_option('swp_api_key'),
+            'swpApiEndpoint' => get_option('swp_api_endpoint'),
+            'swpSettingsStatus' => get_option('swp_settings_status'),
+            'swpResultTitle' => get_option('swp_result_title'),
+            'swpKeywordTitle' => get_option('swp_keyword_title'),
+            'submitButton' => $submitButton
+        );
+
+        echo $this->view->render('admin/account', $data);
     }
 
     /**
