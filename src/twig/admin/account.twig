@@ -1,0 +1,92 @@
+{# This will trick token_get_all() when generating the language .pot file <?php #}
+<div class="wrap">
+    <h2>{{ __('API-Settings', 'shopello') }}</h2>
+
+    <hr/>
+
+    <form method="post" action="options.php" id="swp_options_form">
+        {{ hiddenWpFields|raw }}
+
+        <table class="form-table compact">
+	    <tr valign="top">
+		<th scope="row">
+                    <label for="swp_api_key">{{ __('API-Key', 'shopello') }}</label>
+                </th>
+		<td>
+                    <input type="text" id="swp_api_key" name="swp_api_key" value="{{ swpApiKey }}" />
+                </td>
+	    </tr>
+	    <tr valign="top">
+		<th scope="row">
+                    <label for="swp_api_endpoint">{{ __('API-Endpoint', 'shopello') }}</label>
+                </th>
+		<td>
+                    <select id="swp_api_endpoint" name="swp_api_endpoint">
+                        <option value="" disabled {{ swpApiEndpoint ?: 'selected' }}>{{ __('Select API Endpoint', 'shopello') }}</option>
+                        <option value="https://se.shopelloapi.com/1/"{{ swpApiEndpoint == 'https://se.shopelloapi.com/1/' ? ' selected' }}>https://se.shopelloapi.com/1/ -- Sweden</option>
+                        <option value="https://no.shopelloapi.com/1/"{{ swpApiEndpoint == 'https://no.shopelloapi.com/1/' ? ' selected' }}>https://no.shopelloapi.com/1/ -- Norway</option>
+                        <option value="https://dk.shopelloapi.com/1/"{{ swpApiEndpoint == 'https://dk.shopelloapi.com/1/' ? ' selected' }}>https://dk.shopelloapi.com/1/ -- Denmark</option>
+                    </select>
+                </td>
+	    </tr>
+	    <tr valign="top">
+		<th scope="row">
+                    <label for="swp_api_endpoint">{{ __('Test API-Settings', 'shopello') }}</label>
+                </th>
+		<td>
+                    <input type="button" id="test_settings" class="button" value="{{ __('Test now', 'shopello') }}" />
+                    <input type="hidden" id="swp_settings_status" name="swp_settings_status" value="{{ swpSettingsStatus }}" />
+
+		    <div id="test-spinner">
+		    	<div class="spinner"></div>
+		    </div>
+
+		    <div class="settings_status {{ swpSettingsStatus == 'false' ? 'tested' }}">
+			<span class="good-label">{{ __('Settings are correct.', 'shopello') }}</span>
+			<span class="bad-label">{{ __('Please check your settings and check if ping works on the System Test page.', 'shopello') }}</span>
+		    </div>
+	    </tr>
+	</table>
+
+        {% if swpSettingsStatus == 'true' %}
+            <h2>{{ __('General Settings', 'shopello') }}</h2>
+
+	    <table class="form-table compact">
+	        <tr valign="top">
+		    <th scope="row">
+                        <label for="swp_result_title">{{ __('Total amount of hits-text', 'shopello') }}</label>
+		    </th>
+		    <td>
+                        <input type="text" id="swp_result_title" name="swp_result_title" value="{{ swpResultTitle }}" placeholder="{{ __('Found %amount% products', 'shopello') }}" />
+		        <p>{{ __('Found 247 products', 'shopello') }}</p>
+		        <p>{{ __('Written: "Found %amount% of products for phrase %phrase%".', 'shopello') }}</p>
+		    </td>
+	        </tr>
+	        <tr valign="top">
+		    <th scope="row">
+		        <label for="swp_keyword_title">{{ __('Keyword-text', 'shopello') }}</label>
+		    </th>
+		    <td>
+		        <input type="text" id="swp_keyword_title" name="swp_keyword_title" value="{{ swpKeywordTitle }}" placeholder="{{ __('for phrase %phrase%.', 'shopello') }}" />
+                        <p>{{ __('Completes previous "Found 247 products" with a keyword', 'shopello') }}</p>
+                        <p>{{ __('For example: "for phrase %phrase%".', 'shopello') }}</p>
+                        <p>{{ __('Result: "Found 247 products for phrase Shoes"', 'shopello') }}</p>
+		    </td>
+	        </tr>
+	        <tr valign="top">
+		    <th scope="row">
+		        <label for="swp_keyword_title">{{ __('Categories', 'shopello') }}</label>
+		    </th>
+		    <td>
+		        <input type="button" id="swp_cat_sync" class="button" name="swp_cat_sync" value="{{ __('Synchronize categories', 'shopello') }}" />
+		        <p class="sync_status" id="swp_cat_sync_status"></p>
+                        <p>{{ __('Categories is automaticly updated daily. Use this button to manually update everything now.', 'shopello') }}</p>
+                        <p>{{ __('If it is the first time you are using the plugin, you probably need to click this.', 'shopello') }}</p>
+		    </td>
+	        </tr>
+	    </table>
+        {% endif %}
+
+        {{ submitButton|raw }}
+    </form>
+</div>

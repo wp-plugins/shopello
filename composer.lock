@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e85dd8c6de0bcc01480e48d5b90e2e6e",
+    "hash": "54c69a045a98cf9ef2d696ccd7b9de2f",
     "packages": [
         {
             "name": "curl/curl",
@@ -166,16 +166,16 @@
     "packages-dev": [
         {
             "name": "leafo/scssphp",
-            "version": "dev-master",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leafo/scssphp.git",
-                "reference": "75db4524f22a19ca4ff36899c8d3be311d53f93d"
+                "reference": "7917e45591d2170031d91111fe9bf3aa64aed6d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leafo/scssphp/zipball/75db4524f22a19ca4ff36899c8d3be311d53f93d",
-                "reference": "75db4524f22a19ca4ff36899c8d3be311d53f93d",
+                "url": "https://api.github.com/repos/leafo/scssphp/zipball/7917e45591d2170031d91111fe9bf3aa64aed6d0",
+                "reference": "7917e45591d2170031d91111fe9bf3aa64aed6d0",
                 "shasum": ""
             },
             "require": {
@@ -217,7 +217,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2015-04-15 18:02:44"
+            "time": "2015-06-02 14:16:57"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -300,7 +300,7 @@
         "shopello/api": 0,
         "twig/twig": 0,
         "squizlabs/php_codesniffer": 0,
-        "leafo/scssphp": 20
+        "leafo/scssphp": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,

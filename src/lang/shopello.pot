@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Shopello API package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Shopello API 2.4.1\n"
+"Project-Id-Version: Shopello API 2.6.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/shopello\n"
-"POT-Creation-Date: 2015-05-21 12:52:48+00:00\n"
+"POT-Creation-Date: 2015-07-03 11:43:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgid "Product Listings"
 msgstr ""
 
 #: src/classes/SWP/AdminPages.php:53 src/classes/SWP/AdminPages.php:54
-#: src/templates/admin/account.php:2
+#: src/twig/admin/.account.php:3
 msgid "API-Settings"
 msgstr ""
 
@@ -50,31 +50,31 @@ msgid "Choose a name for your listing:"
 msgstr ""
 
 #: src/classes/SWP/AdminPages.php:142 src/classes/SWP/AdminPages.php:157
-#: src/classes/SWP/AdminPages.php:169
+#: src/classes/SWP/AdminPages.php:194
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:33
+#: src/classes/SWP/Ajax.php:48
 msgid "The categories has been updated!"
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:35
+#: src/classes/SWP/Ajax.php:50
 msgid "Could not update, try again later or contact the support."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:38
+#: src/classes/SWP/Ajax.php:53
 msgid "You have to configure the API-Settings first."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:145
+#: src/classes/SWP/Ajax.php:160
 msgid "Api Key or Api Endpoint are missing."
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:204
+#: src/classes/SWP/Ajax.php:219
 msgid "New item stored"
 msgstr ""
 
-#: src/classes/SWP/Ajax.php:256
+#: src/classes/SWP/Ajax.php:271
 msgid "Item %d removed"
 msgstr ""
 
@@ -210,92 +210,6 @@ msgid ""
 "API-Settings."
 msgstr ""
 
-#: src/templates/admin/account.php:13
-msgid "API-Key"
-msgstr ""
-
-#: src/templates/admin/account.php:21
-msgid "API-Endpoint"
-msgstr ""
-
-#: src/templates/admin/account.php:29
-msgid "Test API-Settings"
-msgstr ""
-
-#: src/templates/admin/account.php:32
-msgid "Test now"
-msgstr ""
-
-#: src/templates/admin/account.php:38
-msgid "Settings are correct."
-msgstr ""
-
-#: src/templates/admin/account.php:39
-msgid ""
-"Please check your settings and check if ping works on the System Test page."
-msgstr ""
-
-#: src/templates/admin/account.php:45
-msgid "General Settings"
-msgstr ""
-
-#: src/templates/admin/account.php:50
-msgid "Total amount of hits-text"
-msgstr ""
-
-#: src/templates/admin/account.php:53
-msgid "Found %amount% products"
-msgstr ""
-
-#: src/templates/admin/account.php:54
-msgid "Found 247 products"
-msgstr ""
-
-#: src/templates/admin/account.php:55
-msgid "Written: \"Found %amount% of products for phrase %phrase%\"."
-msgstr ""
-
-#: src/templates/admin/account.php:60
-msgid "Keyword-text"
-msgstr ""
-
-#: src/templates/admin/account.php:63
-msgid "for phrase %phrase%."
-msgstr ""
-
-#: src/templates/admin/account.php:64
-msgid "Completes previous \"Found 247 products\" with a keyword"
-msgstr ""
-
-#: src/templates/admin/account.php:65
-msgid "For example: \"for phrase %phrase%\"."
-msgstr ""
-
-#: src/templates/admin/account.php:66
-msgid "Result: \"Found 247 products for phrase Shoes\""
-msgstr ""
-
-#: src/templates/admin/account.php:71 src/templates/result/filters.php:56
-#: src/templates/result/filters.php:167 src/twig/result/.filters.php:12
-msgid "Categories"
-msgstr ""
-
-#: src/templates/admin/account.php:74
-msgid "Synchronize categories"
-msgstr ""
-
-#: src/templates/admin/account.php:76
-msgid ""
-"Categories is automaticly updated daily. Use this button to manually update "
-"everything now."
-msgstr ""
-
-#: src/templates/admin/account.php:77
-msgid ""
-"If it is the first time you are using the plugin, you probably need to click "
-"this."
-msgstr ""
-
 #: src/templates/admin/product-lists.php:6
 msgid "Settings is incorrect"
 msgstr ""
@@ -332,6 +246,11 @@ msgstr ""
 
 #: src/templates/result/filters.php:50
 msgid "Use your own keywords to limit the results."
+msgstr ""
+
+#: src/templates/result/filters.php:56 src/templates/result/filters.php:167
+#: src/twig/admin/.account.php:78 src/twig/result/.filters.php:12
+msgid "Categories"
 msgstr ""
 
 #: src/templates/result/filters.php:58 src/twig/result/.filters.php:15
@@ -390,6 +309,75 @@ msgstr ""
 msgid "We did not find any results for this search."
 msgstr ""
 
+#: src/twig/admin/.account.php:13
+msgid "API-Key"
+msgstr ""
+
+#: src/twig/admin/.account.php:21
+msgid "API-Endpoint"
+msgstr ""
+
+#: src/twig/admin/.account.php:25
+msgid "Select API Endpoint"
+msgstr ""
+
+#: src/twig/admin/.account.php:34
+msgid "Test API-Settings"
+msgstr ""
+
+#: src/twig/admin/.account.php:45
+msgid "Settings are correct."
+msgstr ""
+
+#: src/twig/admin/.account.php:46
+msgid ""
+"Please check your settings and check if ping works on the System Test page."
+msgstr ""
+
+#: src/twig/admin/.account.php:52
+msgid "General Settings"
+msgstr ""
+
+#: src/twig/admin/.account.php:57
+msgid "Total amount of hits-text"
+msgstr ""
+
+#: src/twig/admin/.account.php:61
+msgid "Found 247 products"
+msgstr ""
+
+#: src/twig/admin/.account.php:62
+msgid "Written: \"Found %amount% of products for phrase %phrase%\"."
+msgstr ""
+
+#: src/twig/admin/.account.php:67
+msgid "Keyword-text"
+msgstr ""
+
+#: src/twig/admin/.account.php:71
+msgid "Completes previous \"Found 247 products\" with a keyword"
+msgstr ""
+
+#: src/twig/admin/.account.php:72
+msgid "For example: \"for phrase %phrase%\"."
+msgstr ""
+
+#: src/twig/admin/.account.php:73
+msgid "Result: \"Found 247 products for phrase Shoes\""
+msgstr ""
+
+#: src/twig/admin/.account.php:83
+msgid ""
+"Categories is automaticly updated daily. Use this button to manually update "
+"everything now."
+msgstr ""
+
+#: src/twig/admin/.account.php:84
+msgid ""
+"If it is the first time you are using the plugin, you probably need to click "
+"this."
+msgstr ""
+
 #: src/twig/admin/.metabox.php:3
 msgid "Choose Productlist"
 msgstr ""
@@ -419,11 +407,11 @@ msgstr ""
 msgid "Able to connect to Shopello with CURL"
 msgstr ""
 
-#: src/twig/result/.product_grid.php:30
+#: src/twig/result/.product_grid.php:29
 msgid "Buy"
 msgstr ""
 
-#: src/twig/result/.product_grid.php:36
+#: src/twig/result/.product_grid.php:35
 msgid "No products found"
 msgstr ""
 

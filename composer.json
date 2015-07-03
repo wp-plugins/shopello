@@ -5,7 +5,7 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "@stable",
-        "leafo/scssphp": "dev-master"
+        "leafo/scssphp": "@stable"
     },
     "autoload": {
         "psr-4": {
