@@ -7,7 +7,8 @@
                     <div class="product_image_wrap">
                         {% for image in product.images|cast_to_array %}
                             {% if loop.last %}
-                                <img src="{{ image }}" title="{{ product.name }} -- {{ __('Go to product', 'shopello') }}" />
+                                <img src="{{ image|replace({'http://': 'https://'}) }}"
+                                     title="{{ product.name }} -- {{ __('Go to product', 'shopello') }}" />
                             {% endif %}
                         {% endfor %}
                     </div>
