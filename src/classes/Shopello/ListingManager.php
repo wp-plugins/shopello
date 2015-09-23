@@ -8,7 +8,7 @@ use \stdClass;
 class ListingManager
 {
     private $listings = array();
-    private $maxItems = 15;
+    private $maxItems = 50;
 
     private static $instance;
 
