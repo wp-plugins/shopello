@@ -4,7 +4,7 @@ Donate link: http://shopello.se/
 Tags: affiliate, shopping, e-commerce, shopping comparison, shopping search, fashion search engine
 Requires at least: 4.2.0
 Tested up to: 4.3
-Stable tag: 2.7.0
+Stable tag: 2.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,8 +48,13 @@ Make sure you have entered a correct API-key and API-endpoint. If you have
 problems with this, please contact partner@shopello.se
 
 
-
 == Changelog ==
+= 2.7.2 =
+* Specified line-height for product names to not break the layout in some themes
+
+= 2.7.1 =
+* Increased max amount of listings from 15 to 50.
+
 = 2.7.0 =
 * Tested with Wordpress 4.3
 * Added Norwegian translation
