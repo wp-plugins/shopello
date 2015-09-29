@@ -28,7 +28,7 @@
         var cat_list_triggers = ".filter-categories ul label";
 
         // Row counting and max-count of rows
-        var total_shortcodes_max = parseInt($('#SAPI_SC_MAX').val(), 10) || 25;
+        var total_shortcodes_max = 50;
         var total_shortcodes     = shortcode_table.find('tr').length;
 
         // Init a new shortcode generator
