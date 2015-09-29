@@ -8,7 +8,7 @@
                         {% for image in product.images|cast_to_array %}
                             {% if loop.last %}
                                 <img src="{{ image|replace({'http://': 'https://'}) }}"
-                                     title="{{ product.name }} -- {{ __('Go to product', 'shopello') }}" />
+                                     {# title="{{ product.name }} -- {{ __('Go to product', 'shopello') }}" #} />
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -17,7 +17,7 @@
                             {{ product.name|slice(0,50) }}
                         </h3>
                         <p class="price_wrap">
-                            {% if product.price.regular_price > 0 %}
+                            {% if product.price.reduction_percent > 0 %}
                                 <span class="price sales">{{ product.price.price|number_format }} {{ product.price.currency }}</span><br />
                                 <span class="price old_price">{{ product.price.regular_price|number_format }} {{ product.price.currency }}</span>
                             {% else %}
